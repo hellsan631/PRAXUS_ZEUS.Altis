@@ -27,7 +27,13 @@ _positions = [(_position select 0) + (sin _dir) * _dist, (_position select 1) + 
 {
 	_x doMove _positions;
 } forEach _UnitGroups;
-_myNearestEnemy = _gunner getVariable "CLOSESTENEMY";
+_myNearestEnemy = _Unit findNearestEnemy (getPosASL _Unit);
+//_myNearestEnemy = player;
+
+
+if (isNull _myNearestEnemy) then {
+_myNearestEnemy = [_Unit] call VCOM_fnc_ClosestEnemy;
+};
 sleep 0.25;
 //_assistant action ["PutBag",_assistant];
 

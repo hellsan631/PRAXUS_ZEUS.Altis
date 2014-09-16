@@ -1,38 +1,78 @@
+//Created on ???
+// Modified on : 9/7/14 - Added radio check.   9/10/14 - Added PRIVATE commandArtilleryFire
+
+
+private ["_Unit","_Killer","_UnitSide","_NoFlanking","_GrabVariable","_CheckStatus","_Array1","_NoFlanking2","_CheckStatus2","_GrabVariable2","_CombatStance","_group","_index","_WaypointIs","_waypoint0"];
+
 _Unit = _this select 0;
-_Point = (_Unit getVariable "CLOSESTENEMY");
+_Killer = _this select 1;
+
 _UnitSide = (_Unit getVariable "VCOMSIDE");
-//Hint format ["_UnitSide %1",_UnitSide];
+scopeName "Scope1A";
 
 
 if (_Unit in ArtilleryArray) then {ArtilleryArray = ArtilleryArray - [_Unit];};
-_NoFlanking = _Unit getVariable "NOPATHING";
+
+_NoFlanking = _Unit getVariable "VCOM_NOPATHING";
 if (isNil "_NoFlanking") exitWith {};
-if (_NoFlanking == 1) exitWith {};
-_GrabVariable = _Unit getVariable "GARRISONED";
-if (_GrabVariable == 1) exitWith {};
+if (_NoFlanking == 1) then {breakOut "Scope1A";};
+_GrabVariable = _Unit getVariable "VCOM_GARRISONED";
+if (_GrabVariable == 1) then {breakOut "Scope1A";};
+
+//Check to see if unit has radio.
+_CheckStatus = assignedItems _Unit;
+if (!("ItemRadio" in _CheckStatus)) exitWith {player sidechat "EXIT 1A!";};
+
+
 _Array1 = [];
 {
-if ((side _x) == _UnitSide) then {_Array1 = _Array1 + [_x];};
-//if (_x in (group _Unit)) then {_Array1 = _Array1 - [_x];};
+//if ((side _x) == _UnitSide) then {_Array1 = _Array1 + [_x];};
+if ((side _x) == _UnitSide) then {_Array1 set [count _Array1,_x];};
 } forEach allUnits;
+//player sidechat format ["_Array1 AllyWarn: %1",_Array1];
 
 {
-_GrabVariable = _x getVariable "GARRISONED";
-if (_GrabVariable == 1) exitWith {};
-_CombatStance = behaviour  _x;
-if (_CombatStance != "COMBAT") then {
-_group	= group _Unit;
+
+_NoFlanking2 = _x getVariable "VCOM_NOPATHING";
+if (isNil "_NoFlanking2") then {_NoFlanking2 = 0;};
+if (_NoFlanking2 == 0) then {
+
+
+scopeName "Scope1B";
+_CheckStatus2 = assignedItems _x;
+if ("ItemRadio" in _CheckStatus2) then {
+
+_GrabVariable2 = _x getVariable "VCOM_GARRISONED";
+
+
+if (_GrabVariable2 == 0) then {
+
+_CombatStance = behaviour _x;
+//if (_CombatStance != "COMBAT") then {
+
+_group	= group _x;
+if ((count (waypoints _group)) < 2) then {
+
+
 _index = currentWaypoint _group;
 _WaypointIs = waypointType [_group,_index];
 if (_WaypointIs != "HOLD") then {
 if ((_x distance _Unit) <= (_x getVariable "VCOM_Unit_AIWarnDistance") ) then {
-(group _x) setBehaviour "AWARE";
-//_x reveal [_Point,4.0];
-_waypoint0 = (group _x) addwaypoint[(getPos _Point),0];
+
+_waypoint0 = (group _x) addwaypoint[(getPos _Killer),0];
 _waypoint0 setwaypointtype "MOVE";
 _waypoint0 setWaypointSpeed "NORMAL";
-_waypoint0 setWaypointBehaviour "AWARE";
+
 (group _x) setCurrentWaypoint [(group _x),(_waypoint0 select 1)];
+
+if (_x != (vehicle _x)) then {
+(group _x) setBehaviour "COMBAT";
+};
+
+};
+};
+//};
+};
 };
 };
 };

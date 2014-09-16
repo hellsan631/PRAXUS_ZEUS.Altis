@@ -1,7 +1,16 @@
-_Unit = _this select 0;
-_nBuilding = nearestBuilding _Unit;
+//Created on ???
+// Modified on : 9/7/14  - Added a check building distance stat.
+_Group = _this select 0;
+_UnitsGroup = units _Group;
+_SpecificUnit = _UnitsGroup select 0;
+{
+
+_nBuilding = nearestBuilding _x;
+
 _IsEnterable = [_nBuilding] call BIS_fnc_isBuildingEnterable;
 if (!(_IsEnterable)) exitWith {};
+_CheckDist = _SpecificUnit distance _nBuilding;
+if (_CheckDist > 200) exitWith {};
 _bposleft = [];
 _pcnt = 0;
 while {format ["%1", _nBuilding buildingPos (_pcnt)] != "[0,0,0]" } do {
@@ -13,27 +22,16 @@ _LocationArray = [];
 _LocationArray = _LocationArray + [(_nBuilding buildingPos _x)];
 } forEach _bposleft;
 
-_group	= group _Unit;
-//_group_array = units _group;
-//_GroupCount = count _group_array;
-
-//{[_x] joinSilent grpNull} forEach (units _group);
-/*
-_RandomUnit = _group_array call BIS_fnc_selectRandom;
-_group_array = _group_array - [_RandomUnit];
-*/
-
-if ((count _LocationArray) <= 0) exitWith {};
 if (isNil "_LocationArray") exitWith {};
+if ((count _LocationArray) <= 0) exitWith {};
+if ((count _LocationArray) < (count _UnitsGroup)) exitWith {};
+
 _AttackPoint = _LocationArray select floor(random(count _LocationArray));
 if (isNil "_AttackPoint") exitWith {};
 _LocationArray = _LocationArray - [_AttackPoint];
 //_Unit setPos _AttackPoint;
-_Unit doMove _AttackPoint;
-_Unit commandMove _AttackPoint;
-_Unit setVariable ["GARRISONED",1,false];
-[_Unit] spawn {
-_Unit = _this select 0;
-sleep 20;
-_Unit setVariable ["GARRISONED",0,false];
-};
+doStop _x;
+_x doMove _AttackPoint;
+_x commandMove _AttackPoint;
+
+} foreach _UnitsGroup;

@@ -4,9 +4,9 @@ waitUntil {!isNull player};
 getLoadout = compile preprocessFileLineNumbers 'Scripts\get_loadout.sqf';
 setLoadout = compile preprocessFileLineNumbers 'Scripts\set_loadout.sqf';
 
-sleep 30;
+sleep 20;
 
-systemChat "Loadout Saving Enabled";
+["<t size='.6'>Loadout Saving Enabled</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
 
 [] spawn {
 
@@ -80,7 +80,6 @@ player addMPEventHandler ["MPRespawn", {
 
         [player, respawn, ["ammo"]] spawn setLoadout;
 
-
     }];
 
 [] spawn {
@@ -101,10 +100,19 @@ player addMPEventHandler ["MPRespawn", {
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
 
 				_x addPrimaryWeaponItem "acc_flashlight";
+
+				sleep 0.05;
+
 				_x unassignItem "NVGoggles";
 				_x removeItem "NVGoggles";
+
+				sleep 0.02;
+
 				_x unassignItem "NVGoggles_OPFOR";
 				_x removeItem "NVGoggles_OPFOR";
+
+				sleep 0.02;
+
 				_x unassignItem "NVGoggles_INDEP";
 				_x removeItem "NVGoggles_INDEP";
 
@@ -112,12 +120,10 @@ player addMPEventHandler ["MPRespawn", {
 
 				_x enableGunLights "forceOn";
 
-				_x setVariable ["HellsCustom", 1 ,true];
-
  				knifeAction = _x addAction ["Knife", hell_fnc_KnifeUnit, [], 5, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<2)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
 
- 				_x setVariable ["knifeAction", 1 ,knifeAction];
-
+				_x setVariable ["HellsCustom", 1 ,true];
+				_x setVariable ["knifeAction", 1 ,knifeAction];
 
 			};
 
@@ -131,7 +137,7 @@ player addMPEventHandler ["MPRespawn", {
 
 			if(isPlayer _x) then {
 
-				_x setfatigue 0;
+				player setfatigue 0;
 
 			}
 

@@ -1,0 +1,4 @@
+{_x removeweapon "ItemRadio";} foreach Units (group cursortarget);
+
+_check = cursortarget hasWeapon "ItemRadio";
+hint format ["%1",_check];

@@ -2,7 +2,8 @@
 _Unit = _this select 0;
 _UnitGroup = group _Unit;
 [_Unit] joinSilent grpNull;
-_Point = _Unit getVariable "CLOSESTENEMY";
+//_Point = _Unit getVariable "VCOM_CLOSESTENEMY";
+_Point = [_Unit] call VCOM_fnc_ClosestEnemy;
 _PreviousPosition = (getPos _Unit);
 if (isNil "_Point") exitWith {};
 //Hint format ["_Point %1",_Point];
@@ -30,7 +31,7 @@ _LookVar = (_PointHeight - _PointHeightC);
 //Hint "EXECUTING!";
 
 _nBuilding = nearestBuilding _Point;
-if ((_nBuilding distance _Point) > 6) exitWith {};
+if ((_nBuilding distance _Point) > 15) exitWith {};
 //Hint "CONTINUED!";
 //doStop _Unit;
 _Unit disableAI "TARGET";
@@ -42,7 +43,7 @@ _Unit = _this select 0;
 _Building = _this select 1;
 _PreviousPosition = _this select 2;
 _UnitGroup = _this select 3;
-_SatchelOfUse = _Unit getVariable "SATCHELBOMB";
+_SatchelOfUse = _Unit getVariable "VCOM_SATCHELBOMB";
 //Hint format ["_SatchelOfUse %1",_SatchelOfUse];
 
 _Truth = true;

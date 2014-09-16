@@ -1,31 +1,27 @@
 //AI Waypoint Mock up using select best.
 _Unit = _this select 0;
-_NoFlanking = _Unit getVariable "NOPATHING";
+_NoFlanking = _Unit getVariable "VCOM_NOPATHING";
 if (isNil "_NoFlanking") exitWith {};
 if (_NoFlanking == 1) exitWith {};
 //_myNearestEnemy = (_Unit getVariable "CLOSESTENEMY");
 _myNearestEnemy = _Unit findNearestEnemy (Position _Unit);
 _Groupleader = leader _Unit;
 _UnitSide = side _Unit;
-_WaypointsSet = _Groupleader getVariable "FLANKING";
+_WaypointsSet = _Groupleader getVariable "VCOM_FLANKING";
 if (isNil "_WaypointsSet") exitWith {};
 if (_WaypointsSet == 1) exitWith {};
-_Groupleader setVariable ["FLANKING",1,false];
+_Groupleader setVariable ["VCOM_FLANKING",1,false];
 _GroupUnit = group _Unit;
-_GrabVariable = _Unit getVariable "GARRISONED";
+_GrabVariable = _Unit getVariable "VCOM_GARRISONED";
 if (_GrabVariable == 1) exitWith {};
-while {(count (waypoints _GroupUnit)) > 0} do
-{
- deleteWaypoint ((waypoints _GroupUnit) select 0);
- sleep 0.25;
-};
+
 //{
 //deleteMarker _x;
 //}forEach MarkerArrray22;
 //Flank behavior
 _myEnemyPos = (getPos _myNearestEnemy);
 sleep 0.25;
-if (!((_myEnemyPos distance [0,0,0]) > 0)) exitWith {_Groupleader setVariable["FLANKING",0,false];[_Unit] spawn AIPath;};
+if (!((_myEnemyPos distance [0,0,0]) > 0)) exitWith {_Groupleader setVariable["VCOM_FLANKING",0,false];[_Unit] spawn AIPath;};
 /*
 _radius = 600;
 _explist = [];
@@ -40,6 +36,14 @@ _bestplace = selectBestPlaces [_myEnemyPos,_radius,_exprandom,_prec,2];
 _Selectrandom = _bestplace call BIS_fnc_selectRandom;
 _SelectCords = (_Selectrandom select 0);
 */
+
+while {(count (waypoints _GroupUnit)) > 0} do
+{
+ deleteWaypoint ((waypoints _GroupUnit) select 0);
+ sleep 0.25;
+};
+_ResetWaypoint = _GroupUnit addwaypoint [getposATL _Unit,0];
+
 _OverWatch = [(getpos _myNearestEnemy)] call BIS_fnc_findOverwatch;
 
 _rnd = random 100;

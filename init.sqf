@@ -3,10 +3,8 @@
 //AI Flashlights and the likes
 [] execVM "Scripts\hells_handler.sqf";
 
-skillFriendly=0.125;
-skillEnemy=0.125;
-precisionFriendly=0.01;
-precisionEnemy=0.01;
+precisionFriendly=0.0001;
+precisionEnemy=0.0001;
 
 GAM_TimeXlerationMP = [0.08333333, 15, true, 30] execVM "GAM\GAM_TimeXleration\scripts\timexleration-mp.sqf";
 
@@ -19,7 +17,6 @@ _probRnd = [0,0.05,0.2,0.45] select Param_probRnd;
 0 = [_initWeather, _weatherTrend, [0.1, 0.2], [0.05, 0.4], [0, 0.8, 0, 0.5, 0, 0.7], 0, 0] execVM "Scripts\tort_DynamicWeather.sqf";
 
 [] execVM "NVscript.sqf";
-
 
 [
     10*60*10, // seconds to delete dead bodies (0 means don't delete)

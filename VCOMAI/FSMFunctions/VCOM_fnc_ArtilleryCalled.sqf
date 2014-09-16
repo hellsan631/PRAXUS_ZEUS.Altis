@@ -39,7 +39,7 @@ if ((count _Chosen) <= 0) exitWith {};
 _ReturnedSupport = [_Chosen,(vehicle _Unit)] call BIS_fnc_nearestPosition;
  if (typeName _ReturnedSupport == "ARRAY") exitWith {};
  
-_AlreadyFiring = _ReturnedSupport getVariable "ISARTILLERY";
+_AlreadyFiring = _ReturnedSupport getVariable "VCOM_ISARTILLERY";
 if (_AlreadyFiring == 0) exitWith {};
 //player sidechat format ["ARTY _ReturnedSupport: %1",_ReturnedSupport];
 
@@ -63,7 +63,7 @@ _ContinueFiring = (getPos _Enemy) inRangeOfArtillery [_ArtilleryUnits,_RandomAmm
 if (!(_ContinueFiring)) exitWith {};
 //Hint format ["_ArtilleryUnits : %1",_ArtilleryUnits];
 {
-_x setVariable ["ISARTILLERY",0,false];
+_x setVariable ["VCOM_ISARTILLERY",0,false];
 _x doArtilleryFire [(getPos _Enemy),_RandomAmmoArray,(floor(random 4))];
 //_x commandArtilleryFire [(getPos _Enemy),_RandomAmmoArray,(floor(random 4))];
 } foreach _ArtilleryUnits;
@@ -71,6 +71,6 @@ _x doArtilleryFire [(getPos _Enemy),_RandomAmmoArray,(floor(random 4))];
 [_x] spawn {
 _Unit = _this select 0;
 sleep 240;
-_Unit setVariable ["ISARTILLERY",1,false];
+_Unit setVariable ["VCOM_ISARTILLERY",1,false];
 };
 } foreach _ArtilleryUnits;

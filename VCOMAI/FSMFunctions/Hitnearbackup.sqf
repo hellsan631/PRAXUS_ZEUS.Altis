@@ -32,7 +32,7 @@ _new = _past - _previous;
             }
 			foreach _new;
         
-        player sidechat format ["pos: %1",_positions];
+       //player sidechat format ["pos: %1",_positions];
         
 
 
@@ -44,7 +44,7 @@ if ((side _x) == _SideUnit) then {_Array2 = _Array2 - [_x]};
 _Point = [];
 //player sidechat format ["pos: %1",_positions];
 //If ((count _positions) >= 1) then {_positions = (_positions select 0)};
-If ((count _positions) >= 1) then {_Point = [_pos,_positions] call BIS_fnc_nearestPosition;player sidechat format ["_Point: %1",_Point];};
+If ((count _positions) >= 1) then {_Point = [_pos,_positions] call BIS_fnc_nearestPosition;};
 If ((count _positions) <= 0) exitWith {};
 sleep 0.01;
 if (isNil ("_Point")) exitWith {};
