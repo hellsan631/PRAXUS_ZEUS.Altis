@@ -51,7 +51,7 @@ class Mission
 	randomSeed=9511354;
 	class Intel
 	{
-		briefingName="Praxus Zeus v1.0.1.0";
+		briefingName="Praxus Zeus v1.0.1.1";
 		resistanceWest=0;
 		startWeather=0.35999998;
 		startWind=0.099999994;
@@ -114,7 +114,7 @@ class Mission
 					vehicle="ModuleCuratorSetCamera_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					markers[]=
 					{
 						"ran_3",
@@ -185,7 +185,7 @@ class Mission
 					vehicle="ModuleCurator_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					text="bis_curator";
 					syncId=1;
 					synchronizations[]={0,2,3,4,5,6,7};
@@ -207,7 +207,7 @@ class Mission
 					vehicle="ModuleMPTypeGameMaster_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=2;
 					synchronizations[]={1,9};
 				};
@@ -249,7 +249,7 @@ class Mission
 					vehicle="ModuleCuratorAddPoints_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=3;
 					synchronizations[]={1,9};
 				};
@@ -291,7 +291,7 @@ class Mission
 					vehicle="ModuleCuratorAddPoints_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=4;
 					synchronizations[]={1,9};
 				};
@@ -357,7 +357,7 @@ class Mission
 					vehicle="ModuleCuratorSetCoefs_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=5;
 					synchronizations[]={1,9};
 				};
@@ -377,7 +377,7 @@ class Mission
 					vehicle="VirtualCurator_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					text="bis_curatorUnit";
 					description="Game Master";
 				};
@@ -388,7 +388,7 @@ class Mission
 					side="LOGIC";
 					vehicle="VirtualCurator_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					text="bis_curatorUnit2";
 					description="Game Master";
 				};
@@ -430,7 +430,7 @@ class Mission
 					vehicle="ModuleCuratorAddEditingAreaPlayers_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=6;
 					synchronizations[]={1,9};
 				};
@@ -508,7 +508,7 @@ class Mission
 					vehicle="ModuleCuratorSetAttributesPlayer_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=7;
 					synchronizations[]={1,9};
 				};
@@ -529,7 +529,7 @@ class Mission
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 					syncId=8;
 					synchronizations[]={13,11,14,12,10};
@@ -542,7 +542,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item2
@@ -553,7 +553,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item3
@@ -564,7 +564,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item4
@@ -575,7 +575,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item5
@@ -586,7 +586,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item6
@@ -597,7 +597,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item7
@@ -608,7 +608,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item8
@@ -619,7 +619,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item9
@@ -630,7 +630,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item10
@@ -641,7 +641,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item11
@@ -652,7 +652,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item12
@@ -663,7 +663,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item13
@@ -674,7 +674,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item14
@@ -685,7 +685,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item15
@@ -696,7 +696,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item16
@@ -707,7 +707,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item17
@@ -718,7 +718,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item18
@@ -729,7 +729,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item19
@@ -740,7 +740,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item20
@@ -751,7 +751,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item21
@@ -762,7 +762,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item22
@@ -773,7 +773,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item23
@@ -784,7 +784,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item24
@@ -795,7 +795,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item25
@@ -806,7 +806,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item26
@@ -817,7 +817,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item27
@@ -828,7 +828,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item28
@@ -839,7 +839,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item29
@@ -850,7 +850,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item30
@@ -861,7 +861,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item31
@@ -872,7 +872,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item32
@@ -883,7 +883,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item33
@@ -894,7 +894,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item34
@@ -905,7 +905,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item35
@@ -916,7 +916,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item36
@@ -927,7 +927,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item37
@@ -938,7 +938,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item38
@@ -949,7 +949,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item39
@@ -960,7 +960,7 @@ class Mission
 					side="WEST";
 					vehicle="B_soldier_AR_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item40
@@ -970,7 +970,7 @@ class Mission
 					side="WEST";
 					vehicle="B_Soldier_F";
 					player="PLAYER COMMANDER";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item41
 				{
@@ -979,7 +979,7 @@ class Mission
 					side="WEST";
 					vehicle="B_medic_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 			};
 		};
@@ -1026,7 +1026,7 @@ class Mission
 					vehicle="ModuleCurator_F";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					text="bis_curator2";
 					syncId=9;
 					synchronizations[]={2,6,5,7,3,4,0};
@@ -1046,7 +1046,7 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					text="HIDEPLAYER";
 				};
 			};
@@ -1066,7 +1066,7 @@ class Mission
 					vehicle="O_Soldier_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item1
@@ -1077,7 +1077,7 @@ class Mission
 					side="EAST";
 					vehicle="O_Soldier_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item2
@@ -1088,7 +1088,7 @@ class Mission
 					side="EAST";
 					vehicle="O_Soldier_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item3
@@ -1099,7 +1099,7 @@ class Mission
 					side="EAST";
 					vehicle="O_Soldier_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 				class Item4
@@ -1110,7 +1110,7 @@ class Mission
 					side="EAST";
 					vehicle="O_Soldier_F";
 					player="PLAY CDG";
-					skill=0.60000002;
+					skill=0.060000002;
 					description="Public Slot";
 				};
 			};
@@ -1129,7 +1129,7 @@ class Mission
 					vehicle="B_medic_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=10;
 					synchronizations[]={8};
 				};
@@ -1149,7 +1149,7 @@ class Mission
 					vehicle="B_medic_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=11;
 					synchronizations[]={8};
 				};
@@ -1169,7 +1169,7 @@ class Mission
 					vehicle="B_medic_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=12;
 					synchronizations[]={8};
 				};
@@ -1189,7 +1189,7 @@ class Mission
 					vehicle="B_medic_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=13;
 					synchronizations[]={8};
 				};
@@ -1209,7 +1209,7 @@ class Mission
 					vehicle="B_medic_F";
 					player="PLAY CDG";
 					leader=1;
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=14;
 					synchronizations[]={8};
 				};
@@ -1239,7 +1239,7 @@ class Mission
 					vehicle="cse_sys_cc";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item1
 				{
@@ -1248,7 +1248,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_attachableItems";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item2
 				{
@@ -1257,7 +1257,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_magazineRepack";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item3
 				{
@@ -1282,7 +1282,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_enableLogging";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item4
 				{
@@ -1301,7 +1301,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_traceValuesObject";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item5
 				{
@@ -1338,7 +1338,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_medical";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item6
 				{
@@ -1357,7 +1357,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_assignMedicRoles_CMS";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item7
 				{
@@ -1376,7 +1376,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_assignMedicalFacility_CMS";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item8
 				{
@@ -1413,7 +1413,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_advanced_interaction";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 			};
 		};
@@ -1453,7 +1453,7 @@ class Mission
 					vehicle="cse_sys_backblast";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=15;
 					synchronizations[]={16};
 				};
@@ -1474,7 +1474,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_logistics";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item2
 				{
@@ -1493,7 +1493,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_winddeflection";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item3
 				{
@@ -1518,7 +1518,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_field_rations";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 				class Item4
 				{
@@ -1537,7 +1537,7 @@ class Mission
 					side="LOGIC";
 					vehicle="cse_sys_gestures";
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 				};
 			};
 		};
@@ -1565,7 +1565,7 @@ class Mission
 					vehicle="cse_sys_nightvision";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.060000002;
 					syncId=16;
 					synchronizations[]={15};
 				};
@@ -1581,7 +1581,7 @@ class Mission
 			id=79;
 			side="EMPTY";
 			vehicle="Flag_UK_F";
-			skill=0.60000002;
+			skill=0.060000002;
 			text="NATO_BASE";
 		};
 	};

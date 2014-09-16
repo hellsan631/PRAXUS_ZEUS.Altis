@@ -55,7 +55,7 @@ if (!isDedicated) then {
 execvm "jump.sqf";
 
 //AI Supression System 5.5
-null = [3] execvm "tpwcas\tpwcas_script_init.sqf"
+//null = [3] execvm "tpwcas\tpwcas_script_init.sqf"
 
 //VCOM AI
 [] execVM "VCOMAI\init.sqf";
