@@ -35,7 +35,7 @@ TAG_fnc_respawn = {Flip_Action = (_this select 0) addAction ["Flip Vehicle", "Fl
 if (!isDedicated) then {
 	waitUntil {!isNull player};
 	Player AddEventHandler ["Respawn", {call TAG_fnc_respawn;}];
-	Flip_Action = player addAction ["Flip Vehicle", "flipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
+	Flip_Action = player addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
 
 };
 

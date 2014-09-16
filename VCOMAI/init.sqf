@@ -42,11 +42,11 @@ _Unit = _this select 0;
 //Hint "SHORT DISTANCE!" - Less than 75 meters - 0 means TERRIBLE and 1.0 means BEST for all of these.
 VCOM_ShortAcc = _Unit setSkill ["aimingAccuracy",(0.1 + (random 0.1))];
 VCOM_ShortShake = _Unit setSkill ["aimingShake",(0.1 + (random 0.1))];
-VCOM_ShortDistance = _Unit setSkill ["spotDistance",(0.1 + (random 0.1))];
+VCOM_ShortDistance = _Unit setSkill ["spotDistance",(0.05 + (random 0.05))];
 VCOM_ShortTime = _Unit setSkill ["spotTime",(0.7 + (random 0.1))];
 VCOM_ShortCourage = _Unit setSkill ["courage",(0.1 + (random 0.1))];
 VCOM_ShortCommanding = _Unit setSkill ["commanding",1.0];
-VCOM_ShortSpeed = _Unit setSkill ["aimingSpeed",(0.1 + (random 0.3))];
+VCOM_ShortSpeed = _Unit setSkill ["aimingSpeed",(0.05 + (random 0.05))];
 VCOM_ShortGeneral = _Unit setSkill ["general",1.0];
 VCOM_ShortEndurance = _Unit setSkill ["endurance",1.0];
 VCOM_ShortReloadSkill = _Unit setSkill ["reloadSpeed",(0.1 + (random 0.1))];
@@ -60,7 +60,7 @@ VCOM_MediumDistance = _Unit setSkill ["spotDistance",(0.05 + (random 0.05))];
 VCOM_MediumTime = _Unit setSkill ["spotTime",(0.70 + (random 0.1))];
 VCOM_MediumCourage = _Unit setSkill ["courage",1.0];
 VCOM_MediumCommanding = _Unit setSkill ["commanding",1.0];
-VCOM_MediumSpeed = _Unit setSkill ["aimingSpeed",(0.01 + (random 0.1))];
+VCOM_MediumSpeed = _Unit setSkill ["aimingSpeed",(0.05 + (random 0.05))];
 VCOM_MediumGeneral = _Unit setSkill ["general",1.0];
 VCOM_MediumEndurance = _Unit setSkill ["endurance",1.0];
 VCOM_MediumReloadSkill = _Unit setSkill ["reloadSpeed",(0.1 + (random 0.1))];
@@ -95,7 +95,7 @@ VCOM_FarReloadSkill = _Unit setSkill ["reloadSpeed",(0.01 + (random 0.03))];
 };
 
 //The distance AI squads will communicate to each other.
-VCOM_AIWarnDistance = 500;
+VCOM_AIWarnDistance = 250;
 //Prevent helmets from coming off. 1 is on.
 VCOM_AIHelmet = 0;
 //AI have a chance to get knocked down when shot. 1 is on.

@@ -13,23 +13,23 @@ class CfgFunctions
 
 #ifndef _SUB
 	//--- Unique for every mission variant
-	onLoadName = "TAC Zeus"; //--- ToDo: Localize
+	onLoadName = "Praxus Zeus"; //--- ToDo: Localize
 	overviewPicture = zeus.jpg;
 #endif
 
 dev = "HellsAn631";
 author = "HellsAn631";
 //onLoadMission = "";
-overviewText = "Version <t font='PuristaBold'>0.5.2.0</t> Removed Fatigue System, AI Uses flash lights now";
+overviewText = "Version <t font='PuristaBold'>1.0.0.0</t> Removed Fatigue, Gear Save on Death, Knife AI (from 2 meters away), Player should take less damage.";
 overviewTextLocked = "";
 
-enableDebugConsole = 1;
+//enableDebugConsole = 1;
 
 respawn = 2;
-respawndelay = 10;
+respawndelay = 3;
 respawnVehicleDelay = 30;
-respawnTemplatesWest[] = {"MenuPosition","MenuInventory"};
-respawnTemplatesEast[] = {"MenuPosition","MenuInventory"};
+respawnTemplatesWest[] = {"MenuPosition"};
+respawnTemplatesEast[] = {"MenuPosition"};
 disabledAI = 1;
 joinUnassigned = 1;
 aiKills  = 1;
