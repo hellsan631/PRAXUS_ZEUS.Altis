@@ -1,0 +1,113 @@
+#include "taw_vd\dialog.hpp"
+#include "DOM_squad\SquadManagement.hpp"
+#include "VAS\menu.hpp"
+//#include "gvs\colors_include.hpp"
+//#include "gvs\control_include.hpp"
+//#include "gvs\stc_include.hpp"
+
+class CfgFunctions
+{
+	#include "VAS\cfgfunctions.hpp"
+	#include "taw_vd\CfgFunctions.hpp"
+};
+
+#ifndef _SUB
+	//--- Unique for every mission variant
+	onLoadName = "TAC Zeus"; //--- ToDo: Localize
+	overviewPicture = zeus.jpg;
+#endif
+
+dev = "HellsAn631";
+author = "HellsAn631";
+//onLoadMission = "";
+overviewText = "Version <t font='PuristaBold'>0.5.2.0</t> Removed Fatigue System, AI Uses flash lights now";
+overviewTextLocked = "";
+
+enableDebugConsole = 1;
+
+respawn = 2;
+respawndelay = 10;
+respawnVehicleDelay = 30;
+respawnTemplatesWest[] = {"MenuPosition","MenuInventory"};
+respawnTemplatesEast[] = {"MenuPosition","MenuInventory"};
+disabledAI = 1;
+joinUnassigned = 1;
+aiKills  = 1;
+
+playing = 0;
+
+class Header
+{
+	gameType = ZGM;
+	minPlayers = 1;
+	#ifdef _SUB
+		maxPlayers = 54;
+	#else
+		maxPlayers = 54;
+	#endif
+};
+
+
+class CfgSounds
+{
+    sounds[] = {};
+
+    class nv_on
+    {
+        name = "nv_on";
+        // filename, volume, pitch
+        sound[] = {"\sounds\nv_on.ogg",1, 1};
+    };
+
+    class nv_off
+    {
+        name = "nv_off";
+        // filename, volume, pitch
+        sound[] = {"\sounds\nv_off.ogg",1, 1};
+    };
+
+    class halogen
+    {
+        name = "halogen";
+        // filename, volume, pitch
+        sound[] = {"\sounds\halogen.ogg",1.2, 1};
+    };
+
+};
+
+class Params
+{
+	class CuratorUnlock
+	{
+		title = "God mode (Zeus starts with everything unlocked)"; //--- ToDo: Localize
+		values[] = {0,1};
+		texts[] = {$STR_DISABLED,$STR_ENABLED}; //--- ToDo: Localize
+		default = 1;
+	};
+	class CuratorModeratorRights
+	{
+		title = "Game Moderator rights"; //--- ToDo: Localize
+		values[] = {0,1,2};
+		texts[] = {"Cannot create objects (only editing is allowed)","Can create all objects","Can create only modules"}; //--- ToDo: Localize
+		default = 1;
+	};
+#ifdef _PARAMTYPE
+	class Type
+	{
+		title = $STR_DISP_ARCGRP_TYPE; //--- ToDo: Localize
+		values[] = {0,1};
+		texts[] = {$STR_A3_CfgMPGameTypes_Coop_name_0,$STR_A3_CfgMPGameTypes_DM_name_0}; //--- ToDo: Localize
+		default = 0;
+		isGlobal = 1;
+		file = "paramType.sqf";
+	};
+#endif
+	class PlayerEditingAreaSize
+	{
+		title = "Distance in metres from players in which Zeus cannot edit";
+		values[] = {0,100,200,500,1000};
+		texts[] = {0,100,200,500,1000};
+		default = 0;
+	};
+	#include "\a3\functions_f\Params\paramGuerFriendly.hpp"
+};
