@@ -18,8 +18,6 @@ sleep 20;
 
 			profileNamespace setVariable ["saveLoadout", respawnLoadout];
 
-			//systemChat "save";
-
         } else {
 
         	waitUntil {alive player};
@@ -43,8 +41,6 @@ player addMPEventHandler ["MPHit", {
 
 		player setDamage (0.02 + getDammage player);
 
-		//systemChat "hit";
-
 		respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
 		profileNamespace setVariable ["saveLoadout", respawnLoadout];
@@ -52,8 +48,6 @@ player addMPEventHandler ["MPHit", {
     }];
 
 player addMPEventHandler ["MPKilled", {
-
-		//systemChat "dead";
 
 		respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
@@ -99,6 +93,12 @@ player addMPEventHandler ["MPRespawn", {
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
 
+				private ["knifeAction"];
+
+				knifeAction = _x addAction ["<t color='#ff0000'>Knife</t>", fn_KnifeUnit, [], 5, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<3)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
+
+				_x setVariable ["knifeAction", 1 ,knifeAction];
+
 				_x addPrimaryWeaponItem "acc_flashlight";
 
 				sleep 0.05;
@@ -120,10 +120,8 @@ player addMPEventHandler ["MPRespawn", {
 
 				_x enableGunLights "forceOn";
 
- 				knifeAction = _x addAction ["Knife", hell_fnc_KnifeUnit, [], 5, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<2)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
-
 				_x setVariable ["HellsCustom", 1 ,true];
-				_x setVariable ["knifeAction", 1 ,knifeAction];
+
 
 			};
 
@@ -149,18 +147,46 @@ player addMPEventHandler ["MPRespawn", {
 	};
 };
 
-hell_fnc_KnifeUnit = {
-	_caller = player;
+fn_KnifeUnit = {
+
+	//private ["_caller"];
+	private ["_unitToKnife"];
+
+    _target = _this select 1;
 	_unitToKnife = cursorTarget;
 
-	if (isNil "_unitToKnife" or {isNull _unitToKnife}) exitWith {false};
+	if ((isNil "_unitToKnife") || (isNull _unitToKnife)) exitWith {false;};
 
-	systemChat "Knife";
+	[_target] call fn_unitKnifeAnim;
+	knife_unit = _target; publicVariable "fn_unitKnifeAnim";
 
 	_unitToKnife setDamage 1;
+
+	//_target say3D "knife_sound";
 
 	knifeAction = _unitToKnife getVariable "knifeAction";
 
 	_unitToKnife removeAction knifeAction;
+
+};
+
+fn_unitKnifeAnim = {
+
+    private ["_unit"];
+
+    _unit = _this select 0;
+
+    if (local _unit) then {
+        _unit SetUnitPos "UP";
+        _unit playActionNow "gesturePoint";
+        _unit disableAI "MOVE";
+    };
+
+};
+
+"fn_unitKnifeAnim" addPublicVariableEventHandler {
+
+    _unit = _this select 1;
+    [_unit] call fn_unitKnifeAnim;
 
 };

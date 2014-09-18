@@ -1,4 +1,4 @@
-PRAXUS_ZEUS.Altis
+Praxus Zeus
 =================
 
 A Zeus Arma Campeign
