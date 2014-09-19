@@ -162,7 +162,7 @@ fn_KnifeUnit = {
 
 	_unitToKnife setDamage 1;
 
-	//_target say3D "knife_sound";
+	_target say3D "knife_sound";
 
 	knifeAction = _unitToKnife getVariable "knifeAction";
 
