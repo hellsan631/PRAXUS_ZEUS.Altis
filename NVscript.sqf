@@ -36,7 +36,7 @@ while {true} do {
 
     // Edge Blur
     ppRim = ppEffectCreate ["RadialBlur", 250];
-    ppRim ppEffectAdjust [0.15, 0.15, 0.20, 0.28];
+    ppRim ppEffectAdjust [0.05, 0.05, 0.20, 0.28];
     ppRim ppEffectCommit 0;
     ppRim ppEffectEnable true;
     ppRim ppEffectForceInNVG true;

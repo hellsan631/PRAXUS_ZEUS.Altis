@@ -1,4 +1,4 @@
-waitUntil {!isNull player};
+waitUntil {!isNull player && player == player};
 
 // Compile scripts
 getLoadout = compile preprocessFileLineNumbers 'Scripts\get_loadout.sqf';
@@ -7,6 +7,11 @@ setLoadout = compile preprocessFileLineNumbers 'Scripts\set_loadout.sqf';
 sleep 20;
 
 ["<t size='.6'>Loadout Saving Enabled</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
+
+if (!(isDedicated)) then {
+	waitUntil {!isNil "BIS_fnc_init";};
+	waitUntil {!(isnull (findDisplay 46));};
+};
 
 [] spawn {
 
@@ -31,21 +36,56 @@ sleep 20;
     };
 };
 
+sleep 0.1;
+
 player addEventHandler ["handledamage",{
 
- 		player setdamage ((damage player) /1.015);
+		sleep 0.1;
+
+		lesshp = getDammage player;
+
+		if(lesshp < 0.25) then {
+
+			lesshp = lesshp / 1.005; //reduce by a small bit
+
+		} else {
+			if (lesshp < 0.6) then { //if hp is in between 75% and 40%
+
+				lesshp = lesshp / 1.08; //reduce by about 4-5 pts
+
+			} else {
+				if (lesshp < 0.9) then {
+
+					lesshp = lesshp / 1.10; //reduce by about 8-9
+
+				} else {
+
+					if (lesshp <= 1) then {
+
+						//deadsies
+
+					};
+				};
+			};
+		};
+
+ 		player setdamage lesshp;
 
 	}];
 
+sleep 0.1;
+
 player addMPEventHandler ["MPHit", {
 
-		player setDamage (0.02 + getDammage player);
+		sleep 0.1;
 
 		respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
 		profileNamespace setVariable ["saveLoadout", respawnLoadout];
 
     }];
+
+sleep 0.1;
 
 player addMPEventHandler ["MPKilled", {
 
@@ -54,6 +94,8 @@ player addMPEventHandler ["MPKilled", {
 		profileNamespace setVariable ["saveLoadout", respawnLoadout];
 
     }];
+
+sleep 0.1;
 
 // Load saved loadout (including ammo count) on respawn
 player addMPEventHandler ["MPRespawn", {
@@ -74,13 +116,17 @@ player addMPEventHandler ["MPRespawn", {
 
         [player, respawn, ["ammo"]] spawn setLoadout;
 
+        saveProfileNamespace;
+
     }];
+
+sleep 0.1;
 
 [] spawn {
 
 	while {true} do {
 
-		sleep 0.25;
+		sleep 1;
 
 		{
 
@@ -93,28 +139,13 @@ player addMPEventHandler ["MPRespawn", {
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
 
-				private ["knifeAction"];
-
-				knifeAction = _x addAction ["<t color='#ff0000'>Knife</t>", fn_KnifeUnit, [], 5, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<3)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
-
-				_x setVariable ["knifeAction", 1 ,knifeAction];
-
-				_x addPrimaryWeaponItem "acc_flashlight";
+				_x unlinkItem "NVGoggles";
+				_x unlinkItem "NVGoggles_OPFOR";
+				_x unlinkItem "NVGoggles_INDEP";
 
 				sleep 0.05;
 
-				_x unassignItem "NVGoggles";
-				_x removeItem "NVGoggles";
-
-				sleep 0.02;
-
-				_x unassignItem "NVGoggles_OPFOR";
-				_x removeItem "NVGoggles_OPFOR";
-
-				sleep 0.02;
-
-				_x unassignItem "NVGoggles_INDEP";
-				_x removeItem "NVGoggles_INDEP";
+				_x addPrimaryWeaponItem "acc_flashlight";
 
 				sleep 0.1;
 
@@ -137,56 +168,20 @@ player addMPEventHandler ["MPRespawn", {
 
 				player setfatigue 0;
 
-			}
+			};
 
+			if(_CheckVariable == 0) then {
+
+				_x addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
+
+			};
 
 		} forEach (allUnits);
 
-		sleep 5;
+		sleep 4;
 
 	};
 };
 
-fn_KnifeUnit = {
 
-	//private ["_caller"];
-	private ["_unitToKnife"];
 
-    _target = _this select 1;
-	_unitToKnife = cursorTarget;
-
-	if ((isNil "_unitToKnife") || (isNull _unitToKnife)) exitWith {false;};
-
-	[_target] call fn_unitKnifeAnim;
-	knife_unit = _target; publicVariable "fn_unitKnifeAnim";
-
-	_unitToKnife setDamage 1;
-
-	_target say3D "knife_sound";
-
-	knifeAction = _unitToKnife getVariable "knifeAction";
-
-	_unitToKnife removeAction knifeAction;
-
-};
-
-fn_unitKnifeAnim = {
-
-    private ["_unit"];
-
-    _unit = _this select 0;
-
-    if (local _unit) then {
-        _unit SetUnitPos "UP";
-        _unit playActionNow "gesturePoint";
-        _unit disableAI "MOVE";
-    };
-
-};
-
-"fn_unitKnifeAnim" addPublicVariableEventHandler {
-
-    _unit = _this select 1;
-    [_unit] call fn_unitKnifeAnim;
-
-};

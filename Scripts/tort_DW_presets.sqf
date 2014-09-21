@@ -16,4 +16,4 @@ switch (_this select 0) do {
    case "Random chaos": {tort_DW_preset=["random","random",[1,1],[0,0.2],[0,1,0,1,0,1],(_this select 1),0]};
 };
 
-0 = tort_DW_preset execVM "\@tort_DynamicWeather\script\tort_DynamicWeather.sqf";
+0 = tort_DW_preset execVM "\Scripts\tort_DynamicWeather.sqf";

@@ -50,7 +50,7 @@ _Unit = _this select 0;
 
 _Unit setSkill ["aimingAccuracy",(0.2 + (random 0.2))];
 _Unit setSkill ["aimingShake",(0.2 + (random 0.2))];
-_Unit setSkill ["spotDistance",(0.05 + (random 0.1))];
+_Unit setSkill ["spotDistance",(0.00 + (random 0.05))];
 _Unit setSkill ["spotTime",(0.05 + (random 0.1))];
 _Unit setSkill ["courage",(0.1 + (random 0.1))];
 _Unit setSkill ["commanding",1.0];
@@ -64,7 +64,7 @@ _Unit = _this select 0;
 
 _Unit setSkill ["aimingAccuracy",(0.15 + (random 0.15))];
 _Unit setSkill ["aimingShake",(0.15 + (random 0.15))];
-_Unit setSkill ["spotDistance",(0.05 + (random 0.1))];
+_Unit setSkill ["spotDistance",(0.00 + (random 0.05))];
 _Unit setSkill ["spotTime",(0.05 + (random 0.1))];
 _Unit setSkill ["courage",(0.1 + (random 0.1))];
 _Unit setSkill ["commanding",1.0];
@@ -79,7 +79,7 @@ _Unit = _this select 0;
 _Unit setSkill ["aimingAccuracy",(0.1 + (random 0.15))];
 _Unit setSkill ["aimingShake",(0.1 + (random 0.15))];
 _Unit setSkill ["spotDistance",(0.05 + (random 0.05))];
-_Unit setSkill ["spotTime",(0.05 + (random 0.1))];
+_Unit setSkill ["spotTime",(0.00 + (random 0.1))];
 _Unit setSkill ["courage",(0.5 + (random 0.1))];
 _Unit setSkill ["commanding",1.0];
 _Unit setSkill ["aimingSpeed",(0.1 + (random 0.1))];
@@ -92,7 +92,7 @@ _Unit = _this select 0;
 
 _Unit setSkill ["aimingAccuracy",(0.1 + (random 0.1))];
 _Unit setSkill ["aimingShake",(0.1 + (random 0.1))];
-_Unit setSkill ["spotDistance",(0.05 + (random 0.05))];
+_Unit setSkill ["spotDistance",(0.00 + (random 0.05))];
 _Unit setSkill ["spotTime",(0.05 + (random 0.05))];
 _Unit setSkill ["courage",(0.1 + (random 0.1))];
 _Unit setSkill ["commanding",1.0];
@@ -107,7 +107,7 @@ _Unit = _this select 0;
 
 _Unit setSkill ["aimingAccuracy",(0.1 + (random 0.1))];
 _Unit setSkill ["aimingShake",(0.1 + (random 0.1))];
-_Unit setSkill ["spotDistance",(0.07 + (random 0.05))];
+_Unit setSkill ["spotDistance",(0.00 + (random 0.05))];
 _Unit setSkill ["spotTime",(0.07 + (random 0.05))];
 _Unit setSkill ["courage",(0.1 + (random 0.1))];
 _Unit setSkill ["commanding",1.0];

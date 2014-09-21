@@ -20,13 +20,13 @@ class CfgFunctions
 dev = "HellsAn631";
 author = "HellsAn631";
 //onLoadMission = "";
-overviewText = "Version <t font='PuristaBold'>1.0.2.1</t> Removed Fatigue, Gear Save on Death, Knife Enemy (from 2 meters away), Player should take less damage. Updated to latest VCom AI, Added knife sound and animation.";
+overviewText = "Version <t font='PuristaBold'>1.0.2.3</t> Removed Fatigue, Gear Save on Death, Knife Enemy (from 2 meters away), Player should take less damage. Updated to latest VCom AI, Added knife sound and animation, Fixed several Bugs";
 overviewTextLocked = "";
 
-//enableDebugConsole = 1;
+enableDebugConsole = 1;
 
 respawn = 2;
-respawndelay = 3;
+respawndelay = 10;
 respawnVehicleDelay = 30;
 respawnTemplatesWest[] = {"MenuPosition"};
 respawnTemplatesEast[] = {"MenuPosition"};
@@ -67,13 +67,13 @@ class CfgSounds
     class halogen
     {
         name = "halogen";
-        sound[] = {"\sounds\halogen.ogg",1.2, 1};
+        sound[] = {"\sounds\halogen.ogg",1.5, 1};
     };
 
     class knife_sound
     {
         name = "knife_sound";
-        sound[] = {"\sounds\knife_sound.ogg",1, 1};
+        sound[] = {"\sounds\knife_sound.ogg",1.2, 1};
     };
 
 };
