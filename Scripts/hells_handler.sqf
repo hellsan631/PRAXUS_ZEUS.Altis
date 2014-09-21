@@ -1,3 +1,7 @@
+if (!(isDedicated)) then {
+	waitUntil {!isNil "BIS_fnc_init";};
+	waitUntil {!(isnull (findDisplay 46));};
+};
 waitUntil {!isNull player && player == player};
 
 // Compile scripts
@@ -8,20 +12,15 @@ sleep 20;
 
 ["<t size='.6'>Loadout Saving Enabled</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
 
-if (!(isDedicated)) then {
-	waitUntil {!isNil "BIS_fnc_init";};
-	waitUntil {!(isnull (findDisplay 46));};
-};
-
 [] spawn {
 
     while{true} do {
 
         if(alive player) then {
 
-            respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+            _respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
-			profileNamespace setVariable ["saveLoadout", respawnLoadout];
+			profileNamespace setVariable ["saveLoadout", _respawnLoadout];
 
         } else {
 
@@ -38,38 +37,16 @@ if (!(isDedicated)) then {
 
 sleep 0.1;
 
-player addEventHandler ["handledamage",{
+player addEventHandler ["HandleDamage",{
 
-		sleep 0.1;
+		_unit = _this select 0;
+		_loc  = _this select 1;
+		_dmg  = _this select 2;
+		_proj = _this select 4;
 
-		lesshp = getDammage player;
+		[_unit, _dmg, _loc, _proj] execVM "playerdmg.sqf";
 
-		if(lesshp < 0.25) then {
-
-			lesshp = lesshp / 1.005; //reduce by a small bit
-
-		} else {
-			if (lesshp < 0.6) then { //if hp is in between 75% and 40%
-
-				lesshp = lesshp / 1.08; //reduce by about 4-5 pts
-
-			} else {
-				if (lesshp < 0.9) then {
-
-					lesshp = lesshp / 1.10; //reduce by about 8-9
-
-				} else {
-
-					if (lesshp <= 1) then {
-
-						//deadsies
-
-					};
-				};
-			};
-		};
-
- 		player setdamage lesshp;
+		false;
 
 	}];
 
@@ -79,9 +56,9 @@ player addMPEventHandler ["MPHit", {
 
 		sleep 0.1;
 
-		respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
-		profileNamespace setVariable ["saveLoadout", respawnLoadout];
+		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
 
     }];
 
@@ -89,9 +66,9 @@ sleep 0.1;
 
 player addMPEventHandler ["MPKilled", {
 
-		respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
-		profileNamespace setVariable ["saveLoadout", respawnLoadout];
+		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
 
     }];
 
@@ -100,21 +77,21 @@ sleep 0.1;
 // Load saved loadout (including ammo count) on respawn
 player addMPEventHandler ["MPRespawn", {
 
-		respawn = profileNamespace getVariable "saveLoadout";
+		_respawn = profileNamespace getVariable "saveLoadout";
 
 		sleep 5;
 
 		player enableFatigue false;
 
-        [player, respawn, ["ammo"]] spawn setLoadout;
+        [player, _respawn, ["ammo"]] spawn setLoadout;
 
         sleep 5;
 
-        respawn = profileNamespace getVariable "saveLoadout";
+        _respawn = profileNamespace getVariable "saveLoadout";
 
 		player enableFatigue false;
 
-        [player, respawn, ["ammo"]] spawn setLoadout;
+        [player, _respawn, ["ammo"]] spawn setLoadout;
 
         saveProfileNamespace;
 

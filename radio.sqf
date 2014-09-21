@@ -1,16 +1,27 @@
 _unit = _this select 0;
 _songid = _this select 1;
 
-if(_playing == 0) then {
+if(!isServer) then {
+	sleep floor(random 5);
+};
+
+publicVariable "playing";
+
+if (isNil ("playing")) then {
+	playing = 0;
+	publicVariable "playing";
+};
+
+if((playing == 0) || (playing == "0")) then {
 	_wait = [[_unit, _songid], "tac_fnc_musicCore"] spawn tac_fnc_GlobalExec;
 
-	if(_wait == 0) then {
-		diag_log ["tac_music_core - _wait", _wait];
-	}
+	playing = 1;
 
-	_playing = 1;
+	publicVariable "playing";
 
 	sleep (_wait);
 
-	_playing = 0;
+	playing = 0;
+
+	publicVariable "playing";
 }
