@@ -3,9 +3,11 @@ _dmg  = _this select 1;
 _loc  = _this select 2;
 _proj = _this select 3;
 
-["<t size='.6'>Hit " + _loc + "</t>",0.02,0.3,0.8,1,0,3010] spawn bis_fnc_dynamicText;
-
 sleep 0.1;
+
+run_damage = 0;
+
+_baseDmg = _dmg;
 
 if(_dmg < 0.25) then {
 
@@ -32,4 +34,23 @@ if(_dmg < 0.25) then {
 	};
 };
 
-_unit setdamage _dmg;
+if(run_damage == 1) then {
+
+	_unit setdamage _dmg;
+
+};
+
+_Stxt = parseText format
+   ["<t color='#ffffff'>Unit: </t><t color='#ffffff'>%1</t><br/>
+   <t color='#ffffff'>BDMG: </t><t color='#FFFFFF'>%2</t><br/>
+   <t color='#ffffff'>ADMG: </t><t color='#FFFFFF'>%3</t><br/>
+   <t color='#ffffff'>LOC: </t><t color='#FFFFFF'>%4</t><br/>
+   <t color='#ffffff'>PROJ: </t><t color='#CCCCCC'>%5</t><br/>",
+   _unit,
+   _baseDmg,
+   _dmg,
+   _loc,
+   _proj];
+
+hintsilent _Stxt;
+

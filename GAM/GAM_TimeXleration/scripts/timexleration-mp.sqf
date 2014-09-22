@@ -8,7 +8,7 @@
 	Contact		: gamma (dot) stardust (at) gmail (dot) com
 	Website		: gamma.toile-libre.com
 
-	Additional  : - BIS for the awesome sandbox 
+	Additional  : - BIS for the awesome sandbox
 	Credits		  - Iceman77 for helpful dialog tutorial
 				  - Terox for comprehensive help on multiplayer code
 				  - Sickboy for his 6thSense multiplayer connection role (Server/Client/JIP) code
@@ -23,14 +23,14 @@
 					the authors	permission.
 					Further inquiries please send them to:
 							gamma(dot)stardust(at)gmail(dot)com
-					
+
 					You are free to distribute this software for no additional
 					charge, only as long as the original package distribution
 					and its included licenses are kept intact.
 
 					The authors take no responsibility for any damages this
 					software may cause. Use it at your own risk.
-					
+
 	Changelog	: - Improved base synching code
 				  - Added JIP synching
 				  - Added Admin menu (only basic authentication)
@@ -66,25 +66,25 @@ GAM_TXLsrvDateUpdate = {
 	setDate GAM_TXLsrvDate;
 
 	publicVariable "GAM_TXLsrvDate"; // Sync date to clients
-	diag_log format ["Sync Start Date: %1", GAM_TXLsrvDate];
+	//diag_log format ["Sync Start Date: %1", GAM_TXLsrvDate];
 	while {true} do {
 		GAM_TXLsrvStartSyncTime = diag_tickTime;
 		sleep GAM_TXLsrvSyncDelayS;
 		GAM_TXLsrvDate = call GAM_TXLgetVirtualDate;
 		setDate GAM_TXLsrvDate;
-		
+
 		publicVariable "GAM_TXLsrvDate"; // Sync date to clients
-		diag_log format ["Sync Cycle Date: %1", GAM_TXLsrvDate];
+		//diag_log format ["Sync Cycle Date: %1", GAM_TXLsrvDate];
 	};
 };
 
 GAM_TXLsrvChangeFactor = {
 	GAM_TXLsrvFactor = _this select 1;
 	GAM_TXLsrvSkipM = GAM_TXLsrvFactor - GAM_TXLsrvSyncDelayM; // Must update skipping too!!!
-	
+
 	GAM_TXLcliFactor = GAM_TXLsrvFactor;
 	publicVariable "GAM_TXLcliFactor";
-	diag_log format ["New Server Accelleration Factor: %1", GAM_TXLsrvFactor];
+	//diag_log format ["New Server Accelleration Factor: %1", GAM_TXLsrvFactor];
 };
 
 GAM_TXLsendFactor = {
@@ -92,7 +92,7 @@ GAM_TXLsendFactor = {
 	_clientID = (owner (_this select 1)); // Requester
 	GAM_TXLcliFactor = GAM_TXLsrvFactor;
 	_clientID publicVariableClient "GAM_TXLcliFactor";
-	diag_log format ["Accelleration Factor: %1 | Sent to: %2", GAM_TXLsrvFactor, _clientID];
+	//diag_log format ["Accelleration Factor: %1 | Sent to: %2", GAM_TXLsrvFactor, _clientID];
 };
 
 GAM_TXLsendStatus = {
@@ -100,13 +100,13 @@ GAM_TXLsendStatus = {
 	_clientID = (owner (_this select 1)); // Requester
 	GAM_TXLcliStatus = GAM_TXLsrvActive;
 	_clientID publicVariableClient "GAM_TXLcliStatus";
-	diag_log format ["Accelleration Status: %1 | Sent to: %2", GAM_TXLcliStatus, _clientID];
+	//diag_log format ["Accelleration Status: %1 | Sent to: %2", GAM_TXLcliStatus, _clientID];
 };
 
 GAM_TXLsrvStartDateUpdate = {
 	if (isNil "GAM_TXLsrvDateUpdateHandle") then {
 		GAM_TXLsrvDateUpdateHandle = [] spawn GAM_TXLsrvDateUpdate;
-		
+
 		GAM_TXLcliStart = true;
 		publicVariable "GAM_TXLcliStart";
 	};
@@ -115,15 +115,15 @@ GAM_TXLsrvStartDateUpdate = {
 GAM_TXLsrvStopDateUpdate = {
 	if !(isNil "GAM_TXLsrvDateUpdateHandle") then {
 		terminate GAM_TXLsrvDateUpdateHandle; GAM_TXLsrvDateUpdateHandle = nil;
-		
+
 		GAM_TXLsrvDate = call GAM_TXLgetVirtualDate;
 		setDate GAM_TXLsrvDate;
 		GAM_TXLsrvActive = false;
-		
+
 		GAM_TXLcliStop = true;
-		publicVariable "GAM_TXLcliStop";		
+		publicVariable "GAM_TXLcliStop";
 		publicVariable "GAM_TXLsrvDate";
-		diag_log format ["Sync Stop Date: %1", GAM_TXLsrvDate];
+		//diag_log format ["Sync Stop Date: %1", GAM_TXLsrvDate];
 	};
 };
 
@@ -146,7 +146,7 @@ GAM_TXLsendVirtualDate = {
 	_clientID = (owner (_this select 1)); // Requester
 	GAM_TXLsrvVirtualDate = call GAM_TXLgetVirtualDate;
 	_clientID publicVariableClient "GAM_TXLsrvVirtualDate";
-	diag_log format ["Server Virtual Date: %1 | Sent to Client: %2", GAM_TXLsrvVirtualDate, _clientID];
+	//diag_log format ["Server Virtual Date: %1 | Sent to Client: %2", GAM_TXLsrvVirtualDate, _clientID];
 };
 
 // Client Functions
@@ -154,13 +154,13 @@ GAM_TXLcliStartDateUpdate = {
 	// Update menu
 	GAM_TXLcliActive = true;
 	GAM_TXLcliMenu set [1, ["Switch OFF", [2], "", -5, [["expression", "call GAM_TXLcliTXLSwitch"]], "1", "1"]];
-	
+
 	// Reset timer and frame counter before starting the loop
 	GAM_TXLcliFrame = 0;
 	//GAM_TXLcliSkipping = 2;
 	GAM_TXLcliStartFrameTime = diag_tickTime;
 	onEachFrame GAM_TXLcliDateUpdate;
-	diag_log format ["Client Sart Date: %1", date];
+	//diag_log format ["Client Sart Date: %1", date];
 };
 
 GAM_TXLcliDateUpdate = {
@@ -177,7 +177,7 @@ GAM_TXLcliStopDateUpdate = {
 	GAM_TXLcliActive = false;
 	GAM_TXLcliMenu set [1, ["Switch ON", [2], "", -5, [["expression", "call GAM_TXLcliTXLSwitch"]], "1", "1"]];
 	onEachFrame {};
-	diag_log format ["Client Stop Date: %1", date];
+	//diag_log format ["Client Stop Date: %1", date];
 };
 
 GAM_TXLsrvSync = {
@@ -186,13 +186,13 @@ GAM_TXLsrvSync = {
 	_cliCurrDate = date;
 	setDate [_srvRcvDate select 0, _srvRcvDate select 1, _srvRcvDate select 2, _srvRcvDate select 3, _srvRcvDate select 4];
 	_dateDelta = (_srvRcvDate select 4) - (_cliCurrDate select 4);
-	diag_log format ["Client Current Date: %1 | Server Received Date: %2 | Desync: %3 | JIP: %4", _cliCurrDate, _srvRcvDate, _dateDelta, T_JIP];
+	//diag_log format ["Client Current Date: %1 | Server Received Date: %2 | Desync: %3 | JIP: %4", _cliCurrDate, _srvRcvDate, _dateDelta, T_JIP];
 	//hint format ["Desync: %1 (minutes)", _dateDelta];
 };
 
 GAM_TXLsetFactor = {
 	GAM_TXLcliFactor = _this select 1;
-	diag_log format ["New Client Accelleration Factor: %1", GAM_TXLcliFactor];
+	//diag_log format ["New Client Accelleration Factor: %1", GAM_TXLcliFactor];
 };
 
 GAM_TXLsetStatus = {
@@ -204,7 +204,7 @@ GAM_TXLsetStatus = {
 		GAM_TXLcliMenu set [1, ["Switch ON", [2], "", -5, [["expression", "call GAM_TXLcliTXLSwitch"]], "1", "1"]];
 		GAM_TXLcliMenu set [7, ["---", [], "", -1, [], "0", "0"]];
 	};
-	diag_log format ["New Client Accelleration Status: %1 | GAM_TXLcliActive: %2 | GAM_TXLadmActive: %3", GAM_TXLcliStatus, GAM_TXLcliActive, GAM_TXLadmActive];
+	//diag_log format ["New Client Accelleration Status: %1 | GAM_TXLcliActive: %2 | GAM_TXLadmActive: %3", GAM_TXLcliStatus, GAM_TXLcliActive, GAM_TXLadmActive];
 };
 
 GAM_TXLcliTXLSwitch = {
@@ -225,7 +225,7 @@ GAM_TXLadmStart = {
 	// Update menu
 	GAM_TXLadmActive = true;
 	GAM_TXLcliAdminMenu set [1, ["Switch OFF", [2], "", -5, [["expression", "call GAM_TXLadmTXLSwitch;"]], "1", "1"]];
-	
+
 	GAM_TXLadmStartReq = true;
 	publicVariableServer "GAM_TXLadmStartReq";
 };
@@ -234,7 +234,7 @@ GAM_TXLadmMenuStop = {
 	// Update menu
 	GAM_TXLadmActive = false;
 	GAM_TXLcliAdminMenu set [1, ["Switch ON", [2], "", -5, [["expression", "call GAM_TXLadmTXLSwitch;"]], "1", "1"]];
-	
+
 	GAM_TXLadmStopReq = true;
 	publicVariableServer "GAM_TXLadmStopReq";
 };
@@ -300,17 +300,17 @@ if (isServer) then {
 	if (!(isNull player)) then { T_Client = true };
 	T_INIT = true;
 
-	diag_log format ["TimeXleration Init Date: %1", date];
+	//diag_log format ["TimeXleration Init Date: %1", date];
 
 	// Handle requests
 	"GAM_TXLcliDateReq" addPublicVariableEventHandler GAM_TXLsendVirtualDate;
 	"GAM_TXLcliFactorReq" addPublicVariableEventHandler GAM_TXLsendFactor;
 	"GAM_TXLcliStatusReq" addPublicVariableEventHandler GAM_TXLsendStatus;
-	
+
 	"GAM_TXLadmStopReq" addPublicVariableEventHandler GAM_TXLsrvStopDateUpdate;
 	"GAM_TXLadmStartReq" addPublicVariableEventHandler GAM_TXLsrvStartDateUpdate;
 	"GAM_TXLadmFactorChangeReq" addPublicVariableEventHandler GAM_TXLsrvChangeFactor;
-	
+
 	// Start Accelleration
 	call GAM_TXLsrvStartDateUpdate;
 } else {
@@ -321,20 +321,20 @@ if (isServer) then {
 		T_INIT = true;
 	};
 
-	diag_log format ["TimeXleration Init Date: %1", date];
-	
+	//diag_log format ["TimeXleration Init Date: %1", date];
+
 	// Handle regular server date sync
 	"GAM_TXLsrvDate" addPublicVariableEventHandler GAM_TXLsrvSync;
-	
+
 	// Handle fetching of virtual server time (JIPs)
 	"GAM_TXLsrvVirtualDate" addPublicVariableEventHandler GAM_TXLsrvSync;
-	
+
 	// Handle status and config
 	"GAM_TXLcliStop" addPublicVariableEventHandler GAM_TXLcliStopDateUpdate;
 	"GAM_TXLcliStart" addPublicVariableEventHandler GAM_TXLcliStartDateUpdate;
 	"GAM_TXLcliFactor" addPublicVariableEventHandler GAM_TXLsetFactor;
 	"GAM_TXLcliStatus" addPublicVariableEventHandler GAM_TXLsetStatus;
-	
+
 	BIS_MENU_GroupCommunication = GAM_TXLcliTXLMenu;
 
 	// Usage Hints
@@ -349,7 +349,7 @@ if (isServer) then {
 		// Sync factor
 		GAM_TXLcliFactorReq = player;
 		publicVariableServer "GAM_TXLcliFactorReq";
-		
+
 		// Sync date
 		GAM_TXLcliDateReq = player;
 		publicVariableServer 'GAM_TXLcliDateReq';
@@ -358,7 +358,7 @@ if (isServer) then {
 		GAM_TXLcliStatusReq = player;
 		publicVariableServer "GAM_TXLcliStatusReq";
 	};
-	
+
 	// Start Accelleration
 	if (GAM_TXLcliActive) then {
 		call GAM_TXLcliStartDateUpdate;
