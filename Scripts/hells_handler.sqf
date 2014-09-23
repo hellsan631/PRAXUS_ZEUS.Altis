@@ -7,6 +7,7 @@ waitUntil {!isNull player && player == player};
 // Compile scripts
 getLoadout = compile preprocessFileLineNumbers 'Scripts\get_loadout.sqf';
 setLoadout = compile preprocessFileLineNumbers 'Scripts\set_loadout.sqf';
+fn_arrayAppend = compile preprocessFileLineNumbers 'Scripts\fn_arrayAppend.sqf';
 
 sleep 20;
 
@@ -35,20 +36,6 @@ sleep 20;
     };
 };
 
-sleep 0.1;
-
-player addEventHandler ["HandleDamage",{
-
-		_unit = _this select 0;
-		_loc  = _this select 1;
-		_dmg  = _this select 2;
-		_proj = _this select 4;
-
-		[_unit, _dmg, _loc, _proj] execVM "playerdmg.sqf";
-
-		false;
-
-	}];
 
 sleep 0.1;
 
@@ -115,6 +102,19 @@ sleep 0.1;
 			};
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
+
+				_x addEventHandler ["HandleDamage",{
+
+					_unit = _this select 0;
+					_loc  = _this select 1;
+					_dmg  = _this select 2;
+					_proj = _this select 4;
+
+					[_unit, _dmg, _loc, _proj] execVM "playerdmg.sqf";
+
+					false
+
+				}];
 
 				_x unlinkItem "NVGoggles";
 				_x unlinkItem "NVGoggles_OPFOR";
