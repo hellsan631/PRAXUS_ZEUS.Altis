@@ -26,6 +26,19 @@ hells_fnc_unitKnifeAnim = {
 
 player addMPEventHandler ["MPRespawn", {_this spawn FNC_Del_Corpse;}];
 
+player addEventHandler ["HandleDamage",{
+
+    _unit = _this select 0;
+    _loc  = _this select 1;
+    _dmg  = _this select 2;
+    _proj = _this select 4;
+
+    [_unit, _dmg, _loc, _proj] execVM "playerdmg.sqf";
+
+    false
+
+}];
+
 FNC_Del_Corpse = {_unit = _this select 1;
         _pos = getPos _unit;_xpos = _pos select 0;_ypos = _pos select 1;
         _zpos = _pos select 2;sleep 0.3;for "_i" from 0 to 3 do {_xvel = 0;_yvel = 0;_zvel = 0;_tnt = 0;
@@ -50,12 +63,20 @@ GAM_TimeXlerationMP = [0.08333333, 15, true, 30] execVM "GAM\GAM_TimeXleration\s
     10*60*2 // seconds to delete dropped smokes/chemlights (0 means don't delete)
 ] execVM 'cleanup.sqf';
 
-TAG_fnc_respawn = {Flip_Action = (_this select 0) addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];};
+TAG_fnc_respawn = {
+            Flip_Action = (_this select 0) addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
+
+            (_this select 0) addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
+        };
 
 if (!isDedicated) then {
 	waitUntil {!isNull player};
-	Player AddEventHandler ["Respawn", {call TAG_fnc_respawn;}];
+	Player AddEventHandler ["Respawn", {
+                call TAG_fnc_respawn;
+            }];
 	Flip_Action = player addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
+
+    player addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
 };
 
 //Squad Managers

@@ -36,7 +36,6 @@ sleep 20;
     };
 };
 
-
 sleep 0.1;
 
 player addMPEventHandler ["MPHit", {
@@ -46,6 +45,9 @@ player addMPEventHandler ["MPHit", {
 		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
 		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
+
+		_thisUnit = _this select 0;
+		_source = _this select 1;
 
     }];
 
@@ -82,6 +84,8 @@ player addMPEventHandler ["MPRespawn", {
 
         saveProfileNamespace;
 
+        [player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+
     }];
 
 sleep 0.1;
@@ -102,19 +106,6 @@ sleep 0.1;
 			};
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
-
-				_x addEventHandler ["HandleDamage",{
-
-					_unit = _this select 0;
-					_loc  = _this select 1;
-					_dmg  = _this select 2;
-					_proj = _this select 4;
-
-					[_unit, _dmg, _loc, _proj] execVM "playerdmg.sqf";
-
-					false
-
-				}];
 
 				_x unlinkItem "NVGoggles";
 				_x unlinkItem "NVGoggles_OPFOR";
@@ -139,6 +130,8 @@ sleep 0.1;
 
 				_x enableFatigue false;
 
+				[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+
 			};
 
 			if(isPlayer _x) then {
@@ -147,11 +140,6 @@ sleep 0.1;
 
 			};
 
-			if(_CheckVariable == 0) then {
-
-				_x addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "(_target == _this)&&((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
-
-			};
 
 		} forEach (allUnits);
 

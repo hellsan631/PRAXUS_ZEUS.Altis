@@ -3,10 +3,20 @@ _dmg  = _this select 1;
 _loc  = _this select 2;
 _proj = _this select 3;
 
-run_damage = 0;
-doDiagLog = 1;
+run_damage = 1;
+doDiagLog = 0;
+
+if(doDiagLog == 1) then {
+	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
+};
 
 _dmgArray = _unit getVariable "HellsDMG";
+
+_uDMG =  _unit getVariable "HellsOldDmg";
+
+if (isNil ("_uDMG")) then {
+	_uDMG = 0;
+};
 
 if (isNil ("_dmgArray")) then {
 	_dmgArray = [[_unit, _dmg, _loc, _proj]];
@@ -14,7 +24,44 @@ if (isNil ("_dmgArray")) then {
 	_dmgArray = [_dmgArray,[[_unit, _dmg, _loc, _proj]]] call fn_arrayAppend;
 };
 
-if(count _dmgArray > 6) then {
+_unit setVariable ["HellsDMG", _dmgArray, false];
+
+_prevCount = count _dmgArray;
+_newCount = count _dmgArray;
+_last = 0;
+
+if(_prevCount > 6) then {
+
+	sleep 0.05;
+
+	_dmgArray = _unit getVariable "HellsDMG";
+
+	if (!isNil ("_dmgArray")) then {
+
+		_newCount = count _dmgArray;
+
+		if(_newCount  == _prevCount) then {
+			_last = 1;
+		};
+
+	};
+
+};
+
+if(_last == 1) then {
+
+	_dmgExe = _unit getVariable "HellsDmgDo";
+
+	if (isNil ("_dmgExe")) then {
+		_dmgExe = 1;
+		_unit setVariable ["HellsDmgDo", _dmgExe, false];
+	} else {
+		_last = 0;
+	};
+
+};
+
+if(_last == 1) then {
 
 	_unit setVariable ["HellsDMG" , nil];
 
@@ -23,10 +70,6 @@ if(count _dmgArray > 6) then {
 
 	{
 		_tempDmg =  _x select 1;
-
-		if(doDiagLog == 1) then {
-			diag_log format ["TestUnit: BDMG: %1 | LOC: %2", _tempDmg, _x select 2];
-		};
 
 		if(_tempDmg > _unitTrueDMG) then {
 			_unitTrueDMG = _tempDmg;
@@ -47,7 +90,6 @@ if(count _dmgArray > 6) then {
 	};
 
 	_baseDmg = _dmg;
-	_uDMG = getDammage _unit;
 
 	 _oldDamage = 0;
 
@@ -55,132 +97,53 @@ if(count _dmgArray > 6) then {
 	    case("head"):{_oldDamage = _unit getHitPointDamage "HitHead";};
 	    case("body"):{_oldDamage = _unit getHitPointDamage "HitBody";};
 	    case("hands"):{_oldDamage = _unit getHitPointDamage "HitHands";};
+	    case("hand_1"):{_oldDamage = _unit getHitPointDamage "HitHands";};
+	    case("hand_2"):{_oldDamage = _unit getHitPointDamage "HitHands";};
 	    case("legs"):{_oldDamage = _unit getHitPointDamage "HitLegs";};
-	    case(""):{_oldDamage = damage _unit;};
-	    default{};
+	    case("leg_1"):{_oldDamage = _unit getHitPointDamage "HitLegs";};
+	    case("leg_2"):{_oldDamage = _unit getHitPointDamage "HitLegs";};
+	    default{_oldDamage = damage _unit;};
 	};
 
 	switch(_loc)do{
-	    case("head"):{
-
-				_unit setHitPointDamage ["hitHead",(_oldDamage + (_dmg/4))];
-
-	    		switch(true)do{
-				    case(_dmg < 1):{
-				    	_dmg = _dmg / 1.005;
-					};
-				    case(_dmg < 2):{
-					    _dmg = _dmg / 1.5;
-					};
-				    default{};
-				};
-
-			};
-	    case("body"):{
-
-				_unit setHitPointDamage ["hitBody",(_oldDamage + (_dmg/5))];
-
-	    		switch(true)do{
-				    case(_dmg < 1):{
-				    	_dmg = _dmg / 4;
-					};
-				    case(_dmg < 2):{
-					    _dmg = _dmg / 4.5;
-					};
-					case(_dmg < 3):{
-					    _dmg = _dmg / 5;
-					};
-					case(_dmg < 4):{
-					    _dmg = _dmg / 5.5;
-					};
-				    default{};
-				};
-
-	    	};
-	    case("hands"):{
-
-				_unit setHitPointDamage ["hitHands",(_oldDamage + (_dmg/6))];
-
-	    		switch(true)do{
-				    case(_dmg < 1):{
-				    	_dmg = _dmg / 6;
-					};
-				    case(_dmg < 2):{
-					    _dmg = _dmg / 6.5;
-					};
-					case(_dmg < 3):{
-					    _dmg = _dmg / 7;
-					};
-					case(_dmg < 4):{
-					    _dmg = _dmg / 7.5;
-					};
-					case(_dmg < 5):{
-					    _dmg = _dmg / 8;
-					};
-				    default{};
-				};
-
-			};
-	    case("legs"):{
-
-				_unit setHitPointDamage ["hitHands",(_oldDamage + (_dmg/5))];
-
-	    		switch(true)do{
-				    case(_dmg < 1):{
-				    	_dmg = _dmg / 5;
-					};
-				    case(_dmg < 2):{
-					    _dmg = _dmg / 5.5;
-					};
-					case(_dmg < 3):{
-					    _dmg = _dmg / 6;
-					};
-					case(_dmg < 4):{
-					    _dmg = _dmg / 6.5;
-					};
-					case(_dmg < 5):{
-					    _dmg = _dmg / 7;
-					};
-				    default{};
-				};
-
-			};
-	    case(""):{
-
-	    		switch(true)do{
-				    case(_dmg < 1):{
-				    	_dmg = _dmg / 5;
-					};
-				    case(_dmg < 2):{
-					    _dmg = _dmg / 5.5;
-					};
-					case(_dmg < 3):{
-					    _dmg = _dmg / 6;
-					};
-					case(_dmg < 4):{
-					    _dmg = _dmg / 6.5;
-					};
-					case(_dmg < 5):{
-					    _dmg = _dmg / 7;
-					};
-				    default{};
-				};
-
-			};
-	    default{};
+	    case("head"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_headDmg;};
+	    case("body"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_bodyDmg;};
+	    case("hands"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_armsDmg;};
+	    case("hand_1"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_armsDmg;};
+	    case("hand_2"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_armsDmg;};
+	    case("legs"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_legsDmg;};
+	    case("leg_1"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_legsDmg;};
+	    case("leg_2"):{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_legsDmg;};
+	    default{_dmg = [_unit, _dmg, _oldDamage] call hells_fnc_baseDmg;};
 	};
 
 	_dmgT = _dmg;
 
 	_dmg = _uDMG + _dmg;
 
+	_dmgCSEArray = [0,0,0,0,0,0];
+	[_unit, "cse_bodyPartStatus", _dmgCSEArray] call cse_fnc_setVariable;
+
 	if(run_damage == 1) then {
 
-		_unit setdamage _dmg;
+		_unit setDamage _dmg;
+
+		_unit setVariable ["HellsOldDmg", _dmg, true];
 
 	};
 
+	_unit setVariable ["HellsDmgDo", nil, false];
+
 	if(doDiagLog == 1) then {
+
+		//tAr = [_this] call cse_fnc_getAllSetVariables;{ diag_log _x;} foreach (tAr);
+		//["cse_bodyPartStatus","ARRAY",[1.07019e-005,1.7486e-005,0,0.000126613,0.767234,0],false,false]
+
+		//diag_log [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;
+		//tAr = [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;{ diag_log _x;} foreach (tAr);
+
+		//diag_log [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;
+		//tAr = ["cse_bodyPartStatus"] call cse_fnc_getVariableDefault;{ diag_log _x;} foreach (tAr);
 
 		_nDMG = 0;
 
@@ -189,8 +152,7 @@ if(count _dmgArray > 6) then {
 		    case("body"):{_nDMG = _unit getHitPointDamage "HitBody";};
 		    case("hands"):{_nDMG = _unit getHitPointDamage "HitHands";};
 		    case("legs"):{_nDMG = _unit getHitPointDamage "HitLegs";};
-		    case(""):{_nDMG = damage _unit;};
-		    default{};
+		    default{_nDMG = damage _unit;};
 		};
 
 		sleep 0.5;
@@ -203,7 +165,7 @@ if(count _dmgArray > 6) then {
 		_oldDamage = [_oldDamage, 1, 5] call CBA_fnc_formatNumber;
 
 		diag_log format [
-			"Unit: %1 | BaseDS: %2 | ModDS: %3 | UnitDB: %4  | OldDB: %5 | NewDS: %6 | ApplyDS: %7 | LOC: %7 | PROJ: %8",
+			"Unit: %1 | BaseDS: %2 | ModDS: %3 | UnitDB: %4  | OldDB: %5 | NewDS: %6 | ApplyDS: %7 | LOC: %8 | PROJ: %9",
 			_unit,
 			_baseDmg, 	//base dmg, the amount of original chosen damage
 			_dmgT, 		//The amount of damage after applied to dmg mod
@@ -216,8 +178,138 @@ if(count _dmgArray > 6) then {
 		];
 	};
 
-} else {
+};
 
-	_unit setVariable ["HellsDMG", _dmgArray, false];
+hells_fnc_headDmg = {
+
+    private ["_dm", "_un", "_od"];
+
+	_un = _this select 0; //unit
+    _dm = _this select 1; //dmg
+    _od = _this select 2; //old dmg
+
+    //_un setHitPointDamage ["hitHead",(_od + (_dm/4))];
+
+	switch(true)do{
+		case(_dm < 0.25):{	_dm = _dm / 1.2;		};
+		case(_dm < 0.5):{	_dm = _dm / 1.4;		};
+		case(_dm < 0.9):{	_dm = _dm / 1.6;		};
+	    case(_dm < 1):{	    _dm = _dm / 1.25;		};
+	    case(_dm < 2):{		_dm = _dm / 1.5;		};
+	    default{			_dm = _dm / 2;			};
+	};
+
+	_dm = _dm / 1.005;
+
+	_dm
+
+};
+
+hells_fnc_bodyDmg = {
+
+    private ["_dm", "_un", "_od"];
+
+	_un = _this select 0; //unit
+    _dm = _this select 1; //dmg
+    _od = _this select 2; //old dmg
+
+    //_un setHitPointDamage ["hitBody",(_od + (_dm/5))];
+
+	switch(true)do{
+		case(_dm < 0.25):{	_dm = _dm / 2;			};
+		case(_dm < 0.5):{	_dm = _dm / 2.5;		};
+		case(_dm < 0.9):{	_dm = _dm / 3;			};
+	    case(_dm < 1):{	   	_dm = _dm / 2.75;		};
+	    case(_dm < 2):{		_dm = _dm / 2.5;		};
+		case(_dm < 3):{		_dm = _dm / 3;			};
+		case(_dm < 4):{		_dm = _dm / 3.5;		};
+	    default{			_dm = _dm / 2;			};
+	};
+
+	_dm = _dm / 1.01;
+
+	_dm
+
+};
+
+hells_fnc_legsDmg = {
+
+    private ["_dm", "_un", "_od"];
+
+	_un = _this select 0; //unit
+    _dm = _this select 1; //dmg
+    _od = _this select 2; //old dmg
+
+    //_un setHitPointDamage ["hitLegs",(_od + (_dm/5))];
+
+	switch(true)do{
+	    case(_dm < 0.25):{	_dm = _dm / 2.5;		};
+		case(_dm < 0.5):{	_dm = _dm / 2.25;		};
+		case(_dm < 0.9):{	_dm = _dm / 2;			};
+	    case(_dm < 1):{		_dm = _dm / 2.5;		};
+	    case(_dm < 2):{		_dm = _dm / 3;			};
+		case(_dm < 3):{		_dm = _dm / 3.5;		};
+		case(_dm < 4):{		_dm = _dm / 4;			};
+		case(_dm < 5):{		_dm = _dm / 4.5;		};
+	    default{			_dm = _dm / 2;	};
+	};
+
+	_dm = _dm / 1.05;
+
+	_dm
+
+};
+
+hells_fnc_armsDmg = {
+
+    private ["_dm", "_un", "_od"];
+
+	_un = _this select 0; //unit
+    _dm = _this select 1; //dmg
+    _od = _this select 2; //old dmg
+
+    //_un setHitPointDamage ["hitHands",(_od + (_dm/6))];
+
+	switch(true)do{
+		case(_dm < 0.25):{ 	_dm = _dm / 3;		};
+		case(_dm < 0.5):{	_dm = _dm / 2.75;	};
+		case(_dm < 0.9):{	_dm = _dm / 2.5;	};
+	    case(_dm < 1):{		_dm = _dm / 3;		};
+	    case(_dm < 2):{		_dm = _dm / 3.5;	};
+		case(_dm < 3):{		_dm = _dm / 4;		};
+		case(_dm < 4):{		_dm = _dm / 4.5;	};
+		case(_dm < 5):{		_dm = _dm / 5;		};
+	    default{			_dm = _dm / 2;};
+	};
+
+	_dm = _dm / 1.04;
+
+	_dm
+
+};
+
+hells_fnc_baseDmg = {
+
+    private ["_dm", "_un", "_od"];
+
+	_un = _this select 0; //unit
+    _dm = _this select 1; //dmg
+    _od = _this select 2; //old dmg
+
+    switch(true)do{
+		case(_dm < 0.25):{	_dm = _dm / 2;	};
+		case(_dm < 0.5):{	_dm = _dm / 2.33;	};
+		case(_dm < 0.9):{	_dm = _dm / 2.66;	};
+	    case(_dm < 1):{		_dm = _dm / 3;		};
+	    case(_dm < 2):{		_dm = _dm / 3.5;	};
+		case(_dm < 3):{		_dm = _dm / 4;		};
+		case(_dm < 4):{		_dm = _dm / 4.5;	};
+		case(_dm < 5):{		_dm = _dm / 5;		};
+	    default{			_dm = _dm / 2;};
+	};
+
+	_dm = _dm / 1.015;
+
+	_dm
 
 };
