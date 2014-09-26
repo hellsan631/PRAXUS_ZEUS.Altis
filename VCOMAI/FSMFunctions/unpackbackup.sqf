@@ -14,11 +14,15 @@ _gunner = 0;
 _assistant = 0;
 {
 _CurrentBackPack = backpack _x;
+if (!(isNil ("_CurrentBackPack"))) then {
 _class = [_CurrentBackPack] call VCOM_fnc_classVehicle;
+if (!(isNil ("_class"))) then {
 _parents = [_class,true] call BIS_fnc_returnParents;
 if (!(isNil ("_parents"))) then {
 if ("Static" in _parents) then {_x setVariable ["USEDSTATICWEAP",_CurrentBackPack,false];_assistant = _x;};
 if (("StaticWeapon" in _parents) || ("Weapon_Bag_Base" in _parents)) then {_x setVariable ["USEDSTATICWEAP",_CurrentBackPack,false];_gunner = _x;};
+};
+};
 };
 } forEach _UnitGroups;
 if (isNil ("_gunner")) exitWith {};

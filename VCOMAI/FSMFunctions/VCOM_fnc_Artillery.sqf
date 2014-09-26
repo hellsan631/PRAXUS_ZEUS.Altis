@@ -11,6 +11,7 @@ if (_Vehicle in ArtilleryArray) exitWith {};
 
 //Get the vehicles class name.
 _class = typeOf _Vehicle;
+if (isNil ("_class")) exitWith {};
 //player sidechat format ["%1",_class];
 //Figure out if it is defined as artillery
 _ArtyScan = getNumber(configfile/"CfgVehicles"/_class/"artilleryScanner");

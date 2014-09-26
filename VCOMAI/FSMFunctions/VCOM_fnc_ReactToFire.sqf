@@ -26,11 +26,15 @@ if ((count _cover) < 1) exitWith {};
 
 {
 _class = typeof _x;
+if (!(isNil ("_class"))) then {
 _return = (configFile >> "cfgVehicles" >> _class);
+if (!(isNil ("_return"))) then {
 _parents = [_return,true] call BIS_fnc_returnParents;
 if ("Man" in _parents) then {_cover = _cover - [_x];};
 if ("Logic" in _parents) then {_cover = _cover - [_x];};
 if ("Helper_Base_F" in _parents) then {_cover = _cover - [_x];};
+};
+};
 } foreach _cover;
 
 //player sidechat format ["_cover REACT: %1",(count _cover)];
