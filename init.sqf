@@ -6,11 +6,9 @@ hells_fnc_unitKnifeAnim = {
 
     _unit = _this select 0;
 
-    if (local _unit) then {
-        _unit SetUnitPos "UP";
-        _unit playActionNow "gesturePoint";
-        _unit disableAI "MOVE";
-    };
+    _unit SetUnitPos "UP";
+    _unit playActionNow "gesturePoint";
+    _unit disableAI "MOVE";
 
 };
 
@@ -24,7 +22,13 @@ hells_fnc_unitKnifeAnim = {
 //AI Flashlights and the likes
 [] execVM "Scripts\hells_handler.sqf";
 
-player addMPEventHandler ["MPRespawn", {_this spawn FNC_Del_Corpse;}];
+player addMPEventHandler ["MPRespawn", {
+
+            (_this select 0) addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
+
+            _this spawn FNC_Del_Corpse;
+
+        }];
 
 player addEventHandler ["HandleDamage",{
 
@@ -65,8 +69,6 @@ GAM_TimeXlerationMP = [0.08333333, 15, true, 30] execVM "GAM\GAM_TimeXleration\s
 
 TAG_fnc_respawn = {
             Flip_Action = (_this select 0) addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
-
-            (_this select 0) addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
         };
 
 if (!isDedicated) then {
@@ -75,8 +77,6 @@ if (!isDedicated) then {
                 call TAG_fnc_respawn;
             }];
 	Flip_Action = player addAction ["Flip Vehicle", "FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
-
-    player addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)&&(side cursorTarget != side _this)&&(cursorTarget isKindOf 'Man')"];
 };
 
 //Squad Managers

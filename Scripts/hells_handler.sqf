@@ -40,14 +40,9 @@ sleep 0.1;
 
 player addMPEventHandler ["MPHit", {
 
-		sleep 0.1;
-
 		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
 		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
-
-		_thisUnit = _this select 0;
-		_source = _this select 1;
 
     }];
 
@@ -68,13 +63,9 @@ player addMPEventHandler ["MPRespawn", {
 
 		_respawn = profileNamespace getVariable "saveLoadout";
 
-		sleep 5;
-
 		player enableFatigue false;
 
         [player, _respawn, ["ammo"]] spawn setLoadout;
-
-        sleep 5;
 
         _respawn = profileNamespace getVariable "saveLoadout";
 
@@ -84,7 +75,11 @@ player addMPEventHandler ["MPRespawn", {
 
         saveProfileNamespace;
 
-        [player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+        _insignia = player call BIS_fnc_getUnitInsignia;
+
+		if((isNil ("_insignia")) || (_insignia != "Praxus_insignia")) then {
+			[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+		}
 
     }];
 
@@ -130,13 +125,19 @@ sleep 0.1;
 
 				_x enableFatigue false;
 
-				[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+				_x addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
 			};
 
 			if(isPlayer _x) then {
 
 				player setfatigue 0;
+
+				_insignia = player call BIS_fnc_getUnitInsignia;
+
+				if((isNil ("_insignia")) || (_insignia != "Praxus_insignia")) then {
+					[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
+				}
 
 			};
 
@@ -147,6 +148,3 @@ sleep 0.1;
 
 	};
 };
-
-
-

@@ -91,7 +91,7 @@ if(_last == 1) then {
 
 	_baseDmg = _dmg;
 
-	 _oldDamage = 0;
+	_oldDamage = 0;
 
 	switch(_loc)do{
 	    case("head"):{_oldDamage = _unit getHitPointDamage "HitHead";};
@@ -136,15 +136,6 @@ if(_last == 1) then {
 
 	if(doDiagLog == 1) then {
 
-		//tAr = [_this] call cse_fnc_getAllSetVariables;{ diag_log _x;} foreach (tAr);
-		//["cse_bodyPartStatus","ARRAY",[1.07019e-005,1.7486e-005,0,0.000126613,0.767234,0],false,false]
-
-		//diag_log [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;
-		//tAr = [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;{ diag_log _x;} foreach (tAr);
-
-		//diag_log [_this, "cse_bodyPartStatus"] call cse_fnc_getVariable;
-		//tAr = ["cse_bodyPartStatus"] call cse_fnc_getVariableDefault;{ diag_log _x;} foreach (tAr);
-
 		_nDMG = 0;
 
 		switch(_loc)do{
@@ -159,10 +150,10 @@ if(_last == 1) then {
 
 		_aDMG = damage _unit;
 
-		_baseDmg = [_baseDmg, 1, 5] call CBA_fnc_formatNumber;
-		_dmgT = [_dmgT, 1, 5] call CBA_fnc_formatNumber;
-		_uDMG = [_uDMG, 1, 5] call CBA_fnc_formatNumber;
-		_oldDamage = [_oldDamage, 1, 5] call CBA_fnc_formatNumber;
+		_baseDmg = 		[_baseDmg, 1, 5] call CBA_fnc_formatNumber;
+		_dmgT = 		[_dmgT, 1, 5] call CBA_fnc_formatNumber;
+		_uDMG = 		[_uDMG, 1, 5] call CBA_fnc_formatNumber;
+		_oldDamage = 	[_oldDamage, 1, 5] call CBA_fnc_formatNumber;
 
 		diag_log format [
 			"Unit: %1 | BaseDS: %2 | ModDS: %3 | UnitDB: %4  | OldDB: %5 | NewDS: %6 | ApplyDS: %7 | LOC: %8 | PROJ: %9",
@@ -177,7 +168,6 @@ if(_last == 1) then {
 			_proj 		//projectile name
 		];
 	};
-
 };
 
 hells_fnc_headDmg = {
@@ -188,15 +178,13 @@ hells_fnc_headDmg = {
     _dm = _this select 1; //dmg
     _od = _this select 2; //old dmg
 
-    //_un setHitPointDamage ["hitHead",(_od + (_dm/4))];
-
 	switch(true)do{
-		case(_dm < 0.25):{	_dm = _dm / 1.2;		};
-		case(_dm < 0.5):{	_dm = _dm / 1.4;		};
-		case(_dm < 0.9):{	_dm = _dm / 1.6;		};
-	    case(_dm < 1):{	    _dm = _dm / 1.25;		};
-	    case(_dm < 2):{		_dm = _dm / 1.5;		};
-	    default{			_dm = _dm / 2;			};
+		case(_dm < 0.25):{	_dm = _dm / 1.2;	};
+		case(_dm < 0.5):{	_dm = _dm / 1.4;	};
+		case(_dm < 0.9):{	_dm = _dm / 1.6;	};
+	    case(_dm < 1):{	    _dm = _dm / 1.25;	};
+	    case(_dm < 2):{		_dm = _dm / 1.5;	};
+	    default{			_dm = _dm / 2;		};
 	};
 
 	_dm = _dm / 1.005;
@@ -213,17 +201,15 @@ hells_fnc_bodyDmg = {
     _dm = _this select 1; //dmg
     _od = _this select 2; //old dmg
 
-    //_un setHitPointDamage ["hitBody",(_od + (_dm/5))];
-
 	switch(true)do{
-		case(_dm < 0.25):{	_dm = _dm / 2;			};
-		case(_dm < 0.5):{	_dm = _dm / 2.5;		};
-		case(_dm < 0.9):{	_dm = _dm / 3;			};
-	    case(_dm < 1):{	   	_dm = _dm / 2.75;		};
-	    case(_dm < 2):{		_dm = _dm / 2.5;		};
-		case(_dm < 3):{		_dm = _dm / 3;			};
-		case(_dm < 4):{		_dm = _dm / 3.5;		};
-	    default{			_dm = _dm / 2;			};
+		case(_dm < 0.25):{	_dm = _dm / 2;		};
+		case(_dm < 0.5):{	_dm = _dm / 2.5;	};
+		case(_dm < 0.9):{	_dm = _dm / 3;		};
+	    case(_dm < 1):{	   	_dm = _dm / 2.75;	};
+	    case(_dm < 2):{		_dm = _dm / 2.5;	};
+		case(_dm < 3):{		_dm = _dm / 3;		};
+		case(_dm < 4):{		_dm = _dm / 3.5;	};
+	    default{			_dm = _dm / 2;		};
 	};
 
 	_dm = _dm / 1.01;
@@ -240,21 +226,19 @@ hells_fnc_legsDmg = {
     _dm = _this select 1; //dmg
     _od = _this select 2; //old dmg
 
-    //_un setHitPointDamage ["hitLegs",(_od + (_dm/5))];
-
 	switch(true)do{
-	    case(_dm < 0.25):{	_dm = _dm / 2.5;		};
-		case(_dm < 0.5):{	_dm = _dm / 2.25;		};
-		case(_dm < 0.9):{	_dm = _dm / 2;			};
-	    case(_dm < 1):{		_dm = _dm / 2.5;		};
-	    case(_dm < 2):{		_dm = _dm / 3;			};
-		case(_dm < 3):{		_dm = _dm / 3.5;		};
-		case(_dm < 4):{		_dm = _dm / 4;			};
-		case(_dm < 5):{		_dm = _dm / 4.5;		};
-	    default{			_dm = _dm / 2;	};
+	    case(_dm < 0.25):{	_dm = _dm / 2.5;	};
+		case(_dm < 0.5):{	_dm = _dm / 2.25;	};
+		case(_dm < 0.9):{	_dm = _dm / 2;		};
+	    case(_dm < 1):{		_dm = _dm / 2.5;	};
+	    case(_dm < 2):{		_dm = _dm / 3;		};
+		case(_dm < 3):{		_dm = _dm / 3.5;	};
+		case(_dm < 4):{		_dm = _dm / 4;		};
+		case(_dm < 5):{		_dm = _dm / 4.5;	};
+	    default{			_dm = _dm / 2;		};
 	};
 
-	_dm = _dm / 1.05;
+	_dm = _dm / 1.10;
 
 	_dm
 
@@ -268,8 +252,6 @@ hells_fnc_armsDmg = {
     _dm = _this select 1; //dmg
     _od = _this select 2; //old dmg
 
-    //_un setHitPointDamage ["hitHands",(_od + (_dm/6))];
-
 	switch(true)do{
 		case(_dm < 0.25):{ 	_dm = _dm / 3;		};
 		case(_dm < 0.5):{	_dm = _dm / 2.75;	};
@@ -279,10 +261,10 @@ hells_fnc_armsDmg = {
 		case(_dm < 3):{		_dm = _dm / 4;		};
 		case(_dm < 4):{		_dm = _dm / 4.5;	};
 		case(_dm < 5):{		_dm = _dm / 5;		};
-	    default{			_dm = _dm / 2;};
+	    default{			_dm = _dm / 2;		};
 	};
 
-	_dm = _dm / 1.04;
+	_dm = _dm / 1.15;
 
 	_dm
 
@@ -297,7 +279,7 @@ hells_fnc_baseDmg = {
     _od = _this select 2; //old dmg
 
     switch(true)do{
-		case(_dm < 0.25):{	_dm = _dm / 2;	};
+		case(_dm < 0.25):{	_dm = _dm / 2;		};
 		case(_dm < 0.5):{	_dm = _dm / 2.33;	};
 		case(_dm < 0.9):{	_dm = _dm / 2.66;	};
 	    case(_dm < 1):{		_dm = _dm / 3;		};
@@ -305,7 +287,7 @@ hells_fnc_baseDmg = {
 		case(_dm < 3):{		_dm = _dm / 4;		};
 		case(_dm < 4):{		_dm = _dm / 4.5;	};
 		case(_dm < 5):{		_dm = _dm / 5;		};
-	    default{			_dm = _dm / 2;};
+	    default{			_dm = _dm / 2;		};
 	};
 
 	_dm = _dm / 1.015;
