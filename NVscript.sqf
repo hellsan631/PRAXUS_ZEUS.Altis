@@ -38,7 +38,7 @@ while {true} do {
     ppRim = ppEffectCreate ["RadialBlur", 250];
     ppRim ppEffectAdjust [0.05, 0.05, 0.20, 0.28];
     ppRim ppEffectCommit 0;
-    ppRim ppEffectEnable true;
+    ppRim ppEffectEnable false;
     ppRim ppEffectForceInNVG true;
 
     // Color and Contrast

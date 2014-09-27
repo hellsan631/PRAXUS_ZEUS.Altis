@@ -38,34 +38,9 @@ sleep 20;
 
 sleep 0.1;
 
-player addMPEventHandler ["MPHit", {
-
-		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
-
-		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
-
-    }];
-
-sleep 0.1;
-
-player addMPEventHandler ["MPKilled", {
-
-		_respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
-
-		profileNamespace setVariable ["saveLoadout", _respawnLoadout];
-
-    }];
-
-sleep 0.1;
-
 // Load saved loadout (including ammo count) on respawn
 player addMPEventHandler ["MPRespawn", {
 
-		_respawn = profileNamespace getVariable "saveLoadout";
-
-		player enableFatigue false;
-
-        [player, _respawn, ["ammo"]] spawn setLoadout;
 
         _respawn = profileNamespace getVariable "saveLoadout";
 
