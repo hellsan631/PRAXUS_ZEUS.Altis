@@ -20,7 +20,6 @@ class Mission
 		"cse_sys_backblast",
 		"cse_sys_logistics",
 		"cse_sys_weaponrest",
-		"cse_sys_winddeflection",
 		"cse_sys_nightvision",
 		"cse_sys_field_rations",
 		"cse_sys_gestures"
@@ -41,7 +40,6 @@ class Mission
 		"cse_sys_advanced_interaction",
 		"cse_sys_backblast",
 		"cse_sys_logistics",
-		"cse_sys_winddeflection",
 		"cse_sys_field_rations",
 		"cse_sys_gestures",
 		"cse_sys_nightvision",
@@ -1484,14 +1482,14 @@ class Mission
 						items=1;
 						class Item0
 						{
-							value="1";
-							parentCls="cse_sys_winddeflection";
-							typeName="forAI";
+							value="3";
+							parentCls="cse_sys_logistics";
+							typeName="enableOption";
 						};
 					};
 					id=75;
 					side="LOGIC";
-					vehicle="cse_sys_winddeflection";
+					vehicle="cse_sys_logistics";
 					lock="UNLOCKED";
 					skill=0.060000002;
 				};
