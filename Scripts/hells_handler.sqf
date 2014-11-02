@@ -102,6 +102,8 @@ sleep 0.1;
 
 				_x addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
+				_x setVariable ["cse_sys_medical_enabled", false];
+
 			};
 
 			if(isPlayer _x) then {

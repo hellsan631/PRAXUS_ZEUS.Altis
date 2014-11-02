@@ -52,8 +52,6 @@ FNC_Del_Corpse = {_unit = _this select 1;
         [_tnt + 0.45,_tnt + 0.4,_tnt + 0.35,0.04],[_tnt + 0.4,_tnt + 0.35,_tnt + 0.3,0.01]],[0],0.1,0.1,"","",""];};
     deleteVehicle _unit;};
 
-GAM_TimeXlerationMP = [0.08333333, 15, true, 30] execVM "GAM\GAM_TimeXleration\scripts\timexleration-mp.sqf";
-
 0 = ["random", "cycling", [0.1, 0.2], [0.05, 0.4], [0, 0.8, 0, 0.5, 0, 0.7], 0, 0] execVM "Scripts\tort_DynamicWeather.sqf";
 
 [] execVM "NVscript.sqf";
