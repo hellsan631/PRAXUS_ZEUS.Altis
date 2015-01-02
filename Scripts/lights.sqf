@@ -30,5 +30,4 @@ for [{_i=0},{_i < (count _types)},{_i=_i+1}] do
 	sleep 1;
 
 	{_x setDamage _onoff} forEach _lamps;
-
 };

@@ -3,7 +3,7 @@ _dmg  = _this select 1;
 _loc  = _this select 2;
 _proj = _this select 3;
 
-run_damage = 1;
+run_damage = 0;
 doDiagLog = 0;
 
 if(doDiagLog == 1) then {

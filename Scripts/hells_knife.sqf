@@ -7,7 +7,8 @@ if ((isNil "_tar") || (isNull _tar)) exitWith {false;};
 if ((_tar isKindOf "Man")&&((_tar distance _caller) < 4)&&(side _tar != side _caller)) then {
 
 	[_caller] call hells_fnc_unitKnifeAnim;
-	knife_unit = _caller; publicVariable "hells_fnc_unitKnifeAnim";
+	knife_unit = _caller;
+	publicVariable "hells_fnc_unitKnifeAnim";
 
 	_tar setDamage 1;
 

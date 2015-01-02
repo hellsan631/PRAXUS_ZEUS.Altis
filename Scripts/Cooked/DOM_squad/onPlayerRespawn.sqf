@@ -3,10 +3,10 @@ _corpse = _this select 1;
 
 if (local _unit) then {
 	_corpse removeAction squad_mgmt_action;
-	
+
 	squad_mgmt_action = player addAction [
-		("<t color='#04cc6b'>" + "Squad Management" + "</t>"), 
-		Compile preprocessFileLineNumbers "DOM_squad\open_dialog.sqf", [], -80, false
+		("<t color='#04cc6b'>" + "Squad Management" + "</t>"),
+		Compile preprocessFileLineNumbers "Scripts\Cooked\DOM_squad\open_dialog.sqf", [], -80, false
 	];
 };
 
@@ -23,9 +23,9 @@ removeAllAssignedItems _unit;
 _unit addUniform "U_B_CombatUniform_mcam";
 _unit addVest "V_PlateCarrier1_rgr";
 _unit addHeadgear "H_HelmetB";
-	
+
 // Items
 _unit addWeapon "ItemMap";
 _unit addWeapon "ItemRadio";
 _unit addWeapon "ItemCompass";
-_unit addWeapon "ItemWatch";	
+_unit addWeapon "ItemWatch";

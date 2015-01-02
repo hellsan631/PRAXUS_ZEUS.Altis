@@ -7,41 +7,41 @@ MarkerName = 0; //Do not touch! Used to define a name for later use. DEBUG TOOL
 MarkerArray = []; //Do not touch! Used to define an array for later use. DEBUG TOOL
 
 //Compile important functions below.
-call compile preProcessFile "VCOMAI\FSMFunctions\configFunctions.sqf";
-FiredAtTarget = compile preprocessFile "VCOMAI\FSMFunctions\HitNear.sqf";
-AIPath = compile preprocessFile "VCOMAI\FSMFunctions\Aiwaypoint.sqf";
-VCOM_fnc_ClosestEnemy = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ClosestEnemy.sqf";
-VCOM_fnc_Garrison = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_Garrison.sqf";
-VCOM_fnc_LightGarrison = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_LightGarrison.sqf";
-Vcom_fnc_VehicleHandle = compile preprocessFile "VCOMAI\FSMFunctions\Vcom_fnc_VehicleHandle.sqf";
-VCOM_fnc_ClosestAllyWarn = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ClosestAllyWarn.sqf";
-//VCOM_fnc_KnockDown = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_KnockDown.sqf";
-VCOM_fnc_BlowBuilding = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_BlowBuilding.sqf";
-VCOM_fnc_HasMine = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_HasMine.sqf";
-VCOM_fnc_ReactToFireGrenade = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ReactToFireGrenade.sqf";
-//VCOM_fnc_ReactToFireSuppressed = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ReactToFireSuppressed.sqf";
-VCOM_fnc_classVehicle = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_classVehicle.sqf";
-VCOM_fnc_MagClass = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_MagClass.sqf";
-VCOM_fnc_ChangeFormation = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ChangeFormation.sqf";
-VCOM_fnc_CheckBag = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_CheckBag.sqf";
-VCOM_fnc_GuessDirection = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_GuessDirection.sqf";
-VCOM_fnc_ReactToFire = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ReactToFire.sqf";
+call compile preProcessFile "Scripts\Cooked\VCOMAI\FSMFunctions\configFunctions.sqf";
+FiredAtTarget = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\HitNear.sqf";
+AIPath = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\Aiwaypoint.sqf";
+VCOM_fnc_ClosestEnemy = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ClosestEnemy.sqf";
+VCOM_fnc_Garrison = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_Garrison.sqf";
+VCOM_fnc_LightGarrison = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_LightGarrison.sqf";
+Vcom_fnc_VehicleHandle = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\Vcom_fnc_VehicleHandle.sqf";
+VCOM_fnc_ClosestAllyWarn = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ClosestAllyWarn.sqf";
+//VCOM_fnc_KnockDown = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_KnockDown.sqf";
+VCOM_fnc_BlowBuilding = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_BlowBuilding.sqf";
+VCOM_fnc_HasMine = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_HasMine.sqf";
+VCOM_fnc_ReactToFireGrenade = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ReactToFireGrenade.sqf";
+//VCOM_fnc_ReactToFireSuppressed = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ReactToFireSuppressed.sqf";
+VCOM_fnc_classVehicle = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_classVehicle.sqf";
+VCOM_fnc_MagClass = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_MagClass.sqf";
+VCOM_fnc_ChangeFormation = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ChangeFormation.sqf";
+VCOM_fnc_CheckBag = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_CheckBag.sqf";
+VCOM_fnc_GuessDirection = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_GuessDirection.sqf";
+VCOM_fnc_ReactToFire = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ReactToFire.sqf";
 playMoveEverywhere = compileFinal "_this select 0 playMoveNow (_this select 1);";
 switchMoveEverywhere = compileFinal "_this select 0 switchMove (_this select 1);";
-Vcom_fnc_pack = compile preprocessFile "VCOMAI\FSMFunctions\Vcom_fnc_pack.sqf";
-Vcom_fnc_unpack = compile preprocessFile "VCOMAI\FSMFunctions\Vcom_fnc_unpack.sqf";
-//VCOM_fnc_HandledHeal = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_HandledHeal.sqf";
-VCOM_EraseMarkers = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_Erasemarker.sqf";
-//VCOM_DownedAI = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_DownedAI.sqf";
-VCOM_fnc_Artillery = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_Artillery.sqf";
-VCOM_fnc_ArtilleryCalled = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_ArtilleryCalled.sqf";
+Vcom_fnc_pack = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\Vcom_fnc_pack.sqf";
+Vcom_fnc_unpack = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\Vcom_fnc_unpack.sqf";
+//VCOM_fnc_HandledHeal = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_HandledHeal.sqf";
+VCOM_EraseMarkers = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_Erasemarker.sqf";
+//VCOM_DownedAI = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_DownedAI.sqf";
+VCOM_fnc_Artillery = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_Artillery.sqf";
+VCOM_fnc_ArtilleryCalled = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_ArtilleryCalled.sqf";
 
 //New Functions
-VCOM_fnc_DetermineRank = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_DetermineRank.sqf";
-VCOM_fnc_DetermineLeader = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_DetermineLeader.sqf";
-VCOM_fnc_EvasiveAI = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_EvasiveAI.sqf";
-VCOM_fnc_IsDriver = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_IsDriver.sqf";
-VCOM_fnc_HitAI = compile preprocessFile "VCOMAI\FSMFunctions\VCOM_fnc_HitAI.sqf";
+VCOM_fnc_DetermineRank = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_DetermineRank.sqf";
+VCOM_fnc_DetermineLeader = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_DetermineLeader.sqf";
+VCOM_fnc_EvasiveAI = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_EvasiveAI.sqf";
+VCOM_fnc_IsDriver = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_IsDriver.sqf";
+VCOM_fnc_HitAI = compile preprocessFile "Scripts\Cooked\VCOMAI\FSMFunctions\VCOM_fnc_HitAI.sqf";
 
 
 //AI ACCURACY SETTINGS - You can change these numbers below
@@ -174,7 +174,7 @@ sleep 0.25;
 if (local _x) then {
 _CheckVariable = _x getVariable "FSMRunning";
 if (isNil ("_CheckVariable")) then {_CheckVariable = 0;};
-if (!(isplayer _x) && (_CheckVariable == 0)) then {null = [_x] execFSM "AIBEHAVIORNEW.fsm";};
+if (!(isplayer _x) && (_CheckVariable == 0)) then {null = [_x] execFSM "Scripts\Cooked\VCOMAI\AIBEHAVIORNEW.fsm";};
 if ((isPlayer _x)  && (_CheckVariable == 0)) then {
 player setVariable ["VCOM_FiredTime", 0];
 player setVariable ["PLAYERCOMMANDER", 1];

@@ -5,9 +5,9 @@ if (!(isDedicated)) then {
 waitUntil {!isNull player && player == player};
 
 // Compile scripts
-getLoadout = compile preprocessFileLineNumbers 'Scripts\get_loadout.sqf';
-setLoadout = compile preprocessFileLineNumbers 'Scripts\set_loadout.sqf';
-fn_arrayAppend = compile preprocessFileLineNumbers 'Scripts\fn_arrayAppend.sqf';
+getLoadout = compile preprocessFileLineNumbers 'Scripts\Funcs\get_loadout.sqf';
+setLoadout = compile preprocessFileLineNumbers 'Scripts\Funcs\set_loadout.sqf';
+fn_arrayAppend = compile preprocessFileLineNumbers 'Scripts\Funcs\fn_arrayAppend.sqf';
 
 sleep 20;
 
@@ -41,7 +41,6 @@ sleep 0.1;
 // Load saved loadout (including ammo count) on respawn
 player addMPEventHandler ["MPRespawn", {
 
-
         _respawn = profileNamespace getVariable "saveLoadout";
 
 		player enableFatigue false;
@@ -55,6 +54,10 @@ player addMPEventHandler ["MPRespawn", {
 		if((isNil ("_insignia")) || (_insignia != "Praxus_insignia")) then {
 			[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
 		}
+
+		player addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
+
+        _this spawn FNC_Del_Corpse;
 
     }];
 
@@ -100,7 +103,7 @@ sleep 0.1;
 
 				_x enableFatigue false;
 
-				_x addAction ["<t color='#ff0000'>Knife</t>", "hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
+				_x addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
 				_x setVariable ["cse_sys_medical_enabled", false];
 
@@ -124,4 +127,35 @@ sleep 0.1;
 		sleep 4;
 
 	};
+};
+
+FNC_Del_Corpse = {
+
+    _unit = _this select 1;
+    _pos = getPos _unit;
+    _xpos = _pos select 0;
+    _ypos = _pos select 1;
+    _zpos = _pos select 2;
+
+    sleep 0.3;
+
+    for "_i" from 0 to 3 do {
+
+        _xvel = 0;
+        _yvel = 0;
+        _zvel = 0;
+        _tnt = 0;
+
+        drop[
+    		["A3\Data_F\ParticleEffects\Universal\universal.p3d",16,7,48],
+    		"","Billboard",0,1 + random 0.5,[_xpos,_ypos,_zpos],
+	        [_xvel,_yvel,_zvel],1,1.2,1.3,0,[2],[[0.55,0.5,0.45,0],[_tnt + 0.55,_tnt + 0.5,_tnt + 0.45,0.16],
+	        [_tnt + 0.55,_tnt + 0.5,_tnt + 0.45, 0.12],[_tnt + 0.5,_tnt + 0.45,_tnt + 0.4,0.08],
+	        [_tnt + 0.45,_tnt + 0.4,_tnt + 0.35,0.04],[_tnt + 0.4,_tnt + 0.35,_tnt + 0.3,0.01]],
+	        [0],0.1,0.1,"","",""
+        ];
+    };
+
+    deleteVehicle _unit;
+
 };

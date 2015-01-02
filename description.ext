@@ -1,14 +1,14 @@
-#include "taw_vd\dialog.hpp"
-#include "DOM_squad\SquadManagement.hpp"
-#include "VAS\menu.hpp"
+#include "Scripts\Cooked\taw_vd\dialog.hpp"
+#include "Scripts\Cooked\DOM_squad\SquadManagement.hpp"
+#include "Scripts\Cooked\VAS\menu.hpp"
 //#include "gvs\colors_include.hpp"
 //#include "gvs\control_include.hpp"
 //#include "gvs\stc_include.hpp"
 
 class CfgFunctions
 {
-	#include "VAS\cfgfunctions.hpp"
-	#include "taw_vd\CfgFunctions.hpp"
+	#include "Scripts\Cooked\VAS\cfgfunctions.hpp"
+	#include "Scripts\Cooked\taw_vd\CfgFunctions.hpp"
 };
 
 #ifndef _SUB
@@ -20,7 +20,7 @@ class CfgFunctions
 dev = "HellsAn631";
 author = "HellsAn631";
 //onLoadMission = "";
-overviewText = "Version <t font='PuristaBold'>1.0.4.0</t> Gear Save on Death, Knife Enemy, Player DMG Reduction (working?). Updated AI, Fixing Bugs";
+overviewText = "Version <t font='PuristaBold'>1.1.0.0</t> Overhaul";
 overviewTextLocked = "";
 
 enableDebugConsole = 1;
