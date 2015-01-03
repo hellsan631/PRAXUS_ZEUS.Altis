@@ -22,20 +22,7 @@ hells_fnc_unitKnifeAnim = {
 //AI Flashlights and the likes
 [] execVM "Scripts\hells_handler.sqf";
 
-player addEventHandler ["HandleDamage",{
-
-    _unit = _this select 0;
-    _loc  = _this select 1;
-    _dmg  = _this select 2;
-    _proj = _this select 4;
-
-    [_unit, _dmg, _loc, _proj] execVM "Scripts\playerdmg.sqf";
-
-    false
-
-}];
-
-[] execVM "Scripts\Main\NVscript.sqf";
+//[] execVM "Scripts\Main\NVscript.sqf";
 
 [
     10*60*10, // seconds to delete dead bodies (0 means don't delete)
