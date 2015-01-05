@@ -1,4 +1,5 @@
 _Unit = _this select 0;
+if (isPlayer _Unit) exitWith {};
 _myNearestEnemy = _this select 1;
 //_Unit setUnitPosWeak "DOWN";
 _CheckIfThrow = _Unit getVariable "GRENADETHROWN";

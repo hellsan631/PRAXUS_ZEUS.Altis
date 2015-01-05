@@ -1,9 +1,11 @@
 _Unit = _this select 0;
+if (isPlayer _Unit) exitWith {};
 _myNearestEnemy = _Unit findNearestEnemy (Position _Unit);
 
 _CheckIfThrow = _Unit getVariable "VCOM_GRENADETHROWN";
 
-if (_CheckIfThrow == 1) then {
+if (_CheckIfThrow == 1) then 
+{
 _Unit setVariable["VCOM_GRENADETHROWN",0,false];
 
 
@@ -25,7 +27,7 @@ _Unit = _this select 0;
 _CheckDistance = _this select 1;
 _myNearestEnemy = _this select 2;
 
-_DirectionSet = [_Unit, _myNearestEnemy] call BIS_fnc_dirTo;
+_DirectionSet = [_Unit,_myNearestEnemy] call BIS_fnc_dirTo;
 _Unit setDir _Directionset;
 
 
@@ -51,9 +53,10 @@ _DirectionSet = [_Unit, _myNearestEnemy] call BIS_fnc_dirTo;
 
 _Unit setDir _Directionset;
 
-if ((_Unit getVariable "VCOM_Unit_USESMOKE") == 1) then {
-_Unit setVariable["VCOM_Unit_USESMOKE",0,false];
-_Unit forceWeaponFire ["SmokeShellMuzzle","SmokeShellMuzzle"];
+if ((_Unit getVariable "VCOM_Unit_USESMOKE") == 1) then 
+{
+	_Unit setVariable["VCOM_Unit_USESMOKE",0,false];
+	_Unit forceWeaponFire ["SmokeShellMuzzle","SmokeShellMuzzle"];
 };
 
 

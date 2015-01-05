@@ -3,7 +3,7 @@
 
 _Unit = _this select 0;
 _nBuilding = nearestBuilding _Unit;
-if ((_nBuilding distance _Unit) > 200) exitWith {};
+if ((_nBuilding distance _Unit) > 500) exitWith {};
 _GrabVariable = _Unit getVariable "VCOM_GARRISONED";
 if (isNil "_GrabVariable") exitWith {};
 if (_GrabVariable == 1) exitWith {};
@@ -43,27 +43,28 @@ _LocationArray = _this select 0;
 _group_array = _this select 1;
 {
 //Following if statement for getting AI to move / re-try garrison somewhere else if building is full.
-if ((count _LocationArray) <= 0) then {
-_CurrentPos = getPos _x;
-_rnd = random 50;
-_dist = (_rnd + 50);
-_dir = random 360;
-_positions = [(_CurrentPos select 0) + (sin _dir) * _dist, (_CurrentPos select 1) + (cos _dir) * _dist, 0];
-_x doMove _positions;
-[_x] spawn {
-_Unit = _this select 0;
-_Unit setVariable ["VCOM_GARRISONED",0,false];
-sleep (30 + (random 60));
-_group	= group _Unit;
-_waypoint0 = _group addwaypoint[(getpos _Unit),0];
-_waypoint0 setwaypointtype "HOLD";
-_waypoint0 setWaypointSpeed "FULL";
-_waypoint0 setWaypointBehaviour "AWARE";
+if ((count _LocationArray) <= 0) then 
+{
+  _CurrentPos = getPos _x;
+  _rnd = random 50;
+  _dist = (_rnd + 50);
+  _dir = random 360;
+  _positions = [(_CurrentPos select 0) + (sin _dir) * _dist, (_CurrentPos select 1) + (cos _dir) * _dist, 0];
+  _x doMove _positions;
+  [_x] spawn {
+  _Unit = _this select 0;
+  _Unit setVariable ["VCOM_GARRISONED",0,false];
+  sleep (30 + (random 60));
+  _group	= group _Unit;
+  _waypoint0 = _group addwaypoint[(getpos _Unit),0];
+  _waypoint0 setwaypointtype "HOLD";
+  _waypoint0 setWaypointSpeed "FULL";
+  _waypoint0 setWaypointBehaviour "AWARE";
 };
 }
 else
 {
-_AttackPoint = _LocationArray select floor(random(count _LocationArray));
+_AttackPoint = _LocationArray select round(random(count _LocationArray));
 _PortLocationArray = _LocationArray;
 if (isNil "_AttackPoint") exitWith {};
 _LocationArray = _LocationArray - [_AttackPoint];
@@ -84,7 +85,7 @@ if (isNil "_GrabVariable") exitWith {};
 if (_GrabVariable == 0) exitWith {_KeepLooping = 0;};
 if (!(alive _Unit)) exitWith {_KeepLooping = 0;};
 sleep (30 + (random 120));
-_AttackPoint = _LocationArray select floor(random(count _LocationArray));
+_AttackPoint = _LocationArray select round(random(count _LocationArray));
 
 _Unit doMove _AttackPoint;
 _Unit commandMove _AttackPoint;

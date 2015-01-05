@@ -66,7 +66,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -82,7 +84,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -98,7 +102,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -114,7 +120,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -130,7 +138,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -146,7 +156,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -162,7 +174,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -178,7 +192,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -194,7 +210,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -210,7 +228,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -226,7 +246,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -241,7 +263,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -257,7 +281,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -273,7 +299,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -289,7 +317,9 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
 
 
@@ -305,5 +335,8 @@ _waypoint3 = _group addwaypoint[(getMarkerPos _marker1),0];
 _waypoint3 setwaypointtype "MOVE";
 _waypoint3 setWaypointSpeed "NORMAL";
 _waypoint3 setWaypointBehaviour "AWARE";
+_MarkerPos = (getMarkerPos _marker1);
 deleteMarker _marker1;
+_MarkerPos
 };
+_MarkerPos

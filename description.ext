@@ -1,13 +1,13 @@
 #include "Scripts\Cooked\taw_vd\dialog.hpp"
 #include "Scripts\Cooked\DOM_squad\SquadManagement.hpp"
-#include "Scripts\Cooked\VAS\menu.hpp"
+//#include "Scripts\Cooked\VAS\menu.hpp"
 //#include "gvs\colors_include.hpp"
 //#include "gvs\control_include.hpp"
 //#include "gvs\stc_include.hpp"
 
 class CfgFunctions
 {
-	#include "Scripts\Cooked\VAS\cfgfunctions.hpp"
+	//#include "Scripts\Cooked\VAS\cfgfunctions.hpp"
 	#include "Scripts\Cooked\taw_vd\CfgFunctions.hpp"
 };
 

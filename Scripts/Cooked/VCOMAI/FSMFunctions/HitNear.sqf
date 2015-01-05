@@ -8,7 +8,7 @@ if(_TimeShot == 0) then {
 
 //If framerate is below 30 - exit this script.
 _FrameRateCheck = diag_fps;
-if (_FrameRateCheck < 30) exitWith {};
+if (_FrameRateCheck <= 20) exitWith {};
 
 if (VCOM_AIDEBUG == 1) then {
 _arrow = "Sign_Sphere25cm_F" createVehicle (position _unit);
@@ -26,8 +26,15 @@ _unit setVariable ["VCOM_FiredTime",0,true];
 
 _pos = cursorTarget;
 if (isNull _pos) then {
+if (isPlayer _Unit) then {
 //Remember, screenToWorld is using UI coordinates! 
 _pos = screenToWorld [0.5,0.5];
+}
+else
+{
+_pos = assignedTarget _Unit;
+if (isNull _pos) then {_pos = getPosATL _Unit};
+};
 }
 else
 {

@@ -4,11 +4,7 @@ private["_group","_weapon","_position","_leader","_units","_gunner","_assistant"
 _Unit = _this select 3;
 _group = group _Unit;
 sleep 2;
-/*
-if (isNull _weapon) then {
-	_weapon = [_this, 1, grpNull] call bis_fnc_param;
-};
-*/
+
 _UnitGroups = units _group;
 _gunner = _this select 1;
 _weapon = 	_gunner getVariable "supportWeaponSetup";
@@ -16,7 +12,7 @@ _position = (getPos _gunner);
 _leader = 	leader _group;
 _type = 	typeOf _weapon;
 _gunner leaveVehicle _weapon;
-//_gunner setVariable ["USEDSTATICWEAP",_type,false];
+
 _gunnerStatic = _gunner getVariable "USEDSTATICWEAP";
 
 sleep 0.25;

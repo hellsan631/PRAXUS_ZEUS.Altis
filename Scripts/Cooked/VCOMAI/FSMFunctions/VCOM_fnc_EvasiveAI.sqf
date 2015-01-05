@@ -2,7 +2,7 @@
 // Modified on : 9/1/14 - Made animations global
 
 _Unit = _this select 0;
-
+if (isPlayer _Unit) exitWith {};
 _CurrentWeapon = currentWeapon _Unit;
 
 
@@ -16,7 +16,17 @@ _RandomChance = _RandomChance + _UnitNerves;
 //Idea to have units accidently discharge their weapons due to fear? Might be simply annoying. It depends on their nerves
 if(_RandomChance > 90) then
 {
-_Unit forceWeaponFire [_CurrentWeapon, "Single"];
+  _Unit forceWeaponFire [_CurrentWeapon, "Single"];
+};
+
+_GetDamage = getDammage _Unit;
+if (_GetDamage <= 0.3) then {
+	_Random0 = Random 100;
+	if (_Random0 >= 50) then 
+	{
+		[_Unit] call Vcom_fnc_RagDoll;
+	};
+
 };
 
 _RandomChance2 = random 100;

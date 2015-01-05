@@ -6,16 +6,29 @@ private ["_myNearestEnemy","_cover","_class","_return","_parents","_Unit","_item
 //If framerate is below 30 - exit this script.
 _FrameRateCheck = diag_fps;
 if (_FrameRateCheck <= 20) exitWith {};
-
 _Unit = _this select 0;
+if (isPlayer _Unit) exitWith {};
+_MovedRecently = _Unit getVariable "VCOM_CoverLite";
+if (_MovedRecently isEqualto 1) exitWith {};
+_Unit setVariable ["VCOM_CoverLite",1,false];
+null = _Unit spawn
+{
+	sleep 10;
+	_this setVariable ["VCOM_CoverLite",0,false];
+};
+
 //player sidechat format ["_Unit REACT: %1",_Unit];
 _Unit setUnitPos "MIDDLE";
 _myNearestEnemy = _Unit findNearestEnemy (getPosASL _Unit);
 //_myNearestEnemy = player;
 
 
-if (isNull _myNearestEnemy) then {
-_myNearestEnemy = [_Unit] call VCOM_fnc_ClosestEnemy;
+if (isNull _myNearestEnemy) then 
+{
+  _myNearestEnemy = [_Unit] call VCOM_fnc_ClosestEnemy;
+};
+if (isNil "_myNearestEnemy") exitWith
+{
 };
 
 //_cover = nearestobjects [position _Unit,["House","LandVehicle","Bag_Base","Object","ALL"],25];
@@ -88,10 +101,6 @@ if ((count _cover) < 1) exitWith
 			//_Unit disableAI "AUTOTARGET";
 			[_Unit,_coverPosition,_myNearestEnemy] spawn {
 			_Unit = _this select 0;
-			_RandomChance = random 100;
-			if (_RandomChance <= 50) then {
-				[_Unit] spawn VCOM_fnc_ReactToFireGrenade;
-			};
 			_coverPosition = _this select 1;
 			_myNearestEnemy = _this select 2;
 			//player sidechat format ["_Unit REACTFULL: %1",_Unit];

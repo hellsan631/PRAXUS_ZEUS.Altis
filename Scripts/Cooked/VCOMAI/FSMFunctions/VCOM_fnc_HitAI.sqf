@@ -2,6 +2,7 @@ private ["_AlreadyDown","_Unit"];
 
 _Unit = _this select 0;
 if (!((vehicle _Unit) == _Unit)) exitWith {};
+if (isPlayer _Unit) exitWith {};
 
 if (alive _Unit) then {
 _AlreadyDown = _x getVariable "VCOM_DOWNED";

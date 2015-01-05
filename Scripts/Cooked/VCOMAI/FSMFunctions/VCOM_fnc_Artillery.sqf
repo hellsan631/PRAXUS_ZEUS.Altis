@@ -31,6 +31,6 @@ if (_ArtyScan == 1) then {
 _Vehicle setVariable ["VCOM_ISARTILLERY",1,false];
 //player sidechat format ["Added Unit to Arty: %1",_Vehicle];
 //ArtilleryArray = ArtilleryArray + [_Vehicle];
-ArtilleryArray set [count ArtilleryArray,_Vehicle];
+ArtilleryArray pushBack _Vehicle;
 //null = [_Unit] execFSM "\VCOM_AI\AIBEHAVIORARTY.fsm";
 };

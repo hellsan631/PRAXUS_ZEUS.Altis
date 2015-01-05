@@ -5,7 +5,7 @@ item0[] = {"Begin_State",0,250,27.230743,699.276978,117.230728,749.276978,0.0000
 item1[] = {"_UseAI_NO",4,218,-71.160217,711.228455,12.189287,747.188538,50.000000,"_UseAI NO"};
 item2[] = {"_UseAI_YES",4,218,21.946590,631.422424,111.946579,681.422424,49.000000,"_UseAI YES"};
 item3[] = {"Exit_FSM",1,250,-162.567444,710.489441,-90.302032,745.710571,0.000000,"Exit FSM"};
-item4[] = {"Set_Basic",2,250,10.345207,565.656555,100.345222,615.656555,0.000000,"Set Basic"};
+item4[] = {"Set_Basic",2,4346,10.345207,565.656555,100.345222,615.656555,0.000000,"Set Basic"};
 item5[] = {"Check_Rank_0",4,218,194.015747,497.481567,284.015808,547.481567,50.000000,"Check Rank 0"};
 item6[] = {"Check_Rank_1",4,218,100.274544,496.195801,190.274536,546.195740,49.000000,"Check Rank 1"};
 item7[] = {"Check_Rank_2",4,218,9.396902,499.376831,99.396881,549.376648,48.000000,"Check Rank 2"};
@@ -21,7 +21,7 @@ item16[] = {"Rank_2",2,250,7.164059,422.508545,97.164139,472.508545,0.000000,"Ra
 item17[] = {"Rank_1",2,250,103.656487,419.327454,193.656586,469.327454,0.000000,"Rank 1"};
 item18[] = {"Rank_0",2,250,206.854980,419.556732,296.855072,469.556732,0.000000,"Rank 0"};
 item19[] = {"Moving_Along",8,218,-104.428688,274.632324,-14.428684,324.632324,0.000000,"Moving Along"};
-item20[] = {"Leader_Or_Not",2,4346,-103.217438,160.893967,-13.217361,210.893768,0.000000,"Leader" \n "Or" \n "Not"};
+item20[] = {"Leader_Or_Not",2,250,-103.217438,160.893967,-13.217361,210.893768,0.000000,"Leader" \n "Or" \n "Not"};
 item21[] = {"Leader",4,218,16.451950,186.622742,106.451927,236.622742,50.000000,"Leader"};
 item22[] = {"SubLeader",4,218,-247.013474,209.645706,-157.013489,259.645660,49.000000,"SubLeader"};
 item23[] = {"Normal_Unit",8,218,-157.555481,58.934967,-67.555428,108.934937,47.000000,"Normal Unit"};
@@ -52,7 +52,7 @@ item47[] = {"Driver_Checks",3,250,1904.140747,-94.314758,1994.140747,-44.314770,
 item48[] = {"Engaged",4,218,1453.574463,-154.612152,1543.574585,-104.612183,48.000000,"Engaged"};
 item49[] = {"FLANKBEHAVIOR",2,250,1585.198364,-162.254730,1675.198120,-112.254784,0.000000,"FLANKBEHAVIOR"};
 item50[] = {"Continue",8,218,1761.033081,-236.968628,1844.819702,-175.784363,30.000000,"Continue"};
-item51[] = {"CheckIfStatic",4,218,1643.172241,-330.866821,1733.172485,-280.866821,45.000000,"CheckIfStatic"};
+item51[] = {"CheckIfStatic",4,218,1643.172241,-330.866821,1733.172485,-280.866821,54.000000,"CheckIfStatic"};
 item52[] = {"SetupStatic",2,250,1658.376099,-412.999634,1748.376099,-362.999512,0.000000,"SetupStatic"};
 item53[] = {"LightGarrison",4,218,1747.932007,-318.423615,1837.932495,-268.423798,50.000000,"LightGarrison"};
 item54[] = {"Light_Garrison",2,250,1786.012817,-415.065643,1876.012817,-365.065399,0.000000,"Light Garrison"};
@@ -70,21 +70,21 @@ item65[] = {"Engaged_1",4,218,1987.588501,-209.015839,2085.585938,-155.588348,40
 item66[] = {"CheckNow",2,250,2063.547852,-279.701294,2153.547852,-229.701080,0.000000,"CheckNow"};
 item67[] = {"Wait2",4,218,2059.702637,-354.019226,2153.006348,-303.396667,0.000000,"Wait2"};
 item68[] = {"Engaged",4,218,2173.284668,-205.489899,2271.282227,-152.062469,40.000000,"Engaged"};
-item69[] = {"Wait",4,218,-185.234711,-1394.484253,-123.551567,-1364.161987,0.000000,"Wait"};
+item69[] = {"Wait",4,218,-218.941376,-1404.742798,-157.258240,-1374.420532,0.000000,"Wait"};
 item70[] = {"Wait",4,218,-2373.793945,294.121368,-2312.110840,324.443573,0.000000,"Wait"};
 item71[] = {"",7,210,470.327942,-1241.219238,478.327942,-1233.219238,0.000000,""};
 item72[] = {"MoveToCover",4,218,92.772667,-1331.388184,182.772888,-1281.388184,49.000000,"MoveToCover"};
 item73[] = {"Acc__Discharge__1",3,250,220.445282,-1337.826904,310.445221,-1287.826904,0.000000,"Acc. Discharge&" \n "Evasive" \n "Moves"};
-item74[] = {"Wait",4,218,361.050385,-1337.440918,422.733490,-1307.118896,0.000000,"Wait"};
+item74[] = {"Wait",4,218,328.737396,-1320.822754,390.420502,-1290.500732,0.000000,"Wait"};
 item75[] = {"",7,210,470.172791,-1328.876465,478.172791,-1320.876465,0.000000,""};
 item76[] = {"Suppressed",4,218,102.676537,-1404.047607,192.676758,-1354.047607,50.000000,"Suppressed"};
 item77[] = {"Find_Cover_Immed_1",3,250,217.989532,-1406.281982,307.989471,-1356.281982,0.000000,"Find Cover" \n "Immediately"};
-item78[] = {"Wait",4,218,364.023773,-1415.739990,425.706879,-1385.417725,0.000000,"Wait"};
+item78[] = {"Wait",4,218,328.017853,-1398.198608,389.700958,-1367.876343,0.000000,"Wait"};
 item79[] = {"",7,210,473.481018,-1406.225586,481.481018,-1398.225586,0.000000,""};
 item80[] = {"InVehicle",4,218,106.457123,-1468.223633,196.457550,-1418.223633,52.000000,"InVehicle"};
-item81[] = {"IsDriver_Check_1",3,250,233.296783,-1480.905029,323.296844,-1430.905029,0.000000,"IsDriver Check"};
-item82[] = {"NotDriver",4,218,356.637054,-1456.366455,418.320282,-1426.044189,49.000000,"NotDriver"};
-item83[] = {"IsDriver",4,218,353.766937,-1496.703857,415.450165,-1466.381592,50.000000,"IsDriver"};
+item81[] = {"IsDriver_Check_1",3,250,213.908981,-1476.288940,303.909180,-1426.288940,0.000000,"IsDriver Check"};
+item82[] = {"NotDriver",4,218,400.028809,-1454.520020,461.712036,-1424.197754,49.000000,"NotDriver"};
+item83[] = {"IsDriver",4,218,397.158691,-1485.625000,458.841919,-1455.302734,50.000000,"IsDriver"};
 item84[] = {"",7,210,467.740784,-1453.104248,475.740784,-1445.104248,0.000000,""};
 item85[] = {"Driver_Checks_1",3,250,555.382751,-1516.517578,645.382751,-1466.517578,0.000000,"Driver Checks"};
 item86[] = {"Engaged",4,218,104.816429,-1576.814941,194.816498,-1526.814941,48.000000,"Engaged"};
@@ -165,6 +165,16 @@ item160[] = {"Dead_Captain_11",1,250,-4.338428,-1886.321655,85.660873,-1836.3216
 item161[] = {"Wait",4,218,541.601807,-1438.300659,603.284912,-1407.978638,0.000000,"Wait"};
 item162[] = {"Wait",4,218,1874.369385,-26.394144,1936.052490,3.927878,0.000000,"Wait"};
 item163[] = {"Wait",4,218,-1929.287354,-207.062592,-1867.604248,-176.740570,0.000000,"Wait"};
+item164[] = {"IsPlayer",4,218,6.864777,57.481201,96.864761,107.481163,60.000000,"IsPlayer"};
+item165[] = {"Exit_Player",1,250,124.390213,61.109131,214.390121,111.109123,0.000000,"Exit Player"};
+item166[] = {"",7,210,418.548309,-1361.354004,426.548309,-1353.354004,0.000000,""};
+item167[] = {"",7,210,1790.266479,129.263763,1798.266479,137.263748,0.000000,""};
+item168[] = {"",7,210,381.312103,-1422.594116,389.312103,-1414.594116,0.000000,""};
+item169[] = {"",7,210,-2056.885742,-150.030396,-2048.885742,-142.030396,0.000000,""};
+item170[] = {"_UseAI_NO",4,218,-224.022461,89.390862,-134.022324,139.390900,1000.000000,"_UseAI NO"};
+item171[] = {"NO_AI",1,250,-281.529327,24.021221,-191.529358,74.021225,0.000000,"NO AI"};
+item172[] = {"_UseAI_NO_1",4,218,-292.322998,106.719582,-202.322800,156.719620,999.000000,"_UseAI NO"};
+item173[] = {"NO_AI_1",1,250,-412.543976,47.239002,-322.544006,97.239014,0.000000,"NO AI"};
 version=1;
 class LayoutItems
 {
@@ -226,181 +236,191 @@ link26[] = {20,21};
 link27[] = {20,22};
 link28[] = {20,23};
 link29[] = {20,137};
-link30[] = {21,24};
-link31[] = {22,26};
-link32[] = {23,27};
-link33[] = {24,25};
-link34[] = {24,28};
-link35[] = {24,34};
-link36[] = {24,38};
-link37[] = {24,42};
-link38[] = {24,48};
-link39[] = {24,139};
-link40[] = {25,32};
-link41[] = {26,70};
-link42[] = {26,135};
-link43[] = {26,149};
-link44[] = {27,69};
-link45[] = {27,72};
-link46[] = {27,76};
-link47[] = {27,80};
-link48[] = {27,86};
-link49[] = {27,153};
-link50[] = {28,29};
-link51[] = {29,30};
-link52[] = {30,31};
-link53[] = {31,33};
-link54[] = {32,20};
-link55[] = {33,32};
-link56[] = {34,35};
-link57[] = {35,36};
-link58[] = {36,37};
-link59[] = {37,31};
-link60[] = {38,39};
-link61[] = {39,40};
-link62[] = {40,41};
-link63[] = {41,37};
-link64[] = {42,43};
-link65[] = {43,44};
-link66[] = {43,45};
-link67[] = {44,46};
-link68[] = {45,47};
-link69[] = {46,41};
-link70[] = {47,64};
-link71[] = {47,65};
-link72[] = {47,68};
-link73[] = {47,141};
-link74[] = {47,162};
-link75[] = {48,49};
-link76[] = {49,50};
-link77[] = {49,51};
-link78[] = {49,53};
-link79[] = {49,55};
-link80[] = {49,58};
-link81[] = {49,139};
-link82[] = {50,62};
-link83[] = {51,52};
-link84[] = {52,60};
-link85[] = {53,54};
-link86[] = {54,60};
-link87[] = {55,56};
-link88[] = {56,60};
-link89[] = {58,59};
-link90[] = {59,60};
-link91[] = {60,61};
-link92[] = {61,63};
-link93[] = {62,46};
-link94[] = {63,46};
-link95[] = {64,66};
-link96[] = {65,66};
-link97[] = {66,67};
-link98[] = {66,143};
-link99[] = {67,63};
-link100[] = {68,66};
-link101[] = {69,20};
-link102[] = {70,20};
-link103[] = {71,20};
-link104[] = {72,73};
-link105[] = {73,74};
-link106[] = {74,75};
-link107[] = {75,71};
-link108[] = {76,77};
-link109[] = {77,78};
-link110[] = {78,79};
-link111[] = {79,75};
-link112[] = {80,81};
-link113[] = {81,82};
-link114[] = {81,83};
-link115[] = {82,84};
-link116[] = {83,85};
-link117[] = {84,79};
-link118[] = {85,98};
-link119[] = {85,99};
-link120[] = {85,102};
-link121[] = {85,155};
-link122[] = {85,161};
-link123[] = {86,87};
-link124[] = {87,88};
-link125[] = {87,89};
-link126[] = {87,91};
-link127[] = {87,159};
-link128[] = {88,96};
-link129[] = {89,90};
-link130[] = {90,94};
-link131[] = {91,92};
-link132[] = {92,94};
-link133[] = {94,95};
-link134[] = {95,97};
-link135[] = {96,84};
-link136[] = {97,96};
-link137[] = {98,100};
-link138[] = {99,100};
-link139[] = {100,101};
-link140[] = {100,157};
-link141[] = {101,97};
-link142[] = {102,100};
-link143[] = {103,20};
-link144[] = {104,105};
-link145[] = {105,106};
-link146[] = {106,107};
-link147[] = {107,103};
-link148[] = {108,109};
-link149[] = {109,110};
-link150[] = {110,111};
-link151[] = {111,107};
-link152[] = {112,113};
-link153[] = {113,114};
-link154[] = {113,115};
-link155[] = {114,116};
-link156[] = {115,117};
-link157[] = {116,111};
-link158[] = {117,130};
-link159[] = {117,131};
-link160[] = {117,134};
-link161[] = {117,145};
-link162[] = {117,163};
-link163[] = {118,119};
-link164[] = {119,120};
-link165[] = {119,121};
-link166[] = {119,123};
-link167[] = {119,151};
-link168[] = {120,128};
-link169[] = {121,122};
-link170[] = {122,126};
-link171[] = {123,124};
-link172[] = {124,126};
-link173[] = {126,127};
-link174[] = {127,129};
-link175[] = {128,116};
-link176[] = {129,128};
-link177[] = {130,132};
-link178[] = {131,132};
-link179[] = {132,133};
-link180[] = {132,147};
-link181[] = {133,129};
-link182[] = {134,132};
-link183[] = {135,136};
-link184[] = {136,104};
-link185[] = {136,108};
-link186[] = {136,112};
-link187[] = {136,118};
-link188[] = {137,138};
-link189[] = {139,140};
-link190[] = {141,142};
-link191[] = {143,144};
-link192[] = {145,146};
-link193[] = {147,148};
-link194[] = {149,150};
-link195[] = {151,152};
-link196[] = {153,154};
-link197[] = {155,156};
-link198[] = {157,158};
-link199[] = {159,160};
-link200[] = {161,75};
-link201[] = {162,31};
-link202[] = {163,107};
-globals[] = {0.000000,0,0,0,0,640,480,2,269,6316128,1,-588.444641,3901.187012,1400.156372,-1982.849976,1209,911,1};
-window[] = {2,-1,-1,-1,-1,1050,75,1472,75,3,1227};
+link30[] = {20,164};
+link31[] = {20,170};
+link32[] = {20,172};
+link33[] = {21,24};
+link34[] = {22,26};
+link35[] = {23,27};
+link36[] = {24,25};
+link37[] = {24,28};
+link38[] = {24,34};
+link39[] = {24,38};
+link40[] = {24,42};
+link41[] = {24,48};
+link42[] = {24,139};
+link43[] = {25,32};
+link44[] = {26,70};
+link45[] = {26,135};
+link46[] = {26,149};
+link47[] = {27,69};
+link48[] = {27,72};
+link49[] = {27,76};
+link50[] = {27,80};
+link51[] = {27,86};
+link52[] = {27,153};
+link53[] = {28,29};
+link54[] = {29,30};
+link55[] = {30,167};
+link56[] = {31,33};
+link57[] = {32,20};
+link58[] = {33,32};
+link59[] = {34,35};
+link60[] = {35,36};
+link61[] = {36,167};
+link62[] = {37,31};
+link63[] = {38,39};
+link64[] = {39,40};
+link65[] = {40,167};
+link66[] = {41,37};
+link67[] = {42,43};
+link68[] = {43,44};
+link69[] = {43,45};
+link70[] = {44,46};
+link71[] = {45,47};
+link72[] = {46,41};
+link73[] = {47,64};
+link74[] = {47,65};
+link75[] = {47,68};
+link76[] = {47,141};
+link77[] = {47,162};
+link78[] = {48,49};
+link79[] = {49,50};
+link80[] = {49,51};
+link81[] = {49,53};
+link82[] = {49,55};
+link83[] = {49,58};
+link84[] = {49,139};
+link85[] = {50,62};
+link86[] = {51,52};
+link87[] = {52,60};
+link88[] = {53,54};
+link89[] = {54,60};
+link90[] = {55,56};
+link91[] = {56,60};
+link92[] = {58,59};
+link93[] = {59,60};
+link94[] = {60,61};
+link95[] = {61,63};
+link96[] = {62,46};
+link97[] = {63,46};
+link98[] = {64,66};
+link99[] = {65,66};
+link100[] = {66,67};
+link101[] = {66,143};
+link102[] = {67,63};
+link103[] = {68,66};
+link104[] = {69,20};
+link105[] = {70,20};
+link106[] = {71,20};
+link107[] = {72,73};
+link108[] = {73,74};
+link109[] = {74,166};
+link110[] = {75,71};
+link111[] = {76,77};
+link112[] = {77,78};
+link113[] = {78,166};
+link114[] = {79,75};
+link115[] = {80,81};
+link116[] = {81,82};
+link117[] = {81,83};
+link118[] = {82,84};
+link119[] = {83,85};
+link120[] = {84,79};
+link121[] = {85,98};
+link122[] = {85,99};
+link123[] = {85,102};
+link124[] = {85,155};
+link125[] = {85,161};
+link126[] = {86,87};
+link127[] = {87,88};
+link128[] = {87,89};
+link129[] = {87,91};
+link130[] = {87,159};
+link131[] = {88,96};
+link132[] = {89,90};
+link133[] = {90,94};
+link134[] = {91,92};
+link135[] = {92,94};
+link136[] = {94,95};
+link137[] = {95,97};
+link138[] = {96,84};
+link139[] = {97,96};
+link140[] = {98,100};
+link141[] = {99,100};
+link142[] = {100,101};
+link143[] = {100,157};
+link144[] = {101,97};
+link145[] = {102,100};
+link146[] = {103,20};
+link147[] = {104,105};
+link148[] = {105,106};
+link149[] = {106,169};
+link150[] = {107,103};
+link151[] = {108,109};
+link152[] = {109,110};
+link153[] = {110,169};
+link154[] = {111,107};
+link155[] = {112,113};
+link156[] = {113,114};
+link157[] = {113,115};
+link158[] = {114,116};
+link159[] = {115,117};
+link160[] = {116,111};
+link161[] = {117,130};
+link162[] = {117,131};
+link163[] = {117,134};
+link164[] = {117,145};
+link165[] = {117,163};
+link166[] = {118,119};
+link167[] = {119,120};
+link168[] = {119,121};
+link169[] = {119,123};
+link170[] = {119,151};
+link171[] = {120,128};
+link172[] = {121,122};
+link173[] = {122,126};
+link174[] = {123,124};
+link175[] = {124,126};
+link176[] = {126,127};
+link177[] = {127,129};
+link178[] = {128,116};
+link179[] = {129,128};
+link180[] = {130,132};
+link181[] = {131,132};
+link182[] = {132,133};
+link183[] = {132,147};
+link184[] = {133,129};
+link185[] = {134,132};
+link186[] = {135,136};
+link187[] = {136,104};
+link188[] = {136,108};
+link189[] = {136,112};
+link190[] = {136,118};
+link191[] = {137,138};
+link192[] = {139,140};
+link193[] = {141,142};
+link194[] = {143,144};
+link195[] = {145,146};
+link196[] = {147,148};
+link197[] = {149,150};
+link198[] = {151,152};
+link199[] = {153,154};
+link200[] = {155,156};
+link201[] = {157,158};
+link202[] = {159,160};
+link203[] = {161,75};
+link204[] = {162,31};
+link205[] = {163,107};
+link206[] = {164,165};
+link207[] = {166,168};
+link208[] = {167,49};
+link209[] = {168,87};
+link210[] = {169,119};
+link211[] = {170,171};
+link212[] = {172,173};
+globals[] = {0.000000,0,0,0,0,640,480,2,281,6316128,1,-756.490662,333.265656,783.717163,-66.453682,1219,951,1};
+window[] = {2,-1,-1,-1,-1,1059,2135,3532,84,3,1237};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -413,7 +433,7 @@ class FSM
       name = "Begin_State";
       init = /*%FSM<STATEINIT""">*/"_Unit = _this select 0;" \n
        "" \n
-       "_Unit setVariable [""FSMRunning"",1,true];" \n
+       "_Unit setVariable [""FSMRunning"",1,false];" \n
        "" \n
        "if (VCOM_AIDEBUG == 1) then {" \n
        "[_Unit] spawn {" \n
@@ -517,8 +537,10 @@ class FSM
       name = "Set_Basic";
       init = /*%FSM<STATEINIT""">*/"" \n
        "_RankReturn = [_Unit] call VCOM_fnc_DetermineRank;" \n
-       "" \n
-       "" \n
+       "_CheckEventHandlers = _Unit getvariable ""FSMHandleEvents"";" \n
+       "if (isNil ""_CheckEventHandlers"") then {_CheckEventHandlers = 0};" \n
+       "_Unit setVariable [""FSMHandleEvents"",0,false];" \n
+       "if (_CheckEventHandlers isEqualTo 0) then {" \n
        "_Unit setVariable [""VCOM_GroupLeader"",0,false];" \n
        "_Unit setVariable [""VCOM_SubLeader"",0,false];" \n
        "_Unit setVariable [""VCOM_CHANGEDFORMATION"",0,false];" \n
@@ -542,7 +564,9 @@ class FSM
        "_Unit setVariable [""VCOM_HASDEPLOYED"",0,false];" \n
        "_Unit setVariable [""VCOM_DOWNED"",0,false];" \n
        "_Unit setVariable [""VCOM_GRENADETHROWN"",1,false];" \n
-       "" \n
+       "_Unit setVariable [""VCOM_FlankHalfPoint"",Nil,false];" \n
+       "_Unit setVariable [""VCOM_CoverLite"",0,false];" \n
+       "_Unit setVariable [""VCOM_DriverDetectionIsDriver"",0,false];" \n
        "" \n
        "_UnitSide = (side _Unit);" \n
        "_Unit setVariable [""VCOMSIDE"",_UnitSide,false];" \n
@@ -552,7 +576,8 @@ class FSM
        "" \n
        "_Unit addEventHandler [""Fired"",{[_this] call FiredAtTarget;}];" \n
        "_Unit addEventHandler [""Killed"",{_this call VCOM_fnc_ClosestAllyWarn;}];" \n
-       "_Unit addEventHandler [""Hit"",{_this call VCOM_fnc_HitAI;}];"/*%FSM</STATEINIT""">*/;
+       "_Unit addEventHandler [""Hit"",{_this call VCOM_fnc_HitAI;}];" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -816,7 +841,7 @@ class FSM
     {
       name = "Leader_Or_Not";
       init = /*%FSM<STATEINIT""">*/"_PositionCheck = [_unit] call VCOM_fnc_DetermineLeader;" \n
-       "" \n
+       "_AICOMMANDER = 0;" \n
        "_Leader = _PositionCheck select 0;" \n
        "_SubLeader = _PositionCheck select 1;" \n
        "" \n
@@ -828,10 +853,51 @@ class FSM
        "if ((_Unit getVariable ""VCOM_Unit_Artillery"") == 1) then {" \n
        "[_Unit] spawn VCOM_fnc_Artillery;" \n
        "};" \n
-       "};"/*%FSM</STATEINIT""">*/;
+       "};" \n
+       "" \n
+       "if (NOAI_FOR_PLAYERLEADERS isEqualTo 1) then {" \n
+       "if (isPlayer (leader _unit) ) then {_AICOMMANDER = 1};" \n
+       "};" \n
+       "" \n
+       "//Determine if this AI should even execute new code" \n
+       "_UseAI = _Unit getVariable ""NOAI"";" \n
+       "if (isNil (""_UseAI"")) then {" \n
+       "_UseAI = 0;" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "_UseAI_NO">*/
+        class _UseAI_NO
+        {
+          priority = 1000.000000;
+          to="NO_AI";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_UseAI == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "_UseAI_NO_1">*/
+        class _UseAI_NO_1
+        {
+          priority = 999.000000;
+          to="NO_AI_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_AICOMMANDER == 1"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "IsPlayer">*/
+        class IsPlayer
+        {
+          priority = 60.000000;
+          to="Exit_Player";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isPlayer _Unit"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "Dead">*/
         class Dead
         {
@@ -893,6 +959,7 @@ class FSM
        "if (_BOTHERCHECKING == 0) then {" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
        "_UnitMoveToCover = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "[_Unit] spawn VCOM_fnc_ArmStatic;" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -987,6 +1054,7 @@ class FSM
        "if (_BOTHERCHECKING == 0) then {" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
        "_UnitMoveToCover = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "[_Unit] spawn VCOM_fnc_ArmStatic;" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -1069,6 +1137,7 @@ class FSM
        "if (_BOTHERCHECKING == 0) then {" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
        "_UnitMoveToCover = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "[_Unit] spawn VCOM_fnc_ArmStatic;" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -1152,7 +1221,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1187,7 +1256,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1221,7 +1290,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1269,7 +1338,17 @@ class FSM
       name = "Driver_Checks";
       init = /*%FSM<STATEINIT""">*/"_t = time;" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
-       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";"/*%FSM</STATEINIT""">*/;
+       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "" \n
+       "if (VCOM_ADVANCEDDRIVING isEqualTo 1) then {" \n
+       "_AlreadyExecuted = _Unit getVariable ""VCOM_DriverDetectionIsDriver"";" \n
+       "" \n
+       "if (_AlreadyExecuted isEqualTo 0) then " \n
+       "{" \n
+       "	_Unit setVariable [""VCOM_DriverDetectionIsDriver"",1,false];" \n
+       "	[_Unit] spawn VCOM_fnc_VehicleDetection;" \n
+       "};" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1343,7 +1422,10 @@ class FSM
        "" \n
        "_ClosestEnemy = _Unit findNearestEnemy (getPosASL _Unit);" \n
        "" \n
+       "[_Unit] call VCOM_fnc_ReactToFireLite;" \n
+       "" \n
        "if (!(isNull _ClosestEnemy)) then {" \n
+       "" \n
        "_CheckSatchel = _Unit getVariable ""VCOM_HASSATCHEL"";" \n
        "_CheckRecentPlant = _Unit getVariable ""VCOM_SATCHELRECENTLY"";" \n
        "" \n
@@ -1377,7 +1459,7 @@ class FSM
           priority = 55.000000;
           to="PlantTheSatch";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_CheckSatchel == 1 && _CheckRecentPlant == 0"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_CheckSatchel isEqualTo 1 && _CheckRecentPlant isEqualTo 0"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1391,6 +1473,16 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
+        /*%FSM<LINK "CheckIfStatic">*/
+        class CheckIfStatic
+        {
+          priority = 54.000000;
+          to="SetupStatic";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_CheckIfBag == 1 && _CheckDeployed == 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "LightGarrison">*/
         class LightGarrison
         {
@@ -1398,16 +1490,6 @@ class FSM
           to="Light_Garrison";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"_RandomGarrison < 3"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "CheckIfStatic">*/
-        class CheckIfStatic
-        {
-          priority = 45.000000;
-          to="SetupStatic";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_CheckIfBag == 1 && _CheckDeployed == 0;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1613,7 +1695,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR_1";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1648,7 +1730,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR_1";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1696,7 +1778,20 @@ class FSM
       name = "Driver_Checks_1";
       init = /*%FSM<STATEINIT""">*/"_t = time;" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
-       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";"/*%FSM</STATEINIT""">*/;
+       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "if (VCOM_ADVANCEDDRIVING isEqualTo 1) then {" \n
+       "_AlreadyExecuted = _Unit getvariable ""VCOM_DriverDetectionIsDriver"";" \n
+       "" \n
+       "if (_AlreadyExecuted isEqualTo 0) then " \n
+       "{" \n
+       "	_Unit setVariable [""VCOM_DriverDetectionIsDriver"",1,false];" \n
+       "	[_Unit] spawn VCOM_fnc_VehicleDetection;" \n
+       "};" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1768,7 +1863,10 @@ class FSM
        "" \n
        "_ClosestEnemy = _Unit findNearestEnemy (getPosASL _Unit);" \n
        "" \n
+       "[_Unit] call VCOM_fnc_ReactToFireLite;" \n
+       "" \n
        "if (!(isNull _ClosestEnemy)) then {" \n
+       "" \n
        "_CheckSatchel = _Unit getVariable ""VCOM_HASSATCHEL"";" \n
        "_CheckRecentPlant = _Unit getVariable ""VCOM_SATCHELRECENTLY"";" \n
        "" \n
@@ -1786,7 +1884,7 @@ class FSM
           priority = 55.000000;
           to="PlantTheSatch_1";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_CheckSatchel == 1 && _CheckRecentPlant == 0"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_CheckSatchel isEqualTo 1 && _CheckRecentPlant isEqualTo 0"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1806,7 +1904,7 @@ class FSM
           priority = 45.000000;
           to="SetupStatic_1";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_CheckIfBag == 1 && _CheckDeployed == 0;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_CheckIfBag isEqualTo 1 && _CheckDeployed isEqualTo 0;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1939,7 +2037,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR_2";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1973,7 +2071,7 @@ class FSM
         class Wait
         {
           priority = 0.000000;
-          to="Leader_Or_Not";
+          to="FLANKBEHAVIOR_2";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -2021,7 +2119,20 @@ class FSM
       name = "Driver_Checks_2";
       init = /*%FSM<STATEINIT""">*/"_t = time;" \n
        "_UnitSuppressed = _Unit getVariable ""VCOM_Suppressed"";" \n
-       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";"/*%FSM</STATEINIT""">*/;
+       "_GoingToCombat = _Unit getVariable ""VCOM_MOVINGTOCOVER"";" \n
+       "" \n
+       "" \n
+       "" \n
+       "if (VCOM_ADVANCEDDRIVING isEqualTo 1) then {" \n
+       "_AlreadyExecuted = _Unit getvariable ""VCOM_DriverDetectionIsDriver"";" \n
+       "" \n
+       "if (_AlreadyExecuted isEqualTo 0) then " \n
+       "{" \n
+       "	_Unit setVariable [""VCOM_DriverDetectionIsDriver"",1,false];" \n
+       "	[_Unit] spawn VCOM_fnc_VehicleDetection;" \n
+       "};" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -2093,6 +2204,8 @@ class FSM
        "" \n
        "_ClosestEnemy = _Unit findNearestEnemy (getPosASL _Unit);" \n
        "" \n
+       "[_Unit] call VCOM_fnc_ReactToFireLite;" \n
+       "" \n
        "if (!(isNull _ClosestEnemy)) then {" \n
        "_CheckSatchel = _Unit getVariable ""VCOM_HASSATCHEL"";" \n
        "_CheckRecentPlant = _Unit getVariable ""VCOM_SATCHELRECENTLY"";" \n
@@ -2112,7 +2225,7 @@ class FSM
           priority = 55.000000;
           to="PlantTheSatch_2";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_CheckSatchel == 1 && _CheckRecentPlant == 0"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_CheckSatchel isEqualTo 1 && _CheckRecentPlant isEqualTo 0"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -2212,6 +2325,7 @@ class FSM
       name = "CheckNow_2";
       init = /*%FSM<STATEINIT""">*/"_t = time;" \n
        "_myNearestEnemy = [_Unit] call VCOM_fnc_ClosestEnemy;" \n
+       "[_Unit] call VCOM_fnc_ReactToFire;" \n
        "[_Unit,_myNearestEnemy] spawn VCOM_fnc_VehicleHandle;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -2371,6 +2485,39 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
+    /*%FSM<STATE "Exit_Player">*/
+    class Exit_Player
+    {
+      name = "Exit_Player";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "NO_AI">*/
+    class NO_AI
+    {
+      name = "NO_AI";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "NO_AI_1">*/
+    class NO_AI_1
+    {
+      name = "NO_AI_1";
+      init = /*%FSM<STATEINIT""">*/"_Unit setVariable [""FSMHandleEvents"",1,false];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
   };
   initState="Begin_State";
   finalStates[] =
@@ -2388,6 +2535,9 @@ class FSM
     "Dead_Captain_9",
     "Dead_Captain_10",
     "Dead_Captain_11",
+    "Exit_Player",
+    "NO_AI",
+    "NO_AI_1",
   };
 };
 /*%FSM</COMPILE>*/
