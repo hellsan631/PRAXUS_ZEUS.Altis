@@ -111,7 +111,7 @@ waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {!(isnull (findDisplay 46))};
 };
 
-[] execVM "VCOMAI\CuratorControls\init.sqf";
+[] execVM "Scripts\Cooked\VCOMAI\CuratorControls\init.sqf";
 
 while {true} do {
 
