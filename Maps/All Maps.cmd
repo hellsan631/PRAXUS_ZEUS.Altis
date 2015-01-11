@@ -10,8 +10,6 @@ echo ....................
 
 echo Map Name (File Name)
 
-
-
 IF NOT "%ParentDir%"=="PRAXUS_ZEUS.Altis" XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.Bootcamp_ACR /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 IF NOT "%ParentDir%"=="PRAXUS_ZEUS.Altis" echo Altis (Altis) Copied...
 IF "%ParentDir%"=="PRAXUS_ZEUS.Altis" echo Skipped Altis Copy
@@ -61,16 +59,16 @@ echo Takistan (Takistan) Copied...
 XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.Sara_dbe1 /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 echo United Sahrani (Sara_dbe1) Copied...
 
-XCOPY ..\..\PRAXUS_ZEUS.Altis ..\..\PRAXUS_ZEUS.utes /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
+XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.utes /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 echo Utes (utes) Copied...
 
-XCOPY ..\..\PRAXUS_ZEUS.Altis ..\..\PRAXUS_ZEUS.VR /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
+XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.VR /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 echo Virtual Reality (VR) Copied...
 
-XCOPY ..\..\PRAXUS_ZEUS.Altis ..\..\PRAXUS_ZEUS.xcam_prototype /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
+XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.xcam_prototype /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 echo XCAM PROTOTYPE (xcam_prototype) Copied...
 
-XCOPY ..\..\PRAXUS_ZEUS.Altis ..\..\PRAXUS_ZEUS.Zargabad /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
+XCOPY ..\..\"%ParentDir%" ..\..\PRAXUS_ZEUS.Zargabad /E /I /D /Y /V /Q /EXCLUDE:exclude.txt
 echo Zargabad (Zargabad) Copied...
 
 echo ....................
