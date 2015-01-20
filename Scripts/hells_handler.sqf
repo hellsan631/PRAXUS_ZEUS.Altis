@@ -31,7 +31,7 @@ sleep 20;
 
     	};
 
-    	sleep 5;
+    	sleep 20;
 
     };
 };
