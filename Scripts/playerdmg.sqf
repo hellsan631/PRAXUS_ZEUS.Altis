@@ -3,8 +3,8 @@ _dmg  = _this select 1;
 _loc  = _this select 2;
 _proj = _this select 3;
 
-run_damage = 0;
-doDiagLog = 0;
+run_damage = 1;
+doDiagLog = 1;
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];

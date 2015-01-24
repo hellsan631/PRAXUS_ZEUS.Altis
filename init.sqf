@@ -19,6 +19,19 @@ hells_fnc_unitKnifeAnim = {
 
 };
 
+player addEventHandler ["HandleDamage",{
+
+    _unit = _this select 0;
+    _loc  = _this select 1;
+    _dmg  = _this select 2;
+    _proj = _this select 4;
+
+    [_unit, _dmg, _loc, _proj] execVM "Scripts\playerdmg.sqf";
+
+    false
+
+}];
+
 //AI Flashlights and the likes
 [] execVM "Scripts\hells_handler.sqf";
 
