@@ -48,6 +48,8 @@ player addMPEventHandler ["MPRespawn", {
 
         saveProfileNamespace;
 
+        player setVariable ["HellsHP", 100 ,true];
+
         _insignia = player call BIS_fnc_getUnitInsignia;
 
 		if((isNil ("_insignia")) || (_insignia != "Praxus_insignia")) then {
@@ -75,6 +77,8 @@ sleep 0.1;
 
 			if (isNil ("_CheckVariable")) then {
 				_CheckVariable = 0;
+				_x setVariable ["HellsCustom", 1 ,true];
+				_x setVariable ["HellsHP", 100 ,true];
 			};
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
@@ -91,14 +95,9 @@ sleep 0.1;
 
 				_x enableGunLights "forceOn";
 
-				_x setVariable ["HellsCustom", 1 ,true];
-
-
 			};
 
 			if((isPlayer _x) && (_CheckVariable == 0)) then {
-
-				_x setVariable ["HellsCustom",1,true];
 
 				_x addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
