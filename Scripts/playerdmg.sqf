@@ -5,7 +5,7 @@ _proj = _this select 3;
 
 run_damage = 1;
 do_damage = 1;
-doDiagLog = 1;
+doDiagLog = 0;
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
@@ -22,7 +22,6 @@ if((damage _unit) < 0.9) then {
 		_unit setVariable ["HellsHP", 100 ,true];
 		_HPB = 100;
 	};
-
 
 	if (isNil ("_dmgArray")) then {
 		_dmgArray = [[_unit, _dmg, _loc, _proj]];
@@ -114,7 +113,7 @@ if((damage _unit) < 0.9) then {
 		_uDMG = _dmg;
 
 		if(isPlayer _unit) then{
-			_dmg = (_dmg*20);
+			_dmg = (_dmg*30);
 		} else {
 			_dmg = (_dmg*50);
 		};
@@ -134,10 +133,6 @@ if((damage _unit) < 0.9) then {
 		};
 
 		_dmgT = _dmg;
-
-
-		//_dmgCSEArray = [0,0,0,0,0,0];
-		//[_unit, "cse_bodyPartStatus", _dmgCSEArray] call cse_fnc_setVariable;
 
 		if(run_damage == 1) then {
 
@@ -176,7 +171,6 @@ if((damage _unit) < 0.9) then {
 			_dmgT = 		[_dmgT, 1, 5] call CBA_fnc_formatNumber;
 			_uDMG = 		[_uDMG, 1, 5] call CBA_fnc_formatNumber;
 			_nDMG = 		[_nDMG, 1, 5] call CBA_fnc_formatNumber;
-
 
 			_HPA = [_HPA, 1, 5] call CBA_fnc_formatNumber;
 			_HPB = [_HPB, 1, 5] call CBA_fnc_formatNumber;
