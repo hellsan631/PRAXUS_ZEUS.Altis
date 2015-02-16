@@ -2,14 +2,14 @@
 //This script is for defining basic settings for the AI
 //1 - is on. 0 - is off.
 VCOM_USESMOKE_DEFINE = 1; //Should the AI use smoke grenades in battle?
-VCOM_Artillery_DEFINE = 1; //Should AI be able to call for artillery? Artillery must already be present on map
+VCOM_Artillery_DEFINE = 0; //Should AI be able to call for artillery? Artillery must already be present on map
 VCOM_AIDEBUG_DEFINE = 0; //Would you like to run the debug code?
 VCOM_ADVANCEDDRIVING_DEFINE = 1; //Would you like to enable advanced driving for AI? It makes them avoid obstacles.......because they don't do it by themselves all the time.....logic....ITS A GOOD GAME
 VCOM_GARRISONEMPTYSTATICS_DEFINE = 1; //Should the AI garrison empty statics nearby?
 NOAI_FOR_PLAYERLEADERS_DEFINE = 1; //Player group leaders will get more control over their AI
 
 //The default distance AI will respond to others in need
-VCOM_AIWarnDistance_DEFINE = 400; //What is the range that AI should respond to others in need?
+VCOM_AIWarnDistance_DEFINE = 1000; //What is the range that AI should respond to others in need?
 
 
 //AI ACCURACY SETTINGS - You can change these numbers below

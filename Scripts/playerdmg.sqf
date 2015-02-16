@@ -113,7 +113,7 @@ if((damage _unit) < 0.9) then {
 		_uDMG = _dmg;
 
 		if(isPlayer _unit) then{
-			_dmg = (_dmg*30);
+			_dmg = (_dmg*15);
 		} else {
 			_dmg = (_dmg*50);
 		};
