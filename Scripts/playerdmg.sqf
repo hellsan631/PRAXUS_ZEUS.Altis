@@ -11,16 +11,22 @@ if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
 };
 
-if((damage _unit) < 0.9) then {
+if(true) then {
 
 	_dmgArray = _unit getVariable "HellsDMG";
 
 	_HPB = _unit getVariable "HellsHP";
+	_HC = _unit getVariable "HellsHits";
 	_HPA = 0;
 
 	if (isNil ("_HPB")) then {
 		_unit setVariable ["HellsHP", 100 ,true];
 		_HPB = 100;
+	};
+
+	if (isNil ("_HC")) then {
+		_unit setVariable ["_HC", 0 ,true];
+		_HC = 0;
 	};
 
 	if (isNil ("_dmgArray")) then {
@@ -138,7 +144,11 @@ if((damage _unit) < 0.9) then {
 
 			if(do_damage == 1) then {
 
-				if(_HPB < 50) then{
+				if(_HC < 2) then{
+					_dmg = (_dmg/4);
+				};
+
+				if(_HPB < 20) then{
 					_HPA = _HPB - (_dmg);
 					_unit setDamage 1 - (_HPA/100);
 				} else {
@@ -155,7 +165,10 @@ if((damage _unit) < 0.9) then {
 
 			};
 
+			_HC = _HC + 1;
 			_unit setVariable ["HellsHP", _HPA, true];
+			_unit setVariable ["HellsHits", _HC, true];
+
 
 		};
 
