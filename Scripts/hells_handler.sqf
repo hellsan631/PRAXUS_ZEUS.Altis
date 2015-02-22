@@ -46,15 +46,12 @@ player addMPEventHandler ["MPRespawn", {
 
         [player, _respawn, ["ammo"]] spawn setLoadout;
 
-        saveProfileNamespace;
-
         player setVariable ["HellsHP", 100 ,true];
+        player setVariable ["HellsHits", 0 ,true];
 
         _insignia = player call BIS_fnc_getUnitInsignia;
 
-		if((isNil ("_insignia")) || (_insignia != "Praxus_insignia")) then {
-			[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
-		};
+		[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
 
 		player addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
@@ -79,6 +76,7 @@ sleep 0.1;
 				_CheckVariable = 0;
 				_x setVariable ["HellsCustom", 1 ,true];
 				_x setVariable ["HellsHP", 100 ,true];
+				_x setVariable ["HellsHits", 0 ,true];
 			};
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {
@@ -139,9 +137,11 @@ FNC_Del_Corpse = {
         drop[
     		["A3\Data_F\ParticleEffects\Universal\universal.p3d",16,7,48],
     		"","Billboard",0,1 + random 0.5,[_xpos,_ypos,_zpos],
-	        [_xvel,_yvel,_zvel],1,1.2,1.3,0,[2],[[0.55,0.5,0.45,0],[_tnt + 0.55,_tnt + 0.5,_tnt + 0.45,0.16],
-	        [_tnt + 0.55,_tnt + 0.5,_tnt + 0.45, 0.12],[_tnt + 0.5,_tnt + 0.45,_tnt + 0.4,0.08],
-	        [_tnt + 0.45,_tnt + 0.4,_tnt + 0.35,0.04],[_tnt + 0.4,_tnt + 0.35,_tnt + 0.3,0.01]],
+	        [_xvel,_yvel,_zvel],1,1.2,1.3,0,[2],[
+	        	[0.55,0.5,0.45,0],[_tnt + 0.55,_tnt + 0.5,_tnt + 0.45,0.16],
+	        	[_tnt + 0.55,_tnt + 0.5,_tnt + 0.45, 0.12],[_tnt + 0.5,_tnt + 0.45,_tnt + 0.4,0.08],
+	        	[_tnt + 0.45,_tnt + 0.4,_tnt + 0.35,0.04],[_tnt + 0.4,_tnt + 0.35,_tnt + 0.3,0.01]
+	        ],
 	        [0],0.1,0.1,"","",""
         ];
     };

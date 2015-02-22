@@ -5,7 +5,7 @@ _proj = _this select 3;
 
 run_damage = 1;
 do_damage = 1;
-doDiagLog = 0;
+doDiagLog = 1;
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
@@ -121,7 +121,7 @@ if(true) then {
 		if(isPlayer _unit) then{
 			_dmg = (_dmg*15);
 		} else {
-			_dmg = (_dmg*50);
+			_dmg = (_dmg*15);
 		};
 
 		_nDMG = _dmg;
@@ -148,7 +148,7 @@ if(true) then {
 					_dmg = (_dmg/4);
 				};
 
-				if(_HPB < 20) then{
+				if(_HPB < 35) then{
 					_HPA = _HPB - (_dmg);
 					_unit setDamage 1 - (_HPA/100);
 				} else {
@@ -190,7 +190,7 @@ if(true) then {
 			_dmg = [_dmg, 1, 5] call CBA_fnc_formatNumber;
 
 			diag_log format [
-				"Unit: %1 | BaseDS: %2 | ModDS: %3 | UnitDB: %4  | NewDS: %5 | ApplyDS: %6 | TDMG: %7 | HPB: %8 | HPA: %9 | LOC: %10 | PROJ: %11",
+				"Unit: %1 | BaseDS: %2 | ModDS: %3 | UnitDB: %4  | NewDS: %5 | ApplyDS: %6 | TDMG: %7 | HITS: %8 | HPB: %9 | HPA: %10 | LOC: %11 | PROJ: %12",
 				_unit,
 				_baseDmg, 	//base dmg, the amount of original chosen damage
 				_dmgT, 		//The amount of damage after applied to dmg mod
@@ -198,6 +198,7 @@ if(true) then {
 				_nDMG, 		//The new dmg
 				_aDMG, 		//The total applied damage to unit (after 500ms)
 				_dmg, 		//True Damage
+				_HC,		//Hit Count
 				_HPB,		//HP Before
 				_HPA,		//HP After
 				_loc, 		//location
