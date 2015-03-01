@@ -20,7 +20,7 @@ class CfgFunctions
 dev = "HellsAn631";
 author = "HellsAn631";
 //onLoadMission = "";
-overviewText = "Version <t font='PuristaBold'>1.1.3.0</t> Improved Damage Model, AGM Medic System Changes";
+overviewText = "Version <t font='PuristaBold'>1.1.4.0</t> Improved Damage Model";
 overviewTextLocked = "";
 
 enableDebugConsole = 1;

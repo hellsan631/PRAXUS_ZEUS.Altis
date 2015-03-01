@@ -53,6 +53,8 @@ player addMPEventHandler ["MPRespawn", {
 
 		[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
 
+		player setVariable ["AGM_AllowUnconscious", false];
+
 		player addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
 
         _this spawn FNC_Del_Corpse;
@@ -92,6 +94,8 @@ sleep 0.1;
 				sleep 0.1;
 
 				_x enableGunLights "forceOn";
+
+				_x setVariable ["AGM_AllowUnconscious", false];
 
 			};
 

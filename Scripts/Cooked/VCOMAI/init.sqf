@@ -2,10 +2,10 @@ if (isServer || isDedicated) then {
 
   //#include "\userconfig\VCOM_AI\user_config.hpp"
   _InitialCode = false;
- _InitialCode = [] execVM "userconfig\VCOM_AI\AISettings.sqf";
+ _InitialCode = [] execVM "Scripts\Cooked\VCOMAI\DefaultSetting.sqf";
   if (isNil "_InitialCode") then
   {
-    _InitialCode = [] execVM "Scripts\Cooked\VCOMAI\DefaultSetting.sqf";
+    _InitialCode = [] execVM "userconfig\VCOM_AI\AISettings.sqf";
   };
   waitUntil {!(isNil "AccuracyFunctionRank0")};
   publicVariable "VCOM_USESMOKE_DEFINE";

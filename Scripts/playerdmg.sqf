@@ -144,12 +144,17 @@ if(true) then {
 
 			if(do_damage == 1) then {
 
+				if(_HC < 4) then{
+					_dmg = (_dmg/6);
+				};
+
 				if(_HC < 2) then{
-					_dmg = (_dmg/4);
+					_dmg = (_dmg/16);
 				};
 
 				if(_HPB < 35) then{
 					_HPA = _HPB - (_dmg);
+					_unit setVariable ["AGM_AllowUnconscious", true];
 					_unit setDamage 1 - (_HPA/100);
 				} else {
 					_HPA = _HPB - (_dmg);
