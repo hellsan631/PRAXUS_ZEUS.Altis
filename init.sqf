@@ -22,6 +22,8 @@ hells_fnc_unitKnifeAnim = {
 
 };
 
+player removeAllEventHandlers "HandleDamage";
+
 player addEventHandler ["HandleDamage",{
 
     _unit = _this select 0;
