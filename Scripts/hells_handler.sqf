@@ -9,6 +9,7 @@ waitUntil {!isNull player && player == player};
 getLoadout = compile preprocessFileLineNumbers 'Scripts\Funcs\get_loadout.sqf';
 setLoadout = compile preprocessFileLineNumbers 'Scripts\Funcs\set_loadout.sqf';
 fn_arrayAppend = compile preprocessFileLineNumbers 'Scripts\Funcs\fn_arrayAppend.sqf';
+HellsMissionPath = [ ( str missionConfigFile ), 0, -15 ] call BIS_fnc_trimString;
 
 sleep 20;
 
@@ -39,6 +40,21 @@ sleep 20;
 
 sleep 0.1;
 
+// Show Injured Icons
+addMissionEventHandler ["Draw3D", {
+	{
+		if(!isNull _x) then {
+			if(_x != player && alive _x && _x getVariable "HellsIsUnitDown" == 1) then {
+				if(_x getVariable "HellsIsUnitStable" == 1) then {
+					drawIcon3D [HellsMissionPath + "Scripts\UI\medic64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
+				} else {
+					drawIcon3D [HellsMissionPath + "Scripts\UI\bleed64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
+				};
+			};
+		};
+	} forEach allUnits;
+}];
+
 // Load saved loadout (including ammo count) on respawn
 player addMPEventHandler ["MPRespawn", {
 
@@ -56,6 +72,24 @@ player addMPEventHandler ["MPRespawn", {
 		player setVariable ["AGM_AllowUnconscious", false];
 
 		player addAction ["<t color='#ff0000'>Knife</t>", "Scripts\hells_knife.sqf", [], 6, true, true, "", "((cursorTarget distance _this)<4)&&(alive cursorTarget)"];
+
+		[player, "AGM_knockedOut", {
+			private ["_un"];
+			_un = _this select 0; //unit
+
+			_un setVariable ["HellsIsUnitDown", 1, true];
+			_un setVariable ["HellsIsUnitStable", 0, true];
+
+		}] call AGM_Core_fnc_addCustomEventHandler;
+
+		[player, "AGM_wokeUp", {
+			private ["_un"];
+			_un = _this select 0; //unit
+
+			_un setVariable ["HellsIsUnitDown", 1, true];
+			_un setVariable ["HellsIsUnitStable", 1, true];
+
+		}] call AGM_Core_fnc_addCustomEventHandler;
 
         _this spawn FNC_Del_Corpse;
 
@@ -79,6 +113,8 @@ sleep 0.1;
 				_x setVariable ["HellsCustom", 1 ,true];
 				_x setVariable ["HellsHP", 100 ,true];
 				_x setVariable ["HellsHits", 0 ,true];
+				_x setVariable ["HellsIsUnitDown", 0, true];
+				_x setVariable ["HellsIsUnitStable", 0, true];
 			};
 
 			if(!(isplayer _x) && (_CheckVariable == 0)) then {

@@ -6,6 +6,7 @@ _proj = _this select 3;
 run_damage = 1;
 do_damage = 1;
 doDiagLog = 0;
+damageMultiplier = 15; //default 15
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
@@ -118,11 +119,7 @@ if(true) then {
 
 		_uDMG = _dmg;
 
-		if(isPlayer _unit) then{
-			_dmg = (_dmg*15);
-		} else {
-			_dmg = (_dmg*15);
-		};
+		_dmg = (_dmg*damageMultiplier);
 
 		_nDMG = _dmg;
 
@@ -144,6 +141,12 @@ if(true) then {
 
 			if(do_damage == 1) then {
 
+				chance = Ceil random 100;
+
+				if(chance > 75) then {
+					_dmg = 0;
+				};
+
 				if(_HC < 4) then{
 					_dmg = (_dmg/6);
 				};
@@ -153,10 +156,14 @@ if(true) then {
 				};
 
 				if(_HPB < 35) then{
+					_dmg = (_dmg/10);
 					_HPA = _HPB - (_dmg);
-					_unit setVariable ["AGM_AllowUnconscious", true];
+					_unit setVariable ["HellsIsUnitDown", 1, true];
+					_unit setVariable ["HellsIsUnitStable", 1, true];
+					_unit setVariable ["AGM_AllowUnconscious", true, true];
 					_unit setDamage 1 - (_HPA/100);
 				} else {
+					[_unit] call hells_fnc_damageReset;
 					_HPA = _HPB - (_dmg);
 				};
 
@@ -214,6 +221,17 @@ if(true) then {
 
 };
 
+hells_fnc_damageReset = {
+
+	private ["_un"];
+
+	_un = _this select 0; //unit
+
+	_un setHitPointDamage ["HitHead", 0];
+	_un setHitPointDamage ["HitHands", 0];
+	_un setHitPointDamage ["HitLegs", 0];
+	_un setHitPointDamage ["HitBody", 0];
+}
 
 hells_fnc_headDmg = {
 
