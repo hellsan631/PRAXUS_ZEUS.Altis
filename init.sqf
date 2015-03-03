@@ -40,7 +40,7 @@ player addEventHandler ["HandleDamage",{
 //AI Flashlights and the likes
 [] execVM "Scripts\hells_handler.sqf";
 
-//[] execVM "Scripts\Main\NVscript.sqf";
+[] execVM "Scripts\Main\NVscript.sqf";
 
 [
     10*60*10, // seconds to delete dead bodies (0 means don't delete)

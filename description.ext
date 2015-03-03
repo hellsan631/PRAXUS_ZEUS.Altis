@@ -55,28 +55,28 @@ class CfgSounds
     class nv_on
     {
         name = "nv_on";
-        sound[] = {"\sounds\nv_on.ogg",1, 1};
+        sound[] = {"\Sounds\nv_on.ogg",1, 1};
         titles[] = {};
     };
 
     class nv_off
     {
         name = "nv_off";
-        sound[] = {"\sounds\nv_off.ogg",1, 1};
+        sound[] = {"\Sounds\nv_off.ogg",1, 1};
         titles[] = {};
     };
 
     class halogen
     {
         name = "halogen";
-        sound[] = {"\sounds\halogen.ogg",1.5, 1};
+        sound[] = {"\Sounds\halogen.ogg",1.5, 1};
         titles[] = {};
     };
 
     class knife_sound
     {
         name = "knife_sound";
-        sound[] = {"\sounds\knife_sound.ogg",1.2, 1};
+        sound[] = {"\Sounds\knife_sound.ogg",1.2, 1};
         titles[] = {};
     };
 

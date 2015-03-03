@@ -1,7 +1,5 @@
 //--- Respawn inventory settings
 
-[west,"B_Soldier_lite_F"] call bis_fnc_addrespawninventory;
-
 //--- Curator settings
 _curator = allcurators select 0;
 _curators = allcurators;
