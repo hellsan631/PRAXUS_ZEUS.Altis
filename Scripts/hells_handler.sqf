@@ -64,8 +64,8 @@ player addMPEventHandler ["MPRespawn", {
 
         player setVariable ["HellsHP", 100 ,true];
         player setVariable ["HellsHits", 0 ,true];
-
-        _insignia = player call BIS_fnc_getUnitInsignia;
+        player setVariable ["HellsIsUnitDown", 0 ,true];
+        player setVariable ["HellsIsUnitStable", 0 ,true];
 
 		[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
 
@@ -143,7 +143,9 @@ sleep 0.1;
 
 			if(isPlayer _x) then {
 
-				player setfatigue 0;
+				fatigue = getFatigue _x;
+
+				player setFatigue (fatigue - fatigue/36);
 
 				[player,"Praxus_insignia"] call BIS_fnc_setUnitInsignia;
 

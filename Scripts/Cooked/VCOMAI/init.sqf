@@ -104,33 +104,39 @@ ArtilleryArray = [];
 
 //Below is loop to check for new AI spawning in to be added to the list
 
-[] spawn
-{
-if (!(isDedicated)) then {
-waitUntil {!isNil "BIS_fnc_init"};
-waitUntil {!(isnull (findDisplay 46))};
-};
+[] spawn {
+  if (!(isDedicated)) then {
+    waitUntil {!isNil "BIS_fnc_init"};
+    waitUntil {!(isnull (findDisplay 46))};
+  };
 
-[] execVM "Scripts\Cooked\VCOMAI\CuratorControls\init.sqf";
+  [] execVM "Scripts\Cooked\VCOMAI\CuratorControls\init.sqf";
 
-while {true} do {
+  while {true} do {
 
-sleep 0.25;
-{
-if (local _x) then {
-_CheckVariable = _x getVariable "FSMRunning";
-if (isNil ("_CheckVariable")) then {_CheckVariable = 0;};
-if (!(isplayer _x) && (_CheckVariable == 0)) then {null = [_x] execFSM "Scripts\Cooked\VCOMAI\AIBEHAVIORNEW.fsm";};
-if ((isPlayer _x)  && (_CheckVariable == 0)) then {
-player setVariable ["VCOM_FiredTime", 0];
-player setVariable ["PLAYERCOMMANDER", 1];
-player addEventHandler ["Fired",{null = [_this] call FiredAtTarget;}];
-player setVariable ["FSMRunning",1,false];
-};
-};
-} forEach allUnits;
-sleep 5;
+  sleep 0.25;
+  {
+    if (local _x) then {
 
-sleep 1;
-};
+      _CheckVariable = _x getVariable "FSMRunning";
+
+      if (isNil ("_CheckVariable")) then {_CheckVariable = 0;};
+
+      if (!(isplayer _x) && (_CheckVariable == 0)) then {
+        null = [_x] execFSM "Scripts\Cooked\VCOMAI\AIBEHAVIORNEW.fsm";
+      };
+
+      if ((isPlayer _x)  && (_CheckVariable == 0)) then {
+        player setVariable ["VCOM_FiredTime", 0];
+        player setVariable ["PLAYERCOMMANDER", 1];
+        player addEventHandler ["Fired",{null = [_this] call FiredAtTarget;}];
+        player setVariable ["FSMRunning",1,false];
+      };
+    };
+  } forEach allUnits;
+
+  sleep 5;
+  sleep 1;
+
+  };
 };
