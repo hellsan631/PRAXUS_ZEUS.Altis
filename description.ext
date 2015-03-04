@@ -55,32 +55,100 @@ class CfgSounds
     class nv_on
     {
         name = "nv_on";
-        sound[] = {"\Sounds\nv_on.ogg",1, 1};
+        sound[] = {"sounds\nv_on.ogg",1, 1};
         titles[] = {};
     };
 
     class nv_off
     {
         name = "nv_off";
-        sound[] = {"\Sounds\nv_off.ogg",1, 1};
+        sound[] = {"sounds\nv_off.ogg",1, 1};
         titles[] = {};
     };
 
     class halogen
     {
         name = "halogen";
-        sound[] = {"\Sounds\halogen.ogg",1.5, 1};
+        sound[] = {"sounds\halogen.ogg",0.8, 1};
         titles[] = {};
     };
 
     class knife_sound
     {
         name = "knife_sound";
-        sound[] = {"\Sounds\knife_sound.ogg",1.2, 1};
+        sound[] = {"sounds\knife_sound.ogg",1.2, 1};
         titles[] = {};
     };
 
+    //otherSounds
+	class flareMove
+	{
+		name = "flareMove_sound";
+		sound[] = {"sounds\flareMove.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class heardbeat
+	{
+		name = "heardbeat";
+		sound[] = {"sounds\heardbeat.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class callForMedic_1
+	{
+		name = "callForMedic_1";
+		sound[] = {"sounds\a3\HealthIAmWounded.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class callForMedic_2
+	{
+		name = "callForMedic_2";
+		sound[] = {"sounds\a3\HealthIAmBadlyHurt.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class callForMedic_3
+	{
+		name = "callForMedic_3";
+		sound[] = {"sounds\a3\HealthMedic.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class callForMedic_4
+	{
+		name = "callForMedic_4";
+		sound[] = {"sounds\a3\HealthNeedMedicNow.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class outOffFirstaid_1
+	{
+		name = "outOffFirstaid_1";
+		sound[] = {"sounds\a3\OutOfFirstAidKits_1.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class outOffFirstaid_2
+	{
+		name = "outOffFirstaid_2";
+		sound[] = {"sounds\a3\OutOfFirstAidKits_2.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class ManDown_1
+	{
+		name = "ManDown_1";
+		sound[] = {"sounds\a3\ManDownE_1.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class ManDown_2
+	{
+		name = "ManDown_2";
+		sound[] = {"sounds\a3\ManDownE_2.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
+	class ManDown_3
+	{
+		name = "ManDown_3";
+		sound[] = {"sounds\a3\ManDownE_3.ogg", 2, 1};
+		titles[] = {0, ""};
+	};
 };
+
 
 class Params
 {
