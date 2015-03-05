@@ -5,8 +5,8 @@ _proj = _this select 3;
 
 run_damage = 1;
 do_damage = 1;
-doDiagLog = 0;
-damageMultiplier = 15; //default 15
+doDiagLog = 1;
+damageMultiplier = 5; //default 15
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
@@ -119,6 +119,10 @@ if(true) then {
 
 		_uDMG = _dmg;
 
+		if(_dmg < 1) then {
+			_dmg = _dmg*10;
+		};
+
 		_dmg = (_dmg*damageMultiplier);
 
 		_nDMG = _dmg;
@@ -143,7 +147,7 @@ if(true) then {
 
 				chance = Ceil random 100;
 
-				if(chance > 75) then {
+				if(chance < 25) then {
 					_dmg = 0;
 				};
 
@@ -231,7 +235,7 @@ hells_fnc_damageReset = {
 	_un setHitPointDamage ["HitHands", 0];
 	_un setHitPointDamage ["HitLegs", 0];
 	_un setHitPointDamage ["HitBody", 0];
-}
+};
 
 hells_fnc_headDmg = {
 
@@ -242,11 +246,11 @@ hells_fnc_headDmg = {
     _od = _this select 2; //old dmg
 
 	switch(true)do{
-		case(_dm < 50):{	_dm = _dm / 1.15;	};
-		case(_dm < 75):{	_dm = _dm / 1.2;	};
-		case(_dm < 100):{	_dm = _dm / 1.25;	};
-	    case(_dm < 150):{	_dm = _dm / 1.4;	};
-	    case(_dm < 200):{	_dm = _dm / 1.5;	};
+		case(_dm <= 50):{	_dm = _dm / 1.15;	};
+		case(_dm <= 75):{	_dm = _dm / 1.2;	};
+		case(_dm <= 100):{	_dm = _dm / 1.25;	};
+	    case(_dm <= 150):{	_dm = _dm / 1.4;	};
+	    case(_dm <= 200):{	_dm = _dm / 1.5;	};
 	    default{			_dm = _dm;			};
 	};
 
@@ -265,14 +269,14 @@ hells_fnc_bodyDmg = {
     _od = _this select 2; //old dmg
 
 	switch(true)do{
-		case(_dm < 25):{	_dm = _dm / 1.2;	};
-		case(_dm < 50):{	_dm = _dm / 1.25;	};
-		case(_dm < 75):{	_dm = _dm / 1.3;	};
-		case(_dm < 100):{	_dm = _dm / 1.3;	};
-	    case(_dm < 150):{	_dm = _dm / 3;		};
-	    case(_dm < 200):{	_dm = _dm / 3.5;	};
-		case(_dm < 400):{	_dm = _dm / 4;		};
-		case(_dm < 600):{	_dm = _dm / 6;		};
+		case(_dm <= 25):{	_dm = _dm / 1.2;	};
+		case(_dm <= 50):{	_dm = _dm / 1.25;	};
+		case(_dm <= 75):{	_dm = _dm / 1.3;	};
+		case(_dm <= 100):{	_dm = _dm / 1.3;	};
+	    case(_dm <= 150):{	_dm = _dm / 3;		};
+	    case(_dm <= 200):{	_dm = _dm / 3.5;	};
+		case(_dm <= 400):{	_dm = _dm / 4;		};
+		case(_dm <= 600):{	_dm = _dm / 6;		};
 	    default{			_dm = _dm / 6;		};
 	};
 
@@ -291,14 +295,14 @@ hells_fnc_legsDmg = {
     _od = _this select 2; //old dmg
 
 	switch(true)do{
-		case(_dm < 25):{	_dm = _dm / 1.2;	};
-		case(_dm < 50):{	_dm = _dm / 1.25;	};
-		case(_dm < 75):{	_dm = _dm / 1.3;	};
-		case(_dm < 100):{	_dm = _dm / 1.3;	};
-	    case(_dm < 150):{	_dm = _dm / 3;		};
-	    case(_dm < 200):{	_dm = _dm / 3.5;	};
-		case(_dm < 400):{	_dm = _dm / 4;		};
-		case(_dm < 600):{	_dm = _dm / 6;		};
+		case(_dm <= 25):{	_dm = _dm / 1.2;	};
+		case(_dm <= 50):{	_dm = _dm / 1.25;	};
+		case(_dm <= 75):{	_dm = _dm / 1.3;	};
+		case(_dm <= 100):{	_dm = _dm / 1.3;	};
+	    case(_dm <= 150):{	_dm = _dm / 3;		};
+	    case(_dm <= 200):{	_dm = _dm / 3.5;	};
+		case(_dm <= 400):{	_dm = _dm / 4;		};
+		case(_dm <= 600):{	_dm = _dm / 6;		};
 	    default{			_dm = _dm / 6;		};
 	};
 
