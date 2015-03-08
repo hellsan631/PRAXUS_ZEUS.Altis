@@ -6,7 +6,7 @@ _proj = _this select 3;
 run_damage = 1;
 do_damage = 1;
 doDiagLog = 1;
-damageMultiplier = 5; //default 15
+damageMultiplier = 2; //default 15
 
 if(doDiagLog == 1) then {
 	diag_log format ["TestUnit: BDMG: %1 | LOC: %2 ", _dmg, _loc];
