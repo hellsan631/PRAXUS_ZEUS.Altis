@@ -46,9 +46,9 @@ addMissionEventHandler ["Draw3D", {
 		if(!isNull _x) then {
 			if(_x != player && alive _x && _x getVariable "HellsIsUnitDown" == 1) then {
 				if(_x getVariable "HellsIsUnitStable" == 1) then {
-					drawIcon3D [HellsMissionPath + "Scripts\UI\medic64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
+					//drawIcon3D [HellsMissionPath + "Scripts\UI\medic64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
 				} else {
-					drawIcon3D [HellsMissionPath + "Scripts\UI\bleed64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
+					//drawIcon3D [HellsMissionPath + "Scripts\UI\bleed64.paa",[1,1,1,1], getPosATL _x, 1, 1, 0, name _x, 1, 0.03, "PuristaMedium"];
 				};
 			};
 		};

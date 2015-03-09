@@ -5,7 +5,7 @@ _proj = _this select 3;
 
 run_damage = 1;
 do_damage = 1;
-doDiagLog = 1;
+doDiagLog = 0;
 damageMultiplier = 2; //default 15
 
 if(doDiagLog == 1) then {
