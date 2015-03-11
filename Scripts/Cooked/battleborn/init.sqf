@@ -1,4 +1,4 @@
-folderLocation = "Scripts\Cooked\"
+folderLocation = "Scripts\Cooked\";
 
 missionLocation = [ ( str missionConfigFile ), 0, -15 ] call BIS_fnc_trimString;
 scriptLocation = missionLocation + folderLocation + "BattleBorn\";
@@ -7,15 +7,23 @@ soundLocation = missionLocation + folderLocation + "BattleBorn\sounds\";
 functionLocation = missionLocation + folderLocation + "BattleBorn\functions\";
 dataLocation = missionLocation + folderLocation + "BattleBorn\data\";
 
-sleep 20;
-
-["<t size='.6'>Running BattleBorn Scripts</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
+publicVariable "folderLocation";
+publicVariable "missionLocation";
+publicVariable "uiLocation";
+publicVariable "soundLocation";
+publicVariable "functionLocation";
+publicVariable "dataLocation";
 
 [] execVM scriptLocation + "defaultSettings.sqf";
+
+sleep 10;
+
+["<t size='.6'>Running BattleBorn Scripts</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
 
 if (isServer || isDedicated) then {
 	[] execVM scriptLocation + "initServer.sqf";
 };
 
 [] execVM scriptLocation + "initClient.sqf";
+
 

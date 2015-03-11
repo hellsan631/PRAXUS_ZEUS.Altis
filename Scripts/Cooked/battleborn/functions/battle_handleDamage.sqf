@@ -19,17 +19,20 @@ player removeAllEventHandlers "HandleDamage";
 
 player addEventHandler ["HandleDamage", {
 
+	private ["_respawnLoadout"];
+
+	if (BATTLE_SAVERESPAWNLOADOUT == 1) then {
+	    _respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+
+	    profileNamespace setVariable ["saveLoadout", _respawnLoadout];
+	};
+
     [_this select 0, _this select 1, _this select 2, _this select 4] call fn_findDamage;
 
-    false
+    false;
 
 }];
 
 "BATTLE_findDamage" addPublicVariableEventHandler {
-    _damageArray = _this select 1;
-    _unit = _this select 1 select 0;
-
-    if (local _unit) then {
-        _damageArray call fn_findDamage;
-    };
+    (_this select 1) call fn_findDamage;
 };

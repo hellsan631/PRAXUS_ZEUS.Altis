@@ -5,16 +5,19 @@ private [
 		];
 
 _unit 			= _this select 0;
+
+if (!(local _unit)) exitWith {
+	BATTLE_findDamage = _this;
+	if (isServer) then {
+        (owner _unit) publicVariableClient "BATTLE_findDamage";
+    } else {
+        publicVariableServer "BATTLE_findDamage";
+    };
+};
+
 _damage  		= _this select 1;
 _location  		= _this select 2;
 _projectile 	= _this select 3;
-
-if (!(local _unit)) then {
-	exitWith {
-		BATTLE_findDamage = _this;
-        publicVariable "BATTLE_findDamage";
-	};
-}
 
 _damageArray = _unit getVariable "BATTLE_damageArray";
 
