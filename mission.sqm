@@ -25,7 +25,6 @@ class Mission
 		"A3_Modules_F",
 		"A3_Characters_F_OPFOR",
 		"agm_medical",
-		"agm_explosives",
 		"A3_Structures_F_Mil_Flags",
 		"a3_map_altis"
 	};
@@ -50,7 +49,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=20;
+		items=19;
 		class Item0
 		{
 			side="LOGIC";
@@ -518,7 +517,7 @@ class Mission
 					skill=0.060000002;
 					description="Public Slot";
 					syncId=8;
-					synchronizations[]={13,11,14,12,10};
+					synchronizations[]={12,13,11,14,10};
 				};
 				class Item1
 				{
@@ -951,7 +950,7 @@ class Mission
 				};
 				class Item40
 				{
-					position[]={880.68616,-0.016405268,320.00232};
+					position[]={858.04889,0.04441338,326.82666};
 					id=50;
 					side="WEST";
 					vehicle="B_Soldier_F";
@@ -1209,10 +1208,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={830.82129,0.0013381364,568.57178};
+					position[]={861.32642,0.088221192,534.86572};
 					class args
 					{
-						items=15;
+						items=16;
 						class Item0
 						{
 							value="1.2";
@@ -1295,9 +1294,15 @@ class Mission
 						{
 							value="1";
 							parentCls="AGM_ModuleMedical";
-							typeName="AutomaticWakeup";
+							typeName="TypeMEDEVAC";
 						};
 						class Item14
+						{
+							value="1";
+							parentCls="AGM_ModuleMedical";
+							typeName="AutomaticWakeup";
+						};
+						class Item15
 						{
 							value="0";
 							parentCls="AGM_ModuleMedical";
@@ -1313,40 +1318,6 @@ class Mission
 				};
 			};
 		};
-		class Item19
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={867.05115,-0.00028278911,531.80237};
-					class args
-					{
-						items=2;
-						class Item0
-						{
-							value="0";
-							parentCls="AGM_ModuleExplosive";
-							typeName="RequireSpecialist";
-						};
-						class Item1
-						{
-							value="0";
-							parentCls="AGM_ModuleExplosive";
-							typeName="PunishNonSpecialists";
-						};
-					};
-					id=65;
-					side="LOGIC";
-					vehicle="AGM_ModuleExplosive";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
 	};
 	class Vehicles
 	{
@@ -1354,7 +1325,7 @@ class Mission
 		class Item0
 		{
 			position[]={865.75458,-0.010513874,302.63123};
-			id=66;
+			id=65;
 			side="EMPTY";
 			vehicle="Flag_UK_F";
 			skill=0.060000002;
