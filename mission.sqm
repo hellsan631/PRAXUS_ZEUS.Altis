@@ -32,7 +32,7 @@ class Mission
 	randomSeed=9511354;
 	class Intel
 	{
-		briefingName="Praxus Zeus v1.1.4.0";
+		briefingName="Praxus Zeus v1.2.0.0";
 		resistanceWest=0;
 		startWeather=0.35999998;
 		startWind=0.099999994;

@@ -1,7 +1,6 @@
 ////////////////////////////////////////
 //////  BattleBorn Framework  //////////
 ////////////////////////////////////////
-
 waitUntil {!isNull player};
 
 player addRating 20000; //Fix that AI doesn't attack players when they kill friendly units so quickly.
@@ -23,9 +22,6 @@ if (BATTLE_DAMAGE_MODENABLE == 1) then {
 };
 
 if (BATTLE_SAVERESPAWNLOADOUT == 1) then {
-	getLoadout = compile preprocessFileLineNumbers functionLocation + 'battle_respawnLoadout\get_loadout.sqf';
-	setLoadout = compile preprocessFileLineNumbers functionLocation + 'battle_respawnLoadout\set_loadout.sqf';
-
 	[] execVM functionLocation + "battle_respawnLoadout.sqf";
 };
 
@@ -55,4 +51,20 @@ if (BATTLE_DELETERESPAWNCORPSE == 1) then {
 
 if (BATTLE_FLIPVEHICLE == 1) then {
 	[] execVM functionLocation + "battle_flipAction.sqf";
+};
+
+if (BATTLE_FIELDREPAIR == 1) then {
+	[] execVM functionLocation + "battle_fieldRepair.sqf";
+};
+
+if (BATTLE_JUMP == 1) then {
+	[] execVM functionLocation + "battle_jump.sqf";
+};
+
+if (BATTLE_MAPMARKERS == 1) then {
+	[] execVM functionLocation + "battle_mapMarkers.sqf";
+};
+
+if (BATTLE_FASTROPE == 1) then {
+	[] execVM functionLocation + "battle_fastRope.sqf";
 };

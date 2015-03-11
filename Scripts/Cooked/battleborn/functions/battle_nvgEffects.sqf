@@ -4,7 +4,7 @@ if (player != player) then {waitUntil {player == player};};
 private ["_zoomintensity", "_ppBlur", "_ppRim", "_ppFilm", "_ppColor", "_nvOn", "_nvOff", "_halogen"];
 
 // Figures out how zoomed in you are (KillzoneKid is Awesome)
-KK_fnc_getZoom  = compile preprocessFileLineNumbers functionLocation + "/battle_nvgEffects/fnc_getZoom.sqf";
+KK_fnc_getZoom  = compile preprocessFileLineNumbers (functionLocation + "battle_nvgEffects\fnc_getZoom.sqf");
 
 _nvOn = soundLocation + "nv_on.ogg";
 _nvOff = soundLocation + "nv_off.ogg";

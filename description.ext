@@ -1,13 +1,7 @@
 #include "Scripts\Cooked\taw_vd\dialog.hpp"
-#include "Scripts\Cooked\DOM_squad\SquadManagement.hpp"
-//#include "Scripts\Cooked\VAS\menu.hpp"
-//#include "gvs\colors_include.hpp"
-//#include "gvs\control_include.hpp"
-//#include "gvs\stc_include.hpp"
 
 class CfgFunctions
 {
-	//#include "Scripts\Cooked\VAS\cfgfunctions.hpp"
 	#include "Scripts\Cooked\taw_vd\CfgFunctions.hpp"
 };
 
@@ -20,14 +14,14 @@ class CfgFunctions
 dev = "HellsAn631";
 author = "HellsAn631";
 //onLoadMission = "";
-overviewText = "Version <t font='PuristaBold'>1.1.4.0</t> Improved Damage Model";
+overviewText = "Version <t font='PuristaBold'>1.2.0.0</t> Added Battleborn Framework";
 overviewTextLocked = "";
 
 enableDebugConsole = 1;
 
 respawn = 2;
 respawndelay = 15;
-respawnOnStart = 0;
+//respawnOnStart = 0;
 respawnVehicleDelay = 10;
 respawnTemplatesWest[] = {"MenuPosition"};
 respawnTemplatesEast[] = {"MenuPosition"};
@@ -139,17 +133,6 @@ class Params
 		texts[] = {"Cannot create objects (only editing is allowed)","Can create all objects","Can create only modules"}; //--- ToDo: Localize
 		default = 1;
 	};
-#ifdef _PARAMTYPE
-	class Type
-	{
-		title = $STR_DISP_ARCGRP_TYPE; //--- ToDo: Localize
-		values[] = {0,1};
-		texts[] = {$STR_A3_CfgMPGameTypes_Coop_name_0,$STR_A3_CfgMPGameTypes_DM_name_0}; //--- ToDo: Localize
-		default = 0;
-		isGlobal = 1;
-		file = "paramType.sqf";
-	};
-#endif
 	class PlayerEditingAreaSize
 	{
 		title = "Distance in metres from players in which Zeus cannot edit";

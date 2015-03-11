@@ -5,8 +5,8 @@ if (!(isDedicated)) then {
 
 waitUntil {!isNull player && player == player};
 
-battle_fnc_unitKnifeAnimation  	= compile preprocessFileLineNumbers functionLocation + "/battle_knife/fnc_unitKnifeAnimation.sqf";
-battle_fnc_knifeTarget  		= compile preprocessFileLineNumbers functionLocation + "/battle_knife/fnc_knifeTarget.sqf";
+battle_fnc_unitKnifeAnimation  	= compile preprocessFileLineNumbers (functionLocation + "battle_knife\fnc_unitKnifeAnimation.sqf");
+battle_fnc_knifeTarget  		= compile preprocessFileLineNumbers (functionLocation + "battle_knife\fnc_knifeTarget.sqf");
 
 "battle_unitKnifeAnimation" addPublicVariableEventHandler {
 
@@ -23,6 +23,6 @@ knifeEH = player addMPEventHandler ["MPRespawn", {
 
     _battle_knife_conditions = "((cursorTarget distance _this)<"+BATTLE_KNIFEDISTANCE+")&&(alive cursorTarget)&&((side cursorTarget) != (side _this))";
 
-	player addAction ["<t color='#ff0000'>Knife</t>", battle_fnc_knifeTarget, [], 6, true, true, "", _battle_knife_conditions];
+	player addAction ["<t color='#ff0000'>Knife</t>", {[_this] call battle_fnc_knifeTarget;}, [], 6, true, true, "", _battle_knife_conditions];
 
 }];

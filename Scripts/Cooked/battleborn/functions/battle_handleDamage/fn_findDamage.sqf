@@ -1,10 +1,9 @@
-private [
-			"_unit", "_damage", "_location", "_projectile",
-			"_damageArray", "_prevCount", "_newCount", "_last", "_dmgExe",
-			"_unitTrueDMG", "_unitTrueIndex", "_tempDmg", "_tempLoc", "_tempLen"
-		];
+private ["_unit", "_damage", "_location", "_projectile", "_damageArray", "_prevCount", "_newCount", "_last", "_dmgExe", "_unitTrueDMG", "_unitTrueIndex", "_tempDmg", "_tempLoc", "_tempLen"];
 
 _unit 			= _this select 0;
+_damage  		= _this select 1;
+_location  		= _this select 2;
+_projectile 	= _this select 3;
 
 if (!(local _unit)) exitWith {
 	BATTLE_findDamage = _this;
@@ -14,10 +13,6 @@ if (!(local _unit)) exitWith {
         publicVariableServer "BATTLE_findDamage";
     };
 };
-
-_damage  		= _this select 1;
-_location  		= _this select 2;
-_projectile 	= _this select 3;
 
 _damageArray = _unit getVariable "BATTLE_damageArray";
 
@@ -76,7 +71,7 @@ if(_last == 1) then {
 		_tempLoc 	= _x select 2;
 		_tempLen 	= count (toArray _tempLoc);
 
-		if(_tempDmg > _unitTrueDMG && (_tempLoc != "?" && !isNil ("_tempLoc") && _tempLen > 1) then {
+		if(_tempDmg > _unitTrueDMG && (_tempLoc != "?" && !(isNil ("_tempLoc")) && _tempLen > 1)) then {
 			_unitTrueDMG = _tempDmg;
 			_unitTrueIndex = _forEachIndex;
 		};

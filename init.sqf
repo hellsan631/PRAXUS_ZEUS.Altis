@@ -14,26 +14,5 @@ VCOM_AIWarnDistance = 150;
     10*60*2 // seconds to delete dropped smokes/chemlights (0 means don't delete)
 ] execVM 'Scripts\cleanup.sqf';
 
-//Squad Managers
-//Domination Squad manager -------------------------------------------------------------------
-[] call compileFinal PreProcessFile "Scripts\Cooked\DOM_squad\group_manager.sqf";
-[] call compileFinal PreProcessFile "Scripts\Cooked\DOM_squad\init.sqf";
-//--------------------------------------------------------------------------------------------
-
-//Map Markers for Players
-[] execVM "Scripts\FreeLance.sqf";
-
-//Adds Fast Roping to Helicopters
-[] execVM "Scripts\zlt_fastrope.sqf";
-
-//Repair Script
-[true] execVM "Scripts\zlt_fieldrepair.sqf";
-
-//Realistic Jump Script
-[] execvm "Scripts\jump.sqf";
-
-//AI Supression System 5.5
-//null = [3] execvm "tpwcas\tpwcas_script_init.sqf"
-
 //VCOM AI
 [] execVM "Scripts\Cooked\VCOMAI\init.sqf";

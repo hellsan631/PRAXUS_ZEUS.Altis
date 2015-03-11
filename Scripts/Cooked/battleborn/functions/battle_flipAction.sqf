@@ -5,4 +5,12 @@ if (!(isDedicated)) then {
 
 waitUntil {!isNull player && player == player};
 
-(_this select 0) addAction ["Flip Vehicle", "Scripts\FlipAction.sqf", [], 0, false, true, "", "_this == vehicle _target"];
+battle_fnc_flipVehicle = compile preprocessFileLineNumbers (functionLocation + "battle_fieldRepair\fnc_flipVehicle.sqf");
+
+flipVehicleEH = player addMPEventHandler ["MPRespawn", {
+
+	player addAction ["Flip Vehicle", {[] call battle_fnc_flipVehicle;}, [], 0, false, true, "", "_this == vehicle _target"];
+
+}];
+
+

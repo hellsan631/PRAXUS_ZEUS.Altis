@@ -5,7 +5,7 @@ if (!(isDedicated)) then {
 
 waitUntil {!isNull player && player == player};
 
-battle_fnc_deleteCorpse = compile preprocessFileLineNumbers functionLocation + "/battle_cleanup/fnc_deleteCorpse.sqf";
+battle_fnc_deleteCorpse = compile preprocessFileLineNumbers (functionLocation + "battle_cleanup\fnc_deleteCorpse.sqf");
 
 deleteCorpseEH = player addMPEventHandler ["MPRespawn", {
 

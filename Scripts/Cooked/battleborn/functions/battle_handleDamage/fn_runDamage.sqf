@@ -1,7 +1,4 @@
-private [	"_unit", "_damage", "_location", "_projectile",
-			"_HPBefore", "_HP", "_HitCount", "_oldDamage", "_chance"
-			"_headShotSound"
-		];
+private ["_unit", "_damage", "_location", "_projectile", "_HPBefore", "_HP", "_HitCount", "_oldDamage", "_chance", "_headShotSound"];
 
 _unit 			= _this select 0;
 _damage  		= _this select 1;
