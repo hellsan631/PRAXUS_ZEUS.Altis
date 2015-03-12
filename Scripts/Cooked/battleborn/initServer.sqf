@@ -15,3 +15,7 @@ if (BATTLE_DYNAMIC_WEATHER == 1) then {
 if (BATTLE_CLEANUP == 1) then {
 	[] execVM functionLocation + "battle_cleanup.sqf";
 };
+
+if(BATTLE_TIMEACCELERATION == 1) then {
+	setTimeMultiplier BATTLE_TIMEACCELERATION_FACTOR;
+};
