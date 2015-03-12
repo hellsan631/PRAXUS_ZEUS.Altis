@@ -14,11 +14,7 @@ if (!(local _unit)) exitWith {
     };
 };
 
-_damageArray = _unit getVariable "BATTLE_damageArray";
-
-if (isNil ("_damageArray")) then {
-	_damageArray = [];
-};
+_damageArray = _unit getVariable ["BATTLE_damageArray", []];
 
 _damageArray pushBack [_unit, _damage, _location, _projectile];
 
@@ -40,21 +36,17 @@ _unit setVariable ["BATTLE_damageArray", _damageArray, true];
 
 		sleep 0.05;
 
-		_damageArray = _unit getVariable "BATTLE_damageArray";
+		_damageArray = _unit getVariable ["BATTLE_damageArray", []];
 
-		if (!isNil ("_damageArray")) then {
-
-			if((count _damageArray) == _prevCount) then {
-				_last = 1;
-			};
-
+		if((count _damageArray) == _prevCount && (count _damageArray) > 6) then {
+			_last = 1;
 		};
 	};
 
 	if(_last == 1) then {
-		_dmgExe = _unit getVariable "BATTLE_runDamage";
+		_dmgExe = _unit getVariable ["BATTLE_runDamage", 0];
 
-		if (isNil ("_dmgExe")) then {
+		if (_dmgExe == 0) then {
 			_unit setVariable ["BATTLE_runDamage", 1, true];
 		} else {
 			_last = 0;
@@ -62,7 +54,6 @@ _unit setVariable ["BATTLE_damageArray", _damageArray, true];
 	};
 
 	if(_last == 1) then {
-
 		_unitTrueDMG = 0;
 		_unitTrueIndex = 0;
 

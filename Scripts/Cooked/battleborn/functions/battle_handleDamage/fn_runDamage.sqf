@@ -1,22 +1,10 @@
-private ["_unit", "_damage", "_location", "_projectile", "_HPBefore", "_HP", "_HitCount", "_oldDamage", "_chance", "_headShotSound"];
+private ["_unit", "_damage", "_location", "_projectile", "_HPBefore", "_HP", "_HitCount", "_chance", "_headShotSound", "_highestPossibleHP"];
 
 _unit 			= _this select 0;
 _damage  		= _this select 1;
 _location  		= _this select 2;
 _projectile 	= _this select 3;
-
-_HPBefore = _unit getVariable "BATTLE_UnitHP";
-_HitCount = _unit getVariable "BATTLE_UnitHitCount";
-
-_unit setVariable ["BATTLE_damageArray" , nil, true];
-
-if (isNil ("_HPBefore")) then {
-	_HPBefore = BATTLE_DAMAGE_HP_PLAYER;
-};
-
-if (isNil ("_HitCount")) then {
-	_HitCount = 0;
-};
+_savedLife = false;
 
 if(_damage < 1) then {
 	_damage = _damage*10;
@@ -24,9 +12,14 @@ if(_damage < 1) then {
 
 if(isPlayer _unit) then {
 	_damage = _damage*BATTLE_DAMAGE_MULTIPLIER_PLAYER;
+	_highestPossibleHP = BATTLE_DAMAGE_HP_PLAYER;
 } else {
 	_damage = _damage*BATTLE_DAMAGE_MULTIPLIER_AI;
+	_highestPossibleHP = BATTLE_DAMAGE_HP_AI;
 };
+
+_HPBefore = _unit getVariable ["BATTLE_UnitHP", _highestPossibleHP];
+_HitCount = _unit getVariable ["BATTLE_UnitHitCount", 0];
 
 call {
 	if (_location == "head") 	exitWith {	_damage = [_damage] call battle_fnc_hitHead;};
@@ -74,16 +67,25 @@ if(BATTLE_DAMAGE_HEADSHOTSOUND == 1) then {
 	};
 };
 
+_HP = _HPBefore - _damage;
 
-if(_HPBefore < BATTLE_DAMAGE_AGMHPENABLE) then{
-	_damage = (_damage/10);
-	_HP = _HPBefore - _damage;
+if(_HP < 0 && _HPBefore > BATTLE_DAMAGE_AGMHPENABLE) then {
+	_HP = BATTLE_DAMAGE_AGMHPENABLE - (_highestPossibleHP/BATTLE_DAMAGE_AGMHPENABLE);
+	_savedLife = true;
+};
+
+if(_HP < BATTLE_DAMAGE_AGMHPENABLE) then{
+	if(!_savedLife) then {
+		_damage = (_damage/10);
+		_HP = _HPBefore - _damage;
+	};
 	_unit setDamage 1 - (_HP/100);
 } else {
 	[_unit] call battle_fnc_damageReset;
-	_HP = _HPBefore - (_damage);
 };
 
 _HitCount = _HitCount + 1;
 _unit setVariable ["BATTLE_UnitHP", _HP, true];
 _unit setVariable ["BATTLE_UnitHitCount", _HitCount, true];
+_unit setVariable ["BATTLE_damageArray" , [], true];
+_unit setVariable ["BATTLE_runDamage", 0, true];
