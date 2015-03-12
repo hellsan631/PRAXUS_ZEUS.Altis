@@ -1,4 +1,4 @@
-private ["_unit", "_damage", "_location", "_projectile", "_damageArray", "_prevCount", "_newCount", "_last", "_dmgExe", "_unitTrueDMG", "_unitTrueIndex", "_tempDmg", "_tempLoc", "_tempLen"];
+private ["_unit", "_damage", "_location", "_projectile", "_damageArray"];
 
 _unit 			= _this select 0;
 _damage  		= _this select 1;
@@ -22,62 +22,63 @@ if (isNil ("_damageArray")) then {
 
 _damageArray pushBack [_unit, _damage, _location, _projectile];
 
-_unit setVariable ["BATTLE_damageArray", _damageArray, false];
+_unit setVariable ["BATTLE_damageArray", _damageArray, true];
 
-_prevCount = count _damageArray;
-_newCount = count _damageArray;
-_last = 0;
+//we want to wait for damage to run its course, so we need to suspend the script. the only way to do that is to spawn this
+[_unit, _damageArray] spawn {
 
-//Might improve this by using diag_TickTime to measure total time eclipsed, or diag_FrameNo
-if(_prevCount > 6) then {
+	private ["_unit", "_damageArray", "_prevCount", "_last", "_dmgExe", "_unitTrueDMG", "_unitTrueIndex", "_tempDmg", "_tempLoc", "_tempLen"];
 
-	sleep 0.05;
+	_unit 				= _this select 0;
+	_damageArray 		= _this select 1;
+	_last = 0;
 
-	_damageArray = _unit getVariable "BATTLE_damageArray";
+	_prevCount = count _damageArray;
 
-	if (!isNil ("_damageArray")) then {
+	//Might improve this by using diag_TickTime to measure total time eclipsed, or diag_FrameNo
+	if(_prevCount > 6) then {
 
-		_newCount = count _damageArray;
+		sleep 0.05;
 
-		if(_newCount == _prevCount) then {
-			_last = 1;
+		_damageArray = _unit getVariable "BATTLE_damageArray";
+
+		if (!isNil ("_damageArray")) then {
+
+			if((count _damageArray) == _prevCount) then {
+				_last = 1;
+			};
+
 		};
-
 	};
 
-};
+	if(_last == 1) then {
+		_dmgExe = _unit getVariable "BATTLE_runDamage";
 
-if(_last == 1) then {
-
-	_dmgExe = _unit getVariable "BATTLE_runDamage";
-
-	if (isNil ("_dmgExe")) then {
-		_unit setVariable ["BATTLE_runDamage", 1, false];
-	} else {
-		_last = 0;
+		if (isNil ("_dmgExe")) then {
+			_unit setVariable ["BATTLE_runDamage", 1, true];
+		} else {
+			_last = 0;
+		};
 	};
 
-};
+	if(_last == 1) then {
 
-if(_last == 1) then {
+		_unitTrueDMG = 0;
+		_unitTrueIndex = 0;
 
-	_unit setVariable ["BATTLE_damageArray" , nil];
+		{
+			_tempDmg 	= _x select 1;
+			_tempLoc 	= _x select 2;
+			_tempLen 	= count (toArray _tempLoc);
 
-	_unitTrueDMG = 0;
-	_unitTrueIndex = 0;
+			if(_tempDmg > _unitTrueDMG && (_tempLoc != "?" && _tempLen > 2)) then {
+				_unitTrueDMG = _tempDmg;
+				_unitTrueIndex = _forEachIndex;
+			};
 
-	{
-		_tempDmg 	= _x select 1;
-		_tempLoc 	= _x select 2;
-		_tempLen 	= count (toArray _tempLoc);
+		} forEach _damageArray;
 
-		if(_tempDmg > _unitTrueDMG && (_tempLoc != "?" && !(isNil ("_tempLoc")) && _tempLen > 1)) then {
-			_unitTrueDMG = _tempDmg;
-			_unitTrueIndex = _forEachIndex;
-		};
-
-	} forEach _damageArray;
-
-	(_damageArray select _unitTrueIndex) call fn_runDamage;
+		(_damageArray select _unitTrueIndex) call fn_runDamage;
+	};
 
 };

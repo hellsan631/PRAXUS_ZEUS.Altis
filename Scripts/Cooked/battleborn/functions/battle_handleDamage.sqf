@@ -11,11 +11,12 @@ _ScriptLocation = functionLocation + "battle_handleDamage\";
 
 [_ScriptLocation] execVM _ScriptLocation + "locationDamage.sqf"; //process the compiling functions
 
+fn_diagDamage 		= compile preprocessFileLineNumbers (functionLocation + "battle_diag\fnc_diagDamage.sqf");
+fn_arrayAppend 		= compile preprocessFileLineNumbers (_ScriptLocation + "fn_arrayAppend.sqf");
 fn_addDamageHandler = compile preprocessFileLineNumbers (_ScriptLocation + "fn_addDamageHandler.sqf");
+fn_projectileTables = compile preprocessFileLineNumbers (_ScriptLocation + "fn_projectileTables.sqf");
 fn_findDamage 		= compile preprocessFileLineNumbers (_ScriptLocation + "fn_findDamage.sqf");
 fn_runDamage 		= compile preprocessFileLineNumbers (_ScriptLocation + "fn_runDamage.sqf");
-fn_projectileTables = compile preprocessFileLineNumbers (_ScriptLocation + "fn_projectileTables.sqf");
-fn_diagDamage 		= compile preprocessFileLineNumbers (functionLocation + "battle_diag\fnc_diagDamage.sqf");
 
 [name player, "Adding Damage Handlers"] call battle_fnc_diaglog;
 

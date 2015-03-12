@@ -8,6 +8,8 @@ _projectile 	= _this select 3;
 _HPBefore = _unit getVariable "BATTLE_UnitHP";
 _HitCount = _unit getVariable "BATTLE_UnitHitCount";
 
+_unit setVariable ["BATTLE_damageArray" , nil, true];
+
 if (isNil ("_HPBefore")) then {
 	_HPBefore = BATTLE_DAMAGE_HP_PLAYER;
 };
@@ -80,10 +82,6 @@ if(_HPBefore < BATTLE_DAMAGE_AGMHPENABLE) then{
 } else {
 	[_unit] call battle_fnc_damageReset;
 	_HP = _HPBefore - (_damage);
-};
-
-if(_HPBefore < _damage) then{
-	_HP = 100;
 };
 
 _HitCount = _HitCount + 1;

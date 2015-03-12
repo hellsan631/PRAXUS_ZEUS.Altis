@@ -16,7 +16,7 @@ _unit addEventHandler ["HandleDamage", {
 	    profileNamespace setVariable ["saveLoadout", _respawnLoadout];
 	};
 
-    [_this select 0, _this select 1, _this select 2, _this select 4] call fn_findDamage;
+    [_this select 0, _this select 2, _this select 1, _this select 4] call fn_findDamage;
 
     false;
 

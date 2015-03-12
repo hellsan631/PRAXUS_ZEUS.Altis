@@ -44,4 +44,5 @@ BATTLE_MAPMARKERS = 1;
 BATTLE_JUMP = 1;
 BATTLE_FASTROPE = 1;
 BATTLE_FIELDREPAIR = 1;
+BATTLE_DYNAMIC_WEATHER = 1;
 /////////////////////////////////////////////////////
