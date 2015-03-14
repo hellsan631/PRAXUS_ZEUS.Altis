@@ -6,6 +6,8 @@ _location  		= _this select 2;
 _projectile 	= _this select 3;
 _savedLife = false;
 
+if (damage _unit >= 1) exitWith {};
+
 if(_damage < 1) then {
 	_damage = _damage*10;
 };
@@ -27,9 +29,13 @@ call {
 	if (_location == "hands") 	exitWith {	_damage = [_damage] call battle_fnc_hitArms;};
 	if (_location == "hand_1") 	exitWith {	_damage = [_damage] call battle_fnc_hitArms;};
 	if (_location == "hand_2") 	exitWith {	_damage = [_damage] call battle_fnc_hitArms;};
+	if (_location == "hand_r") 	exitWith {	_damage = [_damage] call battle_fnc_hitArms;};
+	if (_location == "hand_l") 	exitWith {	_damage = [_damage] call battle_fnc_hitArms;};
 	if (_location == "legs") 	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
 	if (_location == "leg_1")	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
 	if (_location == "leg_2") 	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
+	if (_location == "leg_r")	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
+	if (_location == "leg_l")	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
 
 	_damage = [_damage] call battle_fnc_hitBase;
 };
@@ -85,7 +91,7 @@ if(_HP < BATTLE_DAMAGE_AGMHPENABLE) then{
 };
 
 _HitCount = _HitCount + 1;
-_unit setVariable ["BATTLE_UnitHP", _HP, true];
-_unit setVariable ["BATTLE_UnitHitCount", _HitCount, true];
-_unit setVariable ["BATTLE_damageArray" , [], true];
-_unit setVariable ["BATTLE_runDamage", 0, true];
+_unit setVariable ["BATTLE_UnitHP", _HP, false]
+_unit setVariable ["BATTLE_UnitHitCount", _HitCount, false];
+_unit setVariable ["BATTLE_damageArray" , [], false];
+_unit setVariable ["BATTLE_runDamage", 0, false];

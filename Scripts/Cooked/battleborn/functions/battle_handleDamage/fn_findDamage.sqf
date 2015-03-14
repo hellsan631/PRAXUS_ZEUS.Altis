@@ -14,11 +14,13 @@ if (!(local _unit)) exitWith {
     };
 };
 
+if (damage _unit >= 1) exitWith {};
+
 _damageArray = _unit getVariable ["BATTLE_damageArray", []];
 
 _damageArray pushBack [_unit, _damage, _location, _projectile];
 
-_unit setVariable ["BATTLE_damageArray", _damageArray, true];
+_unit setVariable ["BATTLE_damageArray", _damageArray, false];
 
 //we want to wait for damage to run its course, so we need to suspend the script. the only way to do that is to spawn this
 [_unit, _damageArray] spawn {
@@ -43,11 +45,13 @@ _unit setVariable ["BATTLE_damageArray", _damageArray, true];
 		};
 	};
 
+	if (_last != 1) exitWith {};
+
 	if(_last == 1) then {
 		_dmgExe = _unit getVariable ["BATTLE_runDamage", 0];
 
 		if (_dmgExe == 0) then {
-			_unit setVariable ["BATTLE_runDamage", 1, true];
+			_unit setVariable ["BATTLE_runDamage", 1, false];
 		} else {
 			_last = 0;
 		};

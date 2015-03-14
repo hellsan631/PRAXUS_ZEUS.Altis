@@ -7,8 +7,8 @@ BATTLE_DAMAGE_AGMSUPPORTAI = 0;
 BATTLE_DAMAGE_AGMHPENABLE = 35;		//HP to enable AGM support/effects
 
 //Damage System Settings
-BATTLE_DAMAGE_MULTIPLIER_PLAYER = 2;  //Amount of damage a unit takes per bullet
-BATTLE_DAMAGE_MULTIPLIER_AI = 1;
+BATTLE_DAMAGE_MULTIPLIER_PLAYER = 10;  //Amount of damage a unit takes per bullet
+BATTLE_DAMAGE_MULTIPLIER_AI = 10;
 BATTLE_DAMAGE_HP_PLAYER = 100;		//Amount of HP a player has in the system
 BATTLE_DAMAGE_HP_AI = 100;
 BATTLE_DAMAGE_MISS_PLAYER = 25;		//A chance for a bullet that hits to be dodged

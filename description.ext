@@ -17,7 +17,7 @@ overviewText = "Version <t font='PuristaBold'>1.2.0.0</t> Added Battleborn Frame
 overviewTextLocked = "";
 enableDebugConsole = 1;
 
-respawn = 3;
+respawn = 2;
 respawndelay = 15;
 respawnVehicleDelay = 60;
 respawnDialog = 0;
