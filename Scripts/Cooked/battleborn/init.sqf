@@ -1,6 +1,6 @@
 folderLocation = "Scripts\Cooked\";
 
-missionLocation = "";
+missionLocation = [ ( str missionConfigFile ), 0, -15 ] call BIS_fnc_trimString;
 scriptLocation = missionLocation + folderLocation + "battleborn\";
 uiLocation = missionLocation + folderLocation + "battleborn\UI";
 soundLocation = missionLocation + folderLocation + "battleborn\sounds\";

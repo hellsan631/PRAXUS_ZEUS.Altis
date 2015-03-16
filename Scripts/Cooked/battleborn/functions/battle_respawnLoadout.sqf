@@ -5,12 +5,8 @@ if (!(isDedicated)) then {
 
 waitUntil {!isNull player && player == player};
 
-sleep 5;
-
 getLoadout = compile preprocessFileLineNumbers (functionLocation + 'battle_respawnLoadout\fn_getLoadout.sqf');
 setLoadout = compile preprocessFileLineNumbers (functionLocation + 'battle_respawnLoadout\fn_setLoadout.sqf');
-
-["<t size='.6'>Loadout Saving Enabled</t>",0.02,0.3,7,1,0,3010] spawn bis_fnc_dynamicText;
 
 // Load saved loadout (including ammo count) on respawn
 respawnLoadoutEH = player addMPEventHandler ["MPRespawn", {
@@ -23,14 +19,27 @@ respawnLoadoutEH = player addMPEventHandler ["MPRespawn", {
 
 }];
 
-//save loadout when a unit dies
-killedLoadoutEH = player addMPEventHandler ["MPKilled", {
+if(BATTLE_DAMAGE_MODENABLE == 0) then {
+	[] spawn {
 
-    private ["_respawnLoadout"];
+	    while{true} do {
 
-    _respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+	        if(alive player) then {
 
-    profileNamespace setVariable ["saveLoadout", _respawnLoadout];
+	            _respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
 
-}];
+				profileNamespace setVariable ["saveLoadout", _respawnLoadout];
 
+	        } else {
+
+	        	waitUntil {alive player};
+
+	        	sleep 5;
+
+	    	};
+
+	    	sleep 20;
+
+	    };
+	};
+};

@@ -37,7 +37,9 @@ call {
 	if (_location == "leg_r")	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
 	if (_location == "leg_l")	exitWith {	_damage = [_damage] call battle_fnc_hitLegs;};
 
-	_damage = [_damage] call battle_fnc_hitBase;
+	exitWith {
+		_damage = [_damage] call battle_fnc_hitBase;
+	};
 };
 
 _chance = Ceil random 100;
@@ -75,13 +77,24 @@ if(BATTLE_DAMAGE_HEADSHOTSOUND == 1) then {
 
 _HP = _HPBefore - _damage;
 
-if(_HP < 0 && _HPBefore > BATTLE_DAMAGE_AGMHPENABLE) then {
-	_HP = BATTLE_DAMAGE_AGMHPENABLE - (_highestPossibleHP/BATTLE_DAMAGE_AGMHPENABLE);
-	_savedLife = true;
+if (_HP < 0) then {
+	if (BATTLE_SAVERESPAWNLOADOUT == 1) then {
+		private ["_respawnLoadout"];
+
+	    _respawnLoadout = [player,["ammo","repetitive"]] call getLoadout;
+
+	    profileNamespace setVariable ["saveLoadout", _respawnLoadout];
+	};
+
+	if(_HPBefore > BATTLE_DAMAGE_AGMHPENABLE) then {
+		_HP = BATTLE_DAMAGE_AGMHPENABLE - (_highestPossibleHP/BATTLE_DAMAGE_AGMHPENABLE);
+		_savedLife = true;
+	};
 };
 
+
 if(_HP < BATTLE_DAMAGE_AGMHPENABLE) then{
-	if(!_savedLife) then {
+	if(_savedLife == false) then {
 		_damage = (_damage/10);
 		_HP = _HPBefore - _damage;
 	};
@@ -91,7 +104,7 @@ if(_HP < BATTLE_DAMAGE_AGMHPENABLE) then{
 };
 
 _HitCount = _HitCount + 1;
-_unit setVariable ["BATTLE_UnitHP", _HP, false]
-_unit setVariable ["BATTLE_UnitHitCount", _HitCount, false];
-_unit setVariable ["BATTLE_damageArray" , [], false];
-_unit setVariable ["BATTLE_runDamage", 0, false];
+_unit setVariable ["BATTLE_UnitHP", _HP]
+_unit setVariable ["BATTLE_UnitHitCount", _HitCount];
+_unit setVariable ["BATTLE_damageArray" , []];
+_unit setVariable ["BATTLE_runDamage", 0];

@@ -23,7 +23,6 @@ respawnVehicleDelay = 60;
 respawnDialog = 0;
 respawnTemplatesWest[] = {"MenuPosition"};
 respawnTemplatesEast[] = {"MenuPosition"};
-respawnOnStart = 0;
 aiKills  = 0;
 respawnButton = 1;
 
