@@ -4,10 +4,6 @@ if (isServer || isDedicated) then {
   _InitialCode = false;
   _InitialCode = [] execVM "Scripts\Cooked\VCOMAI\DefaultSetting.sqf";
 
-  if (isNil "_InitialCode") then {
-    _InitialCode = [] execVM "userconfig\VCOM_AI\AISettings.sqf";
-  };
-
   waitUntil {!(isNil "AccuracyFunctionRank0")};
 
   publicVariable "VCOM_USESMOKE_DEFINE";
