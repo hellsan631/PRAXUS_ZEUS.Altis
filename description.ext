@@ -13,7 +13,7 @@ class CfgFunctions
 
 dev = "HellsAn631";
 author = "HellsAn631";
-overviewText = "Version <t font='PuristaBold'>1.2.0.0</t> Added Battleborn Framework";
+overviewText = "Version <t font='PuristaBold'>2.0.0.0</t> Bareboners";
 overviewTextLocked = "";
 enableDebugConsole = 1;
 
@@ -43,81 +43,6 @@ class Header
 		maxPlayers = 54;
 	#endif
 };
-
-
-class CfgSounds
-{
-    sounds[] = {};
-
-    //otherSounds
-	class flareMove
-	{
-		name = "flareMove_sound";
-		sound[] = {"sounds\flareMove.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class heardbeat
-	{
-		name = "heardbeat";
-		sound[] = {"sounds\heardbeat.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class callForMedic_1
-	{
-		name = "callForMedic_1";
-		sound[] = {"sounds\a3\HealthIAmWounded.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class callForMedic_2
-	{
-		name = "callForMedic_2";
-		sound[] = {"sounds\a3\HealthIAmBadlyHurt.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class callForMedic_3
-	{
-		name = "callForMedic_3";
-		sound[] = {"sounds\a3\HealthMedic.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class callForMedic_4
-	{
-		name = "callForMedic_4";
-		sound[] = {"sounds\a3\HealthNeedMedicNow.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class outOffFirstaid_1
-	{
-		name = "outOffFirstaid_1";
-		sound[] = {"sounds\a3\OutOfFirstAidKits_1.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class outOffFirstaid_2
-	{
-		name = "outOffFirstaid_2";
-		sound[] = {"sounds\a3\OutOfFirstAidKits_2.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class ManDown_1
-	{
-		name = "ManDown_1";
-		sound[] = {"sounds\a3\ManDownE_1.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class ManDown_2
-	{
-		name = "ManDown_2";
-		sound[] = {"sounds\a3\ManDownE_2.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-	class ManDown_3
-	{
-		name = "ManDown_3";
-		sound[] = {"sounds\a3\ManDownE_3.ogg", 2, 1};
-		titles[] = {0, ""};
-	};
-};
-
 
 class Params
 {
